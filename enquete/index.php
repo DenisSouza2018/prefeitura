@@ -41,7 +41,7 @@
 
 
       <div class="form-group">
-        <label for="form_nameEnquente">Nome da enquente</label>
+        <label for="form_nameEnquente">Nome da enquete</label>
         <input type="text" class="form-control" name="form_nameEnquente" placeholder="Informe o nome da enquente">
       </div>
 
