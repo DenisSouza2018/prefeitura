@@ -42,7 +42,7 @@
         $envio->insert();
        
 
-       header('Location:/enquete/index.php');
+       header('Location:/prefeitura/enquete/index.php');
       
 
     }
