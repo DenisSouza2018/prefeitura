@@ -1,11 +1,11 @@
 <?php
-    
+    require_once 'Crud.php';
     header ('Content-type: text/html; charset=UTF-8');
     session_start();
 
     function __autoload($class_name){
         
-        require_once 'D:/xampp/htdocs/enquete/classe/'. $class_name . '.php';
+        require_once 'D:/xampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php';
     }
 
     
@@ -43,6 +43,7 @@
        
 
        header('Location:/prefeitura/enquete/index.php');
+       
       
 
     }

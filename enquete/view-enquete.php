@@ -5,7 +5,7 @@
  or die('Error connecting to MySQL server.');
 
 //Step2
-$query = "SELECT * FROM enquete ORDER BY id DESC LIMIT 1";
+$query = "SELECT * FROM enquete WHERE status='ATIVO' LIMIT 1 ";
 mysqli_query($db, $query) or die('Error querying database.');
 
 $result = mysqli_query($db, $query);
@@ -204,7 +204,14 @@ echo $row['titulo'];
         </div>
         <div class="container col-md-10">
             --- container 2 ----
+        
+   
+      </div>
 
+
+
+
+    </div>                      
         </div>
 
     </form>

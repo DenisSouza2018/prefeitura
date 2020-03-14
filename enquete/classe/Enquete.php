@@ -133,10 +133,12 @@ class Enquete extends Crud{
         $stmt->bindParam(':op5', $this->op5);
         $stmt->bindParam(':op5_qtd', $this->op5_qtd);
         $stmt->bindParam(':status', $this->status);
+
         return $stmt->execute();
 
         
     }
+
 
     
 }

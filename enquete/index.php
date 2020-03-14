@@ -1,3 +1,31 @@
+<?php
+//Step1
+ $db = mysqli_connect('localhost','root','','db_prefeitura')
+ or die('Error connecting to MySQL server.');
+
+//Step2
+$query = "SELECT * FROM enquete ";
+mysqli_query($db, $query) or die('Error querying database.');
+
+$result = mysqli_query($db, $query);
+
+$row = mysqli_fetch_array($result);
+
+//echo $row;
+/* 
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+      echo "id: " . $row["id"]. " - Titulo: " . $row["titulo"]. " -Resposta 1 " . $row["op1"]. "- Status".$row["status"]."<br>";
+  }
+} else {
+  echo "0 results";
+}
+
+mysqli_close($conn); */
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -6,22 +34,16 @@
   <title>Enquete</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-
-  <link rel="stylesheet" href="../enquete/recursos/bootstrap.css">
-   
-  
-    <script src="https://kit.fontawesome.com/a714641d99.js" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" type="text/css" href="assets/css/style.css" >
-
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="../enquete/recursos/bootstrap.css">
 </head>
 
 <body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  <!-- <script src="../enquete/js/jquery.js" crossorigin="anonymous"></script>
+<script src="../enquete/js/popper.js" crossorigin="anonymous"></script>
+<script src="../enquete/js/bootstrapcdn.js" crossorigin="anonymous"></script> -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -31,10 +53,12 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <div class="container">
+
+
     <label style="    margin-left: 47%; font-size: 24px;">Enquete</label>
-    
+
     <a href="prefeitura/enquete/view-enquete.php">
-      <button class="btn btn-primary" style="margin-left: 26%; background-color: #a9a9a9; border-color:#FFFF">
+      <button class="btn btn-primary" style="margin-left: 86%; background-color: #4BBDBA; border-color:#FFFF">
         Visualizar Enquete </button></a>
 
     <form method="post" action="enquete/classe/envio.php">
@@ -152,17 +176,64 @@
       </script>
 
       <div id='escolha'></div>
-
-
       <button type="submit" name="ok" class="btn btn-primary">Submit</button>
 
     </form>
 
+    <label style=" margin-top: 2%;     margin-left: 42%; font-size: 21px; " for="form_nameEnquente">Enquete
+      Cadastradas</label>
 
-    
+    <div style="        height: 400px;       overflow-x: hidden; border: 2px solid #d1d1e0;">
+
+      <form method="post" action="prefeitura/enquete/classe/Update.php">
+
+        <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+          width="100%">
+
+          <thead>
+            <tr>
+              <th class="th-sm">Codigo
+              </th>
+              <th class="th-sm">Titulo
+              </th>
+              <th class="th-sm">Status
+              </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              while($row = mysqli_fetch_assoc($result)) {
+        
+                echo "  <tr>
+                  <td  >
+                        <div class='custom-control custom-checkbox custom-control-inline' >
+                        <input class='custom-control-input' type='checkbox' name='form_IDEnquente' id='checkID".$row["id"]."'
+                            value=' ".$row["id"]."' >
+                        <label class='custom-control-label' for='checkID".$row["id"]."'>
+                        ".$row["id"]."
+                        </div>                    
+                  </td>
+                  <td >".$row["titulo"]."
+                  </td>
+                  <td >
+                        <select class='custom-select mr-sm-2' id='inlineFormCustomSelect' name='form_statusEnquente'>
+                          <option value=".$row["status"].">".$row["status"]."</option>
+                          <option value='ATIVO'>ATIVO</option>
+                          <option value='INATIVO'>INATIVO</option>
+                          <option value='FINALIZADO'>FINALIZADO</option>
+                        </select>
+                  </td>
+                   </tr>";
+              }
+           ?>
+          </tbody>
+        </table>
+    </div>
+
+    <button type="submit" name="ok" class="btn btn-primary" style=" margin-left: 94%;   margin-top: 1%;">Salvar</button>
+    </from>
   </div>
-
-
 </body>
 
 </html>
