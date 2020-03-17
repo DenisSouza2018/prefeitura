@@ -9,20 +9,8 @@ mysqli_query($db, $query) or die('Error querying database.');
 
 $result = mysqli_query($db, $query);
 
-$row = mysqli_fetch_array($result);
 
-//echo $row;
-/* 
-if (mysqli_num_rows($result) > 0) {
-  // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
-      echo "id: " . $row["id"]. " - Titulo: " . $row["titulo"]. " -Resposta 1 " . $row["op1"]. "- Status".$row["status"]."<br>";
-  }
-} else {
-  echo "0 results";
-}
-
-mysqli_close($conn); */
+ 
 
 ?>
 
@@ -34,8 +22,8 @@ mysqli_close($conn); */
   <title>Enquete</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" type="text/css" href="../enquete/recursos/bootstrap.css">
+  <link rel="stylesheet" href="enquete/css/index.css">
+  <link rel="stylesheet" href="../enquete/recursos/bootstrap.css">
 </head>
 
 <body>
@@ -203,25 +191,26 @@ mysqli_close($conn); */
           </thead>
           <tbody>
             <?php
-              while($row = mysqli_fetch_assoc($result)) {
-        
+              while($row = mysqli_fetch_array($result)) {
                 echo "  <tr>
                   <td  >
-                        <div class='custom-control custom-checkbox custom-control-inline' >
-                        <input class='custom-control-input' type='checkbox' name='form_IDEnquente' id='checkID".$row["id"]."'
-                            value=' ".$row["id"]."' >
-                        <label class='custom-control-label' for='checkID".$row["id"]."'>
-                        ".$row["id"]."
+                        <div class='custom-control custom-checkbox custom-control-inline' style='margin-left: 39%;' >
+                        
+                        <input class='custom-control-input ' type='checkbox'  name='form_IDEnquente' id=checkID".$row["id"]."
+                        value=".$row["id"]." >
+                        
+                        <label class='custom-control-label ' for=checkID".$row["id"].">
+                        
                         </div>                    
                   </td>
                   <td >".$row["titulo"]."
                   </td>
                   <td >
-                        <select class='custom-select mr-sm-2' id='inlineFormCustomSelect' name='form_statusEnquente'>
-                          <option value=".$row["status"].">".$row["status"]."</option>
-                          <option value='ATIVO'>ATIVO</option>
-                          <option value='INATIVO'>INATIVO</option>
-                          <option value='FINALIZADO'>FINALIZADO</option>
+                        <select class='custom-select mr-sm-2' id='inlineFormCustomSelect' name='skills[]'>
+                          <option  value=".$row["id"]."+".$row["status"].">".$row["status"]."</option>
+                          <option value=".$row["id"]."+ATIVO>ATIVO</option>
+                          <option value=".$row["id"]."+INATIVO>INATIVO</option>
+                          <option value=".$row["id"]."+FINALIZADO>FINALIZADO</option>
                         </select>
                   </td>
                    </tr>";

@@ -5,7 +5,7 @@
  or die('Error connecting to MySQL server.');
 
 //Step2
-$query = "SELECT * FROM enquete WHERE status='ATIVO' LIMIT 1 ";
+$query = "SELECT * from `enquete` WHERE status='ATIVO' ORDER BY id DESC LIMIT 1 ";
 mysqli_query($db, $query) or die('Error querying database.');
 
 $result = mysqli_query($db, $query);
