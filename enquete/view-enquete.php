@@ -1,4 +1,3 @@
-
 <?php
 //Step1
  $db = mysqli_connect('localhost','root','','db_prefeitura')
@@ -11,14 +10,6 @@ mysqli_query($db, $query) or die('Error querying database.');
 $result = mysqli_query($db, $query);
 
 $row = mysqli_fetch_array($result);
-
-//echo $row;
-echo $row['titulo'];
-
-
-
-
-
 ?>
 
 <!doctype html>
@@ -36,7 +27,7 @@ echo $row['titulo'];
     <link rel="stylesheet" href="../enquete/recursos/bootstrap.css">
 
 
-   <!--  <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <!--  <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
 
 </head>
 
@@ -50,98 +41,88 @@ echo $row['titulo'];
 
     </div>
 
-    <form action="destino.php" method="get">
-        <div class="container col-md-10">
+    <form method="post" action="prefeitura/enquete/classe/Envio.php">
+        <div class="container col-md-10 form-group">
             <label for="exampleInputEmail1" class="enquete">ENQUETE</label>
             <div class="img-aspa">
                 <div class="row img-seta-1">
                     <div class="col-6 col-md-6">
                         <label for="exampleInputEmail1" class="pergunta">
-                        <?php echo  $row['titulo']; ?>
- 
+                            <?php echo  $row['titulo']; ?>
+
                         </label>
 
 
                     </div>
 
-                    <div class="col-sm-2 radio-chex" style="margin-top: 2%;   margin-left: -1%;   font-size: 22px;">
+                    <div class="col-sm-2 radio-chex" style="margin-top: 2%;   margin-left: -3%;   font-size: 22px;">
+                    <script>
+                        $(function(){
+                            $('input.checkbox').click(function(){
+                                    echo "adasdasd";
 
-                    <?php 
+                                if($(this).is(":checked")){
+                                    $('input.checkbox').attr('disabled',true);
+                                    $(this).removeAttr('disabled');
+                                }else{
+                                    $('input.checkbox').removeAttr('disabled');
+                                }
+                            })
+                            })
+                    </script>
+                        <?php 
                     if($row['op1']!=null) {
-                    echo '<div class="custom-control custom-radio custom-control-inline" style=" margin-top: 4px;">
-                    <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                        value="option1" checked>
-                    <label class="custom-control-label" for="exampleRadios1">';
-                    echo $row['op1'];
-                    echo '</label> </div>';}
+                    echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
+                            <input  type='radio' name='op' id='exampleRadios' value=".$row["op1"]."+".$row["id"]." > ".$row["op1"]."
+                        </div>";
+                  /*   echo "<div class='custom-control custom-checkbox mb-3'>
+                            <input type='checkbox' class='custom-control-input' id='customCheck1' name='OP1'  value=".$row["op1"].">
+                            <label class='custom-control-label' for='customCheck1'>".$row["op1"]."</label>
+                        </div>"; */
+                    }
                     
                     if($row['op2']!=null) {
-                        echo '<div class="custom-control custom-radio custom-control-inline" style=" margin-top: 4px;">
-                        <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                            value="option2" checked>
-                        <label class="custom-control-label" for="exampleRadios2">';
-                        echo $row['op2'];
-                        echo '</label> </div>';}
+                        echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
+                                <input type='radio' name='op' id='exampleRadios' value=".$row["op2"]."+".$row["id"]." > ".$row["op2"]."
+                            </div>";
+                            /* echo "<div class='custom-control custom-checkbox mb-3'>
+                            <input type='checkbox' class='custom-control-input' id='customCheck2' name='OP2'  value=".$row["op2"].">
+                            <label class='custom-control-label' for='customCheck2'>".$row["op2"]."</label>
+                            </div>";  */   
+                    }
 
                         if($row['op3']!=null) {
-                            echo '<div class="custom-control custom-radio custom-control-inline" style=" margin-top: 4px;">
-                            <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                                value="option1" checked>
-                            <label class="custom-control-label" for="exampleRadios3">';
-                            echo $row['op3'];
-                            echo '</label> </div>';}
+                            echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
+                                    <input  type='radio' name='op' id='exampleRadios' value=".$row["op3"]."+".$row["id"]." > ".$row["op3"]." 
+                                </div>";
+                                /* echo "<div class='custom-control custom-checkbox mb-3'>
+                                <input type='checkbox' class='custom-control-input' id='customCheck3' name='OP3'  value=".$row["op3"].">
+                                <label class='custom-control-label' for='customCheck3'>".$row["op3"]."</label>
+                                </div>";   */  
+                        }
 
                             if($row['op4']!=null) {
-                                echo '<div class="custom-control custom-radio custom-control-inline" style=" margin-top: 4px;">
-                                <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios4"
-                                    value="option1" checked>
-                                <label class="custom-control-label" for="exampleRadios4">';
-                                echo $row['op4'];
-                                echo '</label> </div>';}
+                                echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
+                                        <input  type='radio' name='op' id='exampleRadios' value=".$row["op4"]."+".$row["id"]." > ".$row["op4"]." 
+                                    </div>";
+                                    /* echo "<div class='custom-control custom-checkbox mb-3'>
+                                    <input type='checkbox' class='custom-control-input' id='customCheck4' name='OP4'  value=".$row["op4"].">
+                                    <label class='custom-control-label' for='customCheck4'>".$row["op4"]."</label>
+                                    </div>";  */   
+                            }
 
                                 if($row['op5']!=null) {
-                                    echo '<div class="custom-control custom-radio custom-control-inline" style=" margin-top: 4px;">
-                                    <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios5"
-                                        value="option1" checked>
-                                    <label class="custom-control-label" for="exampleRadios5">';
-                                    echo $row['op5'];
-                                    echo '</label> </div>';}
-                             
-                    ?> 
-
-
-                       
-                      
-
-                     <!--    <div class="custom-control custom-radio custom-control-inline" style=" margin-top: 4px;">
-                            <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                value="option1" checked>
-                            <label class="custom-control-label" for="exampleRadios1">
-                                Ótimo
-                            </label>
-                        </div>
-                        <div class="custom-control  custom-radio custom-control-inline" style="    margin-top: 4px;">
-                            <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                value="option2" checked>
-                            <label class="custom-control-label" for="exampleRadios2">
-                                Bom
-                            </label>
-                        </div>
-                        <div class="custom-control  custom-radio custom-control-inline" style="    margin-top: 4px;">
-                            <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                                value="option3" checked>
-                            <label class="custom-control-label" for="exampleRadios3">
-                                Regular
-                            </label>
-                        </div>
-                        <div class="custom-control  custom-radio custom-control-inline" style="    margin-top: 4px;">
-                            <input class="custom-control-input" type="radio" name="exampleRadios" id="exampleRadios4"
-                                value="option4" checked>
-                            <label class="custom-control-label" for="exampleRadios4">
-                                Péssimo
-                            </label>
-                        </div> -->
-
+                                    echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
+                                            <input type='radio' name='op' id='exampleRadios' value=".$row["op5"]."+".$row["id"]." > ".$row["op5"]."
+                                        </div>";
+                                        /* echo "<div class='custom-control custom-checkbox mb-3'>
+                                        <input type='checkbox' class='custom-control-input' id='customCheck5' name='OP5' value=".$row["op5"].">
+                                        <label class='custom-control-label' for='customCheck5' >".$row["op5"]."</label>
+                                        </div>"; */    
+                                }
+                                
+                    ?>
+                    
                     </div>
 
                     <div class="elementos-status-percentual">
@@ -163,19 +144,19 @@ echo $row['titulo'];
                                 <div id="processo1" class="progress-bar"></div>
 
                                 <script>
-                                var inputvar = document.getElementById("range");
-                                var element = document.getElementById("processo1");
+                                    var inputvar = document.getElementById("range");
+                                    var element = document.getElementById("processo1");
 
-                                inputvar.addEventListener("input", function() {
+                                    inputvar.addEventListener("input", function () {
 
-                                    displayStyle(element, inputvar.value)
+                                        displayStyle(element, inputvar.value)
 
-                                })
+                                    })
 
 
-                                function displayStyle(element, valor) {
-                                    element.style = `--progress:${valor};`;
-                                }
+                                    function displayStyle(element, valor) {
+                                        element.style = `--progress:${valor};`;
+                                    }
                                 </script>
 
                                 <br>
@@ -202,20 +183,32 @@ echo $row['titulo'];
             </div>
 
         </div>
-        <div class="container col-md-10">
-            --- container 2 ----
+
         
-   
-      </div>
+       <div class="container col-md-10">
+        <button type="submit" name="votar" class="btn btn-primary"
+            style="margin-left: 83%;   margin-top: -1%;">Votar</button>
+       </div>
 
-
-
-
-    </div>                      
-        </div>
+       
 
     </form>
+    
+
+
+    <div class="container col-md-10">
+        --- container 2 ----
+
+
+
+
+
+    </div>
 
 </body>
 
 </html>
+
+<?php
+
+?>

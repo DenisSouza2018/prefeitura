@@ -47,6 +47,13 @@
       
 
     }
+
+    if(isset($_POST['votar'])){
+        $op = filter_input(INPUT_POST, "op", FILTER_SANITIZE_MAGIC_QUOTES);
+       
+
+        echo $op;
+    }
         
         
       

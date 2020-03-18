@@ -49,7 +49,7 @@ $result = mysqli_query($db, $query);
       <button class="btn btn-primary" style="margin-left: 86%; background-color: #4BBDBA; border-color:#FFFF">
         Visualizar Enquete </button></a>
 
-    <form method="post" action="enquete/classe/envio.php">
+    <form method="post" action="prefeitura/enquete/classe/Envio.php">
 
 
       <div class="form-group">
