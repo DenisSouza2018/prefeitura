@@ -49,10 +49,24 @@
     }
 
     if(isset($_POST['votar'])){
+        
         $op = filter_input(INPUT_POST, "op", FILTER_SANITIZE_MAGIC_QUOTES);
        
+       $Dados[]= explode("+",$op);
+       
+        $coluna = $Dados[0][2];
+        $id = $Dados[0][1];
 
-        echo $op;
+        $sql = "UPDATE enquete set ${coluna} = ( SELECT ${coluna} FROM `enquete` WHERE id = ${id}) + 1 where id=${id}";
+
+        echo $sql;
+    
+        $stmt = DB::prepare($sql);
+        header('Location:/prefeitura/enquete/view-enquete.php');
+
+        return $stmt->execute();  
+        
+      
     }
         
         

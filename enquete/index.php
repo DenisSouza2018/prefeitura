@@ -220,7 +220,7 @@ $result = mysqli_query($db, $query);
         </table>
     </div>
 
-    <button type="submit" name="ok" class="btn btn-primary" style=" margin-left: 94%;   margin-top: 1%;">Salvar</button>
+    <button type="submit" name="ok" class="btn btn-primary" style=" margin-left: 94%; margin-top: 1%;">Salvar</button>
     </from>
   </div>
 </body>

@@ -10,6 +10,18 @@ mysqli_query($db, $query) or die('Error querying database.');
 $result = mysqli_query($db, $query);
 
 $row = mysqli_fetch_array($result);
+
+//print_r($row['op1_qtd']);
+
+$total_votos = $row['op1_qtd']+$row['op2_qtd']+$row['op3_qtd']+$row['op4_qtd']+$row['op5_qtd'];
+
+echo $total_votos." ".$row['op1_qtd']."<br>";
+
+/* $porcentagem = ($row['op1_qtd']/$total_votos)*100;
+
+echo number_format($porcentagem,0);
+ */
+
 ?>
 
 <!doctype html>
@@ -59,8 +71,7 @@ $row = mysqli_fetch_array($result);
                     <script>
                         $(function(){
                             $('input.checkbox').click(function(){
-                                    echo "adasdasd";
-
+                                   
                                 if($(this).is(":checked")){
                                     $('input.checkbox').attr('disabled',true);
                                     $(this).removeAttr('disabled');
@@ -73,7 +84,7 @@ $row = mysqli_fetch_array($result);
                         <?php 
                     if($row['op1']!=null) {
                     echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
-                            <input  type='radio' name='op' id='exampleRadios' value=".$row["op1"]."+".$row["id"]." > ".$row["op1"]."
+                            <input  type='radio' name='op' id='exampleRadios' value=".$row["op1"]."+".$row["id"]."+op1_qtd > ".$row["op1"]."
                         </div>";
                   /*   echo "<div class='custom-control custom-checkbox mb-3'>
                             <input type='checkbox' class='custom-control-input' id='customCheck1' name='OP1'  value=".$row["op1"].">
@@ -83,7 +94,7 @@ $row = mysqli_fetch_array($result);
                     
                     if($row['op2']!=null) {
                         echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
-                                <input type='radio' name='op' id='exampleRadios' value=".$row["op2"]."+".$row["id"]." > ".$row["op2"]."
+                                <input type='radio' name='op' id='exampleRadios' value=".$row["op2"]."+".$row["id"]."+op2_qtd > ".$row["op2"]."
                             </div>";
                             /* echo "<div class='custom-control custom-checkbox mb-3'>
                             <input type='checkbox' class='custom-control-input' id='customCheck2' name='OP2'  value=".$row["op2"].">
@@ -93,7 +104,7 @@ $row = mysqli_fetch_array($result);
 
                         if($row['op3']!=null) {
                             echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
-                                    <input  type='radio' name='op' id='exampleRadios' value=".$row["op3"]."+".$row["id"]." > ".$row["op3"]." 
+                                    <input  type='radio' name='op' id='exampleRadios' value=".$row["op3"]."+".$row["id"]."+op3_qtd > ".$row["op3"]." 
                                 </div>";
                                 /* echo "<div class='custom-control custom-checkbox mb-3'>
                                 <input type='checkbox' class='custom-control-input' id='customCheck3' name='OP3'  value=".$row["op3"].">
@@ -103,7 +114,7 @@ $row = mysqli_fetch_array($result);
 
                             if($row['op4']!=null) {
                                 echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
-                                        <input  type='radio' name='op' id='exampleRadios' value=".$row["op4"]."+".$row["id"]." > ".$row["op4"]." 
+                                        <input  type='radio' name='op' id='exampleRadios' value=".$row["op4"]."+".$row["id"]."+op4_qtd > ".$row["op4"]." 
                                     </div>";
                                     /* echo "<div class='custom-control custom-checkbox mb-3'>
                                     <input type='checkbox' class='custom-control-input' id='customCheck4' name='OP4'  value=".$row["op4"].">
@@ -113,7 +124,7 @@ $row = mysqli_fetch_array($result);
 
                                 if($row['op5']!=null) {
                                     echo "<div class='custom-control custom-radio custom-control-inline' style=' margin-top: 4px;'>
-                                            <input type='radio' name='op' id='exampleRadios' value=".$row["op5"]."+".$row["id"]." > ".$row["op5"]."
+                                            <input type='radio' name='op' id='exampleRadios' value=".$row["op5"]."+".$row["id"]."+op5_qtd > ".$row["op5"]."
                                         </div>";
                                         /* echo "<div class='custom-control custom-checkbox mb-3'>
                                         <input type='checkbox' class='custom-control-input' id='customCheck5' name='OP5' value=".$row["op5"].">
@@ -126,10 +137,31 @@ $row = mysqli_fetch_array($result);
                     </div>
 
                     <div class="elementos-status-percentual">
-                        <label for="">10%</label><br>
-                        <label for="">25%</label><br>
-                        <label for="">25%</label><br>
-                        <label for="">25%</label>
+
+                        <?php
+                            $porcentagem=0;
+                            if($row['op1']!= null){
+                                $porcentagem = number_format((($row['op1_qtd']/$total_votos)*100),1);
+                                echo "<label for='' >".$porcentagem."%</label><br>";
+                            }
+                            if($row['op2']!= null){
+                                $porcentagem = number_format((($row['op2_qtd']/$total_votos)*100),1);
+                                echo "<label for='' >".$porcentagem."%</label><br>";
+                            }
+                            if($row['op3']!= null){
+                                $porcentagem = number_format((($row['op3_qtd']/$total_votos)*100),1);
+                                echo "<label for='' >".$porcentagem."%</label><br>";
+                            }
+                            if($row['op4']!= null){
+                                $porcentagem = number_format((($row['op4_qtd']/$total_votos)*100),1);
+                                echo "<label for='' >".$porcentagem."%</label><br>";
+                            }
+                            if($row['op5']!= null){
+                                $porcentagem = number_format((($row['op5_qtd']/$total_votos)*100),1);
+                                echo "<label for='' >".$porcentagem."%</label><br>";
+                            }
+                        ?>
+
                     </div>
 
                     <div class="col-2">
