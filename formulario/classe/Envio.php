@@ -1,14 +1,17 @@
 <?php
     require_once 'Crud.php';
+	require 'includes/PHPMailer.php';
+	require 'includes/SMTP.php';
+	require 'includes/Exception.php';
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	use PHPMailer\PHPMailer\Exception;
+    
     header ('Content-type: text/html; charset=UTF-8');
     session_start();
 
-    function __autoload($class_name){
-        
-        require_once 'C:/xampp/htdocs/prefeitura/formulario/classe/'. $class_name . '.php';
-    }
+    function __autoload($class_name){ require_once 'C:/xampp/htdocs/prefeitura/formulario/classe/'. $class_name . '.php'; }
 
-    
     $envio = new Formulario();
     
     if(isset($_POST['ok'])) {
@@ -25,56 +28,87 @@
         }    
         date_default_timezone_set('America/Sao_Paulo');
         $date = date('d/m/Y  H:i:s');
-        
-
-        $envio->setId('');
-        $envio->setDataEnvio($date);
-        $envio->setNome($nome);
-        $envio->setEmail($email);
-        $envio->setCpfcnpj($cpfcnpj);
-        $envio->setTemaComentario($tema_comentario);
-        $envio->setTipoComentario($tipo_comentario);
-        $envio->setTextoComentario($texto_comentario);
-        $envio->setAnexo($anexo);
-        $envio->setProtocolo($protocolo);
-
-        
-
-        
-        echo $envio->insert();   
        
-
+        //Validando campos só realiza o cadastro caso não seja null
+        if($nome != null && $email != null && $cpfcnpj != null && $tema_comentario != null && $tipo_comentario != null && $texto_comentario != null  && $protocolo != null )
+        {      
+            $envio->setId('');
+            $envio->setDataEnvio($date);
+            $envio->setNome($nome);
+            $envio->setEmail($email);
+            $envio->setCpfcnpj($cpfcnpj);
+            $envio->setTemaComentario($tema_comentario);
+            $envio->setTipoComentario($tipo_comentario);
+            $envio->setTextoComentario($texto_comentario);
+            $envio->setAnexo($anexo);
+            $envio->setProtocolo($protocolo);
+            echo $envio->insert();
+            
+            //>>>>>>>> !!!  CONFIGURAR EMAIL PREFEITURA !!! <<<<<<
+            $EmailPrefeitura = 'COLOCAR O EMAIL QUE SERÁ USADO PARA ENVIAR';
+            $SenhaPrefeitura = 'SENHA DESTE EMAIL';
+            $EmailDestinatario = $email;
+           
+            
+            //Mensagem para o usuario com apenas o Protocolo
+            $BodyDestinatario = "<label ><b>Numero do Protocolo: </b>".$protocolo."</label>";
+            $Mensagem = "Numero do Protocolo: ";
+            Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$BodyDestinatario);
+            
+            //Mensagem para alguem da prefeitura com dados pedido sendo: NOME,EMAIL,DATA,PROTOCOLO
+            $BodyDestinatario ="<b>Requerimento Emitido </b><br><b>Data: </b>${date}<br><b>Nome: </b>${nome}<br><b>E-mail: </b>${email}<br><b>Numero do Protocolo:</b> ${protocolo}";
+            $Mensagem = "Requerimento Emitido Data: Nome: E-mail: Numero do Protocolo:";
+           
+            if( Email($EmailPrefeitura,$SenhaPrefeitura,$EmailPrefeitura,$Mensagem,$BodyDestinatario)){
+                header('Location:/prefeitura/formulario/incluir-participacao.html'); 
+            }
+            
+        } 
         header('Location:/prefeitura/formulario/incluir-participacao.html'); 
-        
-      
-
     }
 
-    /* if(isset($_POST['votar'])){
+    // Função responsavel por disparar o email de acordo com os dados de parametro
+    function Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$Body){
+        $mail = new PHPMailer();
+
+        try {
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = $EmailPrefeitura;
+            $mail->Password = $SenhaPrefeitura;
+            $mail->Port = 587;
         
-        $op = filter_input(INPUT_POST, "op", FILTER_SANITIZE_MAGIC_QUOTES);
-       
-       $Dados[]= explode("+",$op);
-       
-        $coluna = $Dados[0][2];
-        $id = $Dados[0][1];
-
-        $sql = "UPDATE enquete set ${coluna} = ( SELECT ${coluna} FROM `enquete` WHERE id = ${id}) + 1 where id=${id}";
-
-        echo $sql;
-    
-        $stmt = DB::prepare($sql);
-        header('Location:/prefeitura/enquete/view-enquete.php');
-
-        return $stmt->execute();  
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                 )
+                );
+                
+            $mail->setFrom($EmailPrefeitura);
+            $mail->addAddress($EmailDestinatario);
+            //$mail->addAddress('endereco2@provedor.com.br');
         
-      
+            $mail->isHTML(true);
+            $mail->addAttachment('img/camara.png');
+            $mail->Subject = 'Fiscaliza Itajuba - Protocolo do Requerimento';
+            $mail->Body = $Body;
+            $mail->AltBody = $Mensagem;
+        
+            if($mail->send()) {
+                //echo 'Email enviado com sucesso';
+                return true;
+            } else {
+                //echo 'Email nao enviado';
+                return false;
+            }
+        } catch (Exception $e) {
+            //echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+            return false;
+        }
+
     }
-         */
-        
-      
-
-       
-    
-
 ?>
