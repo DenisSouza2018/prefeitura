@@ -21,7 +21,16 @@
         $tema_comentario = filter_input(INPUT_POST, "tema-comentario", FILTER_SANITIZE_MAGIC_QUOTES);
         $tipo_comentario = filter_input(INPUT_POST, "tipo_comentario", FILTER_SANITIZE_MAGIC_QUOTES);
         $texto_comentario = filter_input(INPUT_POST, "texto_comentario", FILTER_SANITIZE_MAGIC_QUOTES);
+        
+        $extensao = strtolower(substr($_FILES['anexo']['name'],-4));
+        $novo_nome = md5(time()).$extensao;
+        $diretorio = "upload/";
+        move_uploaded_file($_FILES['anexo']['tmp_name'],$diretorio.$novo_nome);
+
         $anexo = filter_input(INPUT_POST, "anexo", FILTER_SANITIZE_MAGIC_QUOTES);
+
+
+
         $protocolo = mt_rand();
         while(strlen($protocolo) != 10){
             $protocolo = mt_rand();
@@ -40,8 +49,10 @@
             $envio->setTemaComentario($tema_comentario);
             $envio->setTipoComentario($tipo_comentario);
             $envio->setTextoComentario($texto_comentario);
-            $envio->setAnexo($anexo);
+            $envio->setAnexo($novo_nome);
             $envio->setProtocolo($protocolo);
+            $envio->setStatus('ABERTO');
+
             echo $envio->insert();
             
             //>>>>>>>> !!!  CONFIGURAR EMAIL PREFEITURA !!! <<<<<<
@@ -53,15 +64,16 @@
             //Mensagem para o usuario com apenas o Protocolo
             $BodyDestinatario = "<label ><b>Numero do Protocolo: </b>".$protocolo."</label>";
             $Mensagem = "Numero do Protocolo: ";
-            Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$BodyDestinatario);
+          //  Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$BodyDestinatario);
             
             //Mensagem para alguem da prefeitura com dados pedido sendo: NOME,EMAIL,DATA,PROTOCOLO
             $BodyDestinatario ="<b>Requerimento Emitido </b><br><b>Data: </b>${date}<br><b>Nome: </b>${nome}<br><b>E-mail: </b>${email}<br><b>Numero do Protocolo:</b> ${protocolo}";
             $Mensagem = "Requerimento Emitido Data: Nome: E-mail: Numero do Protocolo:";
            
-            if( Email($EmailPrefeitura,$SenhaPrefeitura,$EmailPrefeitura,$Mensagem,$BodyDestinatario)){
+           /*  if( Email($EmailPrefeitura,$SenhaPrefeitura,$EmailPrefeitura,$Mensagem,$BodyDestinatario)){
                 header('Location:/prefeitura/formulario/incluir-participacao.html'); 
-            }
+            } */
+            header('Location:/prefeitura/formulario/incluir-participacao.html'); 
             
         } 
         header('Location:/prefeitura/formulario/incluir-participacao.html'); 

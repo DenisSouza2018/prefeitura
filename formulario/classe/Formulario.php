@@ -14,8 +14,17 @@ class Formulario extends Crud{
     protected $tipo_comentario;
     protected $texto_comentario;
     protected $anexo;
-    protected $protocolo; 
-       
+    protected $protocolo;
+    protected $status; 
+    
+    public function setStatus($status){
+        $this->status = $status;
+    }
+
+    public function getStatus($status){
+        return $this->status;
+    }
+
     public function setId($id){
         $this->id = $id;
     }
@@ -99,9 +108,10 @@ class Formulario extends Crud{
     public function insert(){   
         
         
-        $sql = "INSERT INTO $this->table (id,data_envio,nome,email,cpf_cnpj,tema_comentario,tipo_comentario,texto_comentario,anexo,protocolo)
-        VALUES (:id,:data_envio,:nome,:email,:cpfcnpj,:tema_comentario,:tipo_comentario,:texto_comentario,:anexo,:protocolo)";
+        $sql = "INSERT INTO $this->table (id,data_envio,nome,email,cpf_cnpj,tema_comentario,tipo_comentario,texto_comentario,anexo,protocolo,status)
+        VALUES (:id,:data_envio,:nome,:email,:cpfcnpj,:tema_comentario,:tipo_comentario,:texto_comentario,:anexo,:protocolo,:status)";
 
+        
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':data_envio', $this->data_envio);
@@ -113,7 +123,9 @@ class Formulario extends Crud{
         $stmt->bindParam(':texto_comentario', $this->texto_comentario);
         $stmt->bindParam(':anexo', $this->anexo);
         $stmt->bindParam(':protocolo', $this->protocolo);
+        $stmt->bindParam(':status', $this->status);
 
+        
 
         return $stmt->execute();
 
