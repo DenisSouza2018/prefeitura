@@ -73,10 +73,10 @@
            /*  if( Email($EmailPrefeitura,$SenhaPrefeitura,$EmailPrefeitura,$Mensagem,$BodyDestinatario)){
                 header('Location:/prefeitura/formulario/incluir-participacao.html'); 
             } */
-            header('Location:/prefeitura/formulario/incluir-participacao.html'); 
+            header('Location:/prefeitura/formulario/incluir-participacao.php'); 
             
         } 
-        header('Location:/prefeitura/formulario/incluir-participacao.html'); 
+        header('Location:/prefeitura/formulario/incluir-participacao.php'); 
     }
 
     // Função responsavel por disparar o email de acordo com os dados de parametro

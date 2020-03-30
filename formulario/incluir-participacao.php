@@ -1,3 +1,10 @@
+<?php
+//Step1
+ $db = mysqli_connect('localhost','root','','db_prefeitura')
+ or die('Error connecting to MySQL server.');
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -107,10 +114,91 @@
     </a>
     <br>
     --- container 2 ----
-  </div>
-  </div>
+    <form method="post" action="">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="protocolo"><b>Protocolo: </b></label>
+        <input type="number" class="form-control" name="protocolo" id="protocolo" >
+      </div>
+    </div>
+    <button  class="btn btn-primary" style="    margin-left: 52%;  margin-top: -11%;">Consultar</button> 
+    </from>
 
+    <?php
 
+     if(isset($_POST)){
+      $protocolo = $_POST['protocolo'];
+      $resposta = $_POST['resposta_formulario'];
+
+      
+      if($protocolo != ''){
+          //Step2
+          date_default_timezone_set('America/Sao_Paulo');
+          $date = date('d/m/Y  H:i:s');
+          $query = "SELECT * FROM formulario INNER JOIN historico_resposta ON formulario.protocolo = historico_resposta.protocolo_historico where formulario.protocolo = $protocolo";
+          
+          mysqli_query($db, $query) or die('Error querying database.');
+    
+          $result = mysqli_query($db, $query);
+    
+          $row = mysqli_fetch_array($result);
+          $ordem = $row['numero_ordem'];
+         
+    
+          if($row['texto'] == ''){
+            echo "<div class='alert alert-danger' role='alert'>
+            Protocolo Inválido
+          </div>";
+          }else{
+            echo "<div class='form-row'>
+          <textarea cols='100' rows='5' class='form-control' name='texto_comentario'>".$row['nome'].": ".$row['texto_comentario']."&#10;"."Prefeitura: ".$row['texto']."</textarea>
+        </div>";
+          }
+          
+          echo $resposta;
+          if($resposta != ''){
+            $query = "INSERT INTO historico_resposta VALUES ('',$ordem,$resposta,$date,$protocolo);";
+
+            echo $query;
+            mysqli_query($db, $query) or die('Error querying database.');
+
+          }
+            
+      
+      }
+    
+        
+  
+    } 
+
+    ?>
+
+      <!-- <div class='form-row'>
+          <textarea cols='100' rows='10' class='form-control' name='texto_comentario ' ><br>ds<br><br>ds<br><br>ds<br><br>ds<br><br>ds<br></textarea>
+        </div> -->
+
+        <form method="post" action="">
+          <br>
+          <div class="form-row">
+              <br>
+              <label for="resposta_formulario"><b>Resposta: </b></label>
+              <textarea cols="100" rows="3" class="form-control" name="resposta_formulario" id="resposta_formulario"></textarea>
+            </div>
+
+          <button  class="btn btn-primary" style=" margin-left: -1%;   margin-top: 3%;" name="resposta" >Responder</button>
+        </from>
+
+        
+
+  </div>
+     
+  
+
+   
+
+  </div>
+  
+ 
 
 </body>
 
