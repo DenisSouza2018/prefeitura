@@ -48,12 +48,15 @@
             $envio->setCpfcnpj($cpfcnpj);
             $envio->setTemaComentario($tema_comentario);
             $envio->setTipoComentario($tipo_comentario);
-            $envio->setTextoComentario($texto_comentario);
             $envio->setAnexo($novo_nome);
             $envio->setProtocolo($protocolo);
             $envio->setStatus('ABERTO');
-
-            echo $envio->insert();
+            $envio->setTexto($texto_comentario);
+            $envio->setOrdem('');
+            $envio->insert();
+            $envio->insert_historio_resposta();
+         
+           
             
             //>>>>>>>> !!!  CONFIGURAR EMAIL PREFEITURA !!! <<<<<<
             $EmailPrefeitura = 'COLOCAR O EMAIL QUE SERÁ USADO PARA ENVIAR';

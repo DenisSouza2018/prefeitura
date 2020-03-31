@@ -10,8 +10,20 @@
    
 
   
-    if(isset($_POST['resposta'])){
-        
+    if(isset($_POST['resposta_protocolo'])){
+        $resposta = $_POST['resposta_formulario'];
+        $dados = $_POST['resposta_protocolo'];
+        $dadosArray = explode("+",$dados);
+        print_r($dadosArray);
+        $protocolo = $dadosArray[0];
+        $ordem = $dadosArray[1];
+        date_default_timezone_set('America/Sao_Paulo');
+        $date = date('d/m/Y  H:i:s');
+
+        $sql = "INSERT INTO historico_resposta VALUES ('',$ordem,'$resposta','$date',$protocolo)";
+        $stmt = DB::prepare($sql);
+        $stmt->execute();
+        header('Location:/prefeitura/formulario/incluir-participacao.php');
     }
 
 
@@ -20,7 +32,6 @@
         $protocolo = filter_input(INPUT_POST, "protocolo", FILTER_SANITIZE_MAGIC_QUOTES);
         $resposta = filter_input(INPUT_POST, "resposta", FILTER_SANITIZE_MAGIC_QUOTES);
         $id = filter_input(INPUT_POST, "id_ordem", FILTER_SANITIZE_MAGIC_QUOTES);
-        echo $protocolo."--".$resposta."s----".$id."--------".$status[0];
         date_default_timezone_set('America/Sao_Paulo');
         $date = date('d/m/Y  H:i:s');
         

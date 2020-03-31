@@ -6,7 +6,6 @@ CREATE TABLE formulario(
     cpf_cnpj int(12) not null,
     tema_comentario varchar(30) not null,
     tipo_comentario varchar(30) not null,
-    texto_comentario varchar(255) not null,
     anexo varchar(40) NOT NULL,
     protocolo int(10) not null,
     status varchar(20) DEFAULT 'ABERTO'

@@ -4,7 +4,7 @@
  or die('Error connecting to MySQL server.');
 
 //Step2
-$query = "SELECT * FROM formulario ";
+$query = "SELECT * FROM formulario,historico_resposta";
 mysqli_query($db, $query) or die('Error querying database.');
 
 $result = mysqli_query($db, $query);
@@ -170,7 +170,7 @@ print_r($row); */
                                             <div class='form-row'>
                                                 <div class='col-md mb-3'>
                                                     <label for='comentario'>Comentario</label>
-                                                    <textarea class='form-control' name='comentario' rows='3' value='".$row['texto_comentario']."'  readonly>".$row['texto_comentario']."</textarea>
+                                                    <textarea class='form-control' name='comentario' rows='3' value='".$row['texto']."'  readonly>".$row['texto']."</textarea>
                                                 </div>
 
                                             </div>

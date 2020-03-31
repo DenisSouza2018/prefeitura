@@ -31,12 +31,7 @@
 
   <div class="container">
 
-    <div class="container col-md-10">
-      --- container 1 ----
-      
-   
-      
-    </div>
+    
     <!-- Div formulario de cadastro -->
     <div class="container col-md-10">
 
@@ -117,8 +112,8 @@
 
     <!-- Consulta Protocolo -->
     <div class="container col-md-10">
-      --- container 1 ----
-      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+      
+      <form method="post" action="" >
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="protocolo"><b>Protocolo: </b></label>
@@ -126,13 +121,15 @@
               </div>
             </div>
             <button type="submit"  class="btn btn-primary" style="    margin-left: 52%;  margin-top: -11%;" name="consulta" >Consultar</button> 
-        </from>      
-    </div>
-    
-    <!-- Resposta Usuario -->
-    <div class="container col-md-10">
-  
+      </form>   
 
+    </div>
+
+    
+    <!-- Resposta usuario -->
+    <div class="container col-md-10">
+      --- container 1 ----
+      <form method='post' action='prefeitura/formulario/classe/Resposta.php'>
         <?php
               if(isset($_POST['consulta'])){
                 $protocolo = $_POST['protocolo'];
@@ -157,24 +154,27 @@
                     }else{
                       echo "
                       <div class='form-row'>
-                      <textarea cols='100' rows='5' class='form-control'>".$row['nome'].": ".$row['texto_comentario']."&#10;"."Prefeitura: ".$row['texto']."</textarea>
-                      </div>
-                      <form method='post' action='prefeitura/formulario/classe/Resposta.php'>
-                        <br>
-                        <div class='form-row'>
+                      <textarea cols='100' rows='5' class='form-control' >".$row['nome'].": ".$row['texto']."&#10;"."Prefeitura: ".$row['texto']."</textarea>
+                      
+                      <br>
+
                           <br>
                           <label for='resposta_formulario'><b>Resposta: </b></label>
                           <textarea cols='100' rows='3' class='form-control'  id='resposta_formulario' name='resposta_formulario'></textarea>
-                        </div>
+                       
 
-                        <button  class='btn btn-primary' style=' margin-left: -1%;   margin-top: 3%;'  name='resposta' id='resposta' >Responder</button>
-                      </from>";
+                        <button  class='btn btn-primary' style=' margin-left: -1%;   margin-top: 3%;'  name='resposta_protocolo' id='resposta_protocolo' value='".$row['protocolo']."+".$row['numero_ordem']."' >Responder</button>
+                      
+                      </div>";
                     }
                 
                 }      
             
               } 
         ?>
+      </form>
+   
+      
     </div>
 
   </div>
