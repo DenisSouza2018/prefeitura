@@ -9,10 +9,10 @@
     }
    
 
-    //print_r($_SERVER["REQUEST_URI"]);
-    //$Array = explode("/",$_SERVER["REQUEST_URI"]);
-    //print_r($Array[5]);
-
+  
+    if(isset($_POST['resposta'])){
+        
+    }
 
 
     if(isset($_POST['ok'])) {
