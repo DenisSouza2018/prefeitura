@@ -55,9 +55,7 @@
             $envio->setOrdem('');
             $envio->insert();
             $envio->insert_historio_resposta();
-         
-           
-            
+
             //>>>>>>>> !!!  CONFIGURAR EMAIL PREFEITURA !!! <<<<<<
             $EmailPrefeitura = 'COLOCAR O EMAIL QUE SERÁ USADO PARA ENVIAR';
             $SenhaPrefeitura = 'SENHA DESTE EMAIL';
@@ -67,7 +65,7 @@
             //Mensagem para o usuario com apenas o Protocolo
             $BodyDestinatario = "<label ><b>Numero do Protocolo: </b>".$protocolo."</label>";
             $Mensagem = "Numero do Protocolo: ";
-          //  Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$BodyDestinatario);
+           // Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$BodyDestinatario);
             
             //Mensagem para alguem da prefeitura com dados pedido sendo: NOME,EMAIL,DATA,PROTOCOLO
             $BodyDestinatario ="<b>Requerimento Emitido </b><br><b>Data: </b>${date}<br><b>Nome: </b>${nome}<br><b>E-mail: </b>${email}<br><b>Numero do Protocolo:</b> ${protocolo}";
@@ -105,7 +103,6 @@
                 
             $mail->setFrom($EmailPrefeitura);
             $mail->addAddress($EmailDestinatario);
-            //$mail->addAddress('endereco2@provedor.com.br');
         
             $mail->isHTML(true);
             $mail->addAttachment('img/camara.png');

@@ -9,7 +9,6 @@
     }
    
 
-  
     if(isset($_POST['resposta_protocolo'])){
         $resposta = $_POST['resposta_formulario'];
         $dados = $_POST['resposta_protocolo'];
@@ -19,8 +18,14 @@
         $ordem = $dadosArray[1];
         date_default_timezone_set('America/Sao_Paulo');
         $date = date('d/m/Y  H:i:s');
-
-        $sql = "INSERT INTO historico_resposta VALUES ('',$ordem,'$resposta','$date',$protocolo)";
+        $db = mysqli_connect('localhost','root','','db_prefeitura') or die('Error connecting to MySQL server.');
+        $query = "SELECT nome FROM `formulario` WHERE id = $dadosArray[1]";
+        mysqli_query($db, $query) or die('Error querying database.');
+        $result = mysqli_query($db, $query);
+        $row = mysqli_fetch_array($result);
+        $nome = $row['nome'];
+        
+        $sql = "INSERT INTO historico_resposta VALUES ('',$ordem,'$resposta','$date',$protocolo,'$nome')";
         $stmt = DB::prepare($sql);
         $stmt->execute();
         header('Location:/prefeitura/formulario/incluir-participacao.php');
@@ -34,8 +39,9 @@
         $id = filter_input(INPUT_POST, "id_ordem", FILTER_SANITIZE_MAGIC_QUOTES);
         date_default_timezone_set('America/Sao_Paulo');
         $date = date('d/m/Y  H:i:s');
+        $nome = 'Camara';
         
-        
+
         if($status[0] == 'EXCLUIDO'){
             $sql = "DELETE FROM formulario WHERE id = $id";
             $stmt = DB::prepare($sql);
@@ -47,20 +53,12 @@
             $sql = "UPDATE `formulario` SET status='$status[0]' WHERE id = $id";
             $stmt = DB::prepare($sql);
             $stmt->execute();
-            $sql = "INSERT INTO historico_resposta VALUES ('',$id,'$resposta','$date',$protocolo)";
+            $sql = "INSERT INTO historico_resposta VALUES ('',$id,'$resposta','$date',$protocolo,'$nome')";
             $stmt = DB::prepare($sql);
             $stmt->execute();
         }
-        
-
-        
-
        
-       
-        header('Location:/prefeitura/formulario/view-fiscaliza.php');
-
-        //return $stmt->execute();  
-        
+        header('Location:/prefeitura/formulario/view-fiscaliza.php');        
 
     }
        

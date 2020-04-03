@@ -16,5 +16,6 @@ CREATE TABLE historico_resposta(
     numero_ordem int not null,
     texto varchar(255) not null,
     data_envio varchar(40),
-    protocolo_historico int not null
+    protocolo_historico int not null,
+    nome varchar(20),
 )ENGINE=INNODB;

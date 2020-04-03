@@ -8,19 +8,20 @@
   # Website: www.BroExperts.com 	  #
   #####################################*/
 
-//Include required PHPMailer files
+	//Include required PHPMailer files
 	require 'includes/PHPMailer.php';
 	require 'includes/SMTP.php';
 	require 'includes/Exception.php';
-//Define name spaces
+	//Define name spaces
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
 	use PHPMailer\PHPMailer\Exception;
-//Create instance of PHPMailer
+	
+	//Create instance of PHPMailer
 	$mail = new PHPMailer();
-//Set mailer to use smtp
+	//Set mailer to use smtp
 	$mail->isSMTP();
-//Define smtp host
+	//Define smtp host
 	$mail->Host = "smtp.gmail.com";
 	$Mailer = new PHPMailer();
 	

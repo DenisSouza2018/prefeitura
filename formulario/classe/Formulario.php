@@ -16,7 +16,6 @@ class Formulario extends Crud{
     protected $anexo;
     protected $protocolo;
     protected $status;
-
     protected $numero_ordem;
     protected $texto;
 
@@ -112,11 +111,9 @@ class Formulario extends Crud{
 
     public function insert(){   
         
-        
         $sql = "INSERT INTO $this->table (id,data_envio,nome,email,cpf_cnpj,tema_comentario,tipo_comentario,anexo,protocolo,status)
         VALUES (:id,:data_envio,:nome,:email,:cpfcnpj,:tema_comentario,:tipo_comentario,:anexo,:protocolo,:status); ";
-
-        
+      
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':data_envio', $this->data_envio);
@@ -129,33 +126,21 @@ class Formulario extends Crud{
         $stmt->bindParam(':protocolo', $this->protocolo);
         $stmt->bindParam(':status', $this->status);
 
-
-       
-
         return $stmt->execute();
-
-       
-
-        
     }
 
     public function insert_historio_resposta(){   
         
         $db = mysqli_connect('localhost','root','','db_prefeitura')
         or die('Error connecting to MySQL server.');
-       
-       //Step2
-       $query = "select id FROM formulario ORDER BY id DESC LIMIT 1; ";
-       mysqli_query($db, $query) or die('Error querying database.');
-       
-       $result = mysqli_query($db, $query);
-       
-       $row = mysqli_fetch_array($result);
-
+        $query = "select id FROM formulario ORDER BY id DESC LIMIT 1; ";
+        mysqli_query($db, $query) or die('Error querying database.');
+        $result = mysqli_query($db, $query);
+        $row = mysqli_fetch_array($result);
 
         $this->numero_ordem =$row['id'];
-        $sql = "INSERT INTO $this->table2 (id,numero_ordem,texto,data_envio,protocolo_historico)
-        VALUES (:id,:numero_ordem,:texto,:data_envio,:protocolo);";
+        $sql = "INSERT INTO $this->table2 (id,numero_ordem,texto,data_envio,protocolo_historico,nome)
+        VALUES (:id,:numero_ordem,:texto,:data_envio,:protocolo,:nome);";
                
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':id', $this->id);
@@ -163,13 +148,9 @@ class Formulario extends Crud{
         $stmt->bindParam(':texto', $this->texto);
         $stmt->bindParam(':data_envio', $this->data_envio);
         $stmt->bindParam(':protocolo', $this->protocolo);
+        $stmt->bindParam(':nome', $this->nome);
        
-
-        
-
         return $stmt->execute();
-
-        
     }
 
 
