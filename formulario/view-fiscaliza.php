@@ -4,10 +4,11 @@
     or die('Error connecting to MySQL server.');
 
     //Step2
-    $query = "SELECT DISTINCT rh.numero_ordem as n_ordem, rh.protocolo_historico as protocolo,f.data_envio,f.nome,f.email,f.cpf_cnpj,f.tema_comentario,f.tipo_comentario,f.anexo,f.status,
+    /* $query = "SELECT DISTINCT rh.numero_ordem as n_ordem, rh.protocolo_historico as protocolo,f.data_envio,f.nome,f.email,f.cpf_cnpj,f.tema_comentario,f.tipo_comentario,f.anexo,f.status,
     (SELECT hr.id as id_historico from historico_resposta hr WHERE hr.numero_ordem = n_ordem ORDER BY hr.id DESC LIMIT 1) as id_auxiliar,
     (SELECT rp.texto as texto_historico from historico_resposta rp WHERE rp.id = id_auxiliar) as texto 
-    FROM historico_resposta rh INNER JOIN formulario f ON f.id = rh.numero_ordem ORDER BY rh.id DESC";
+    FROM historico_resposta rh INNER JOIN formulario f ON f.id = rh.numero_ordem ORDER BY rh.id DESC"; */
+    $query = "SELECT f.id as n_ordem,f.protocolo,hr.data_envio,hr.nome,f.email,f.cpf_cnpj,f.tema_comentario,f.tipo_comentario,f.anexo,f.status,hr.texto FROM formulario f, historico_resposta hr where f.protocolo = hr.protocolo_historico ORDER BY hr.id ASC";
     mysqli_query($db, $query) or die('Error querying database.');
 
     $result = mysqli_query($db, $query);
@@ -158,13 +159,12 @@
                                                     </div>
                                                     <div class='form-row'>
                                                         <div class='col-md mb-3'>
-                                                            <label for='comentario'>Comentario</label>
-                                                            <textarea class='form-control' name='comentario' rows='3' value='".$row['texto']."'  readonly>".$row['texto']."</textarea>
+                                                            <label for='comentario'>Historico conversa</label> <br />
+                                                            ".$row['data_envio']." -  ".$row['nome'].": ".$row['texto']."
                                                         </div>
-
                                                     </div>
                                                 </div>
-
+                                               
                                                 <div class='form-group'>
                                                     <label for='resposta'>Responder Solicitação</label>
                                                     <textarea class='form-control' name='resposta' rows='3'></textarea>
@@ -184,12 +184,32 @@
                         ?>
                     </tbody>
                 </table>
-
+                
             </div>
             
             <div class="container col-md">
                 <br>
                 <p id="formulario"></p> 
+
+                <?php
+                 $query = "SELECT * FROM historico_resposta WHERE protocolo_historico = 1901270493;";                
+                 mysqli_query($db, $query) or die('Error querying database.');
+                 $result = mysqli_query($db, $query);
+                   while($row = mysqli_fetch_array($result))
+                   {
+                     echo"";
+                     echo"".$row['data_envio']." -  ".$row['nome'].": ".$row['texto']."";
+                     echo "<br />";
+                   }
+                echo" <div class='form-row'>
+                <div class='col-md mb-3'>
+                    <label for='comentario'>Comentario</label>
+                    <textarea class='form-control' name='comentario' rows='3' value='".$row['texto']."'  readonly>".$row['texto']."</textarea>
+                </div>
+
+            </div>";
+                ?>
+                
             </div>
 
         </div>

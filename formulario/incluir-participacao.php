@@ -125,52 +125,58 @@
       <!-- Resposta usuario -->
       <div class="container col-md-10">
         <div class='form-row'>
-            <!-- RESULTADO DA CONSULTA PELO PROTOCOLO -->
-            <textarea cols='100' rows='5' class='form-control' >
-                <?php
+        
+            <?php
 
-                  if(isset($_POST['consulta']))
-                  {
-                    $protocolo = $_POST['protocolo'];
-                    if($protocolo != '')
-                    {
-                      $query = "SELECT * FROM historico_resposta WHERE protocolo_historico = $protocolo;";                
-                      mysqli_query($db, $query) or die('Error querying database.');
-                      $result = mysqli_query($db, $query);
-                        while($row = mysqli_fetch_array($result)){
-                          echo '&#10;'.$row['nome'].': '.$row['texto'].'&#10;';               
-                        }
-                    }
+              if(isset($_POST['consulta']))
+              {
+                $protocolo = $_POST['protocolo'];
+                if($protocolo != '')
+                {
+                  $query = "SELECT * FROM historico_resposta WHERE protocolo_historico = $protocolo;";                
+                  mysqli_query($db, $query) or die('Error querying database.');
+                  $result = mysqli_query($db, $query);
+                  $row = mysqli_fetch_array($result);
+                  $ordem = $row['numero_ordem'];
+        
+                  if($row!=''){
+                    $query = "SELECT * FROM historico_resposta WHERE protocolo_historico = $protocolo;";                
+                    mysqli_query($db, $query) or die('Error querying database.');
+                    $result = mysqli_query($db, $query);
+                      while($row = mysqli_fetch_array($result))
+                      {
+                        echo"";
+                        echo"".$row['data_envio']." -  ".$row['nome'].": ".$row['texto']."";
+                        echo "<br />";
+                      }
+                      
+                      echo "<form method='post' action='prefeitura/formulario/classe/Resposta.php'>
+                              <label for='resposta_formulario' style='margin-top: 5%; '><b>Resposta: </b></label>
+                              <textarea cols='100' rows='3' class='form-control'  id='resposta_formulario' name='resposta_formulario'></textarea>
+
+                              <button  class='btn btn-primary' style=' margin-top: 3%;'  name='resposta_protocolo'
+                                 id='resposta_protocolo' value=$protocolo+$ordem >Responder
+                              </button> 
+                            </form> "; 
+
+                  }else{
+                    echo"<div class='alert alert-danger' role='alert'>
+                          Protocolo Inválido!
+                        </div>";
                   }
-                ?>
-            </textarea>
-            
-            <!-- RESPOSTA DO USARIO SOBRE O SEU PEDIDO -->
-            <form method='post' action='prefeitura/formulario/classe/Resposta.php'>
-              
-              <label for='resposta_formulario'><b>Resposta: </b></label>
-              <textarea cols='100' rows='3' class='form-control'  id='resposta_formulario' name='resposta_formulario'></textarea>
-                <?php
-                  if(isset($_POST['consulta']))
-                  {
-                    $protocolo = $_POST['protocolo'];
-                    //$resposta = $_GET['resposta_formulario'];
 
-                    if($protocolo != '')
-                    {         
-                        $query = "SELECT * FROM historico_resposta WHERE protocolo_historico = $protocolo;";   
-                        mysqli_query($db, $query) or die('Error querying database.');
-                        $result = mysqli_query($db, $query);
-                        $row = mysqli_fetch_array($result);
-                        echo "<button  class='btn btn-primary' style='
-                            margin-top: 3%;'  name='resposta_protocolo'
-                            id='resposta_protocolo' value='".$row['protocolo_historico']."+".$row['numero_ordem']."' >Responder</button>                       
-                          ";
-                    }      
-                
-                  } 
-                ?>
-            </form>
+                }else{
+                  echo"<div class='alert alert-warning' role='alert'>
+                        Por favor informe o seu protocolo !
+                      </div>";
+                }
+              }
+            ?>  
+
+
+
+
+           
         </div>
       </div>
 
