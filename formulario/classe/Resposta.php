@@ -25,15 +25,19 @@
         $row = mysqli_fetch_array($result);
         $nome = $row['nome'];
         
-        $sql = "INSERT INTO historico_resposta VALUES ('',$ordem,'$resposta','$date',$protocolo,'$nome')";
-        $stmt = DB::prepare($sql);
-        $stmt->execute();
+        if($resposta != ''){
+            $sql = "INSERT INTO historico_resposta VALUES ('',$ordem,'$resposta','$date',$protocolo,'$nome')";
+            $stmt = DB::prepare($sql);
+            $stmt->execute();
+        }
+        
         header('Location:/prefeitura/formulario/incluir-participacao.php');
     }
 
 
     if(isset($_POST['ok'])) {
         $status = $_POST['skills'];
+        print_r($status);
         $protocolo = filter_input(INPUT_POST, "protocolo", FILTER_SANITIZE_MAGIC_QUOTES);
         $resposta = filter_input(INPUT_POST, "resposta", FILTER_SANITIZE_MAGIC_QUOTES);
         $id = filter_input(INPUT_POST, "id_ordem", FILTER_SANITIZE_MAGIC_QUOTES);
@@ -49,14 +53,18 @@
             $sql = "DELETE FROM historico_resposta WHERE numero_ordem = $id";
             $stmt = DB::prepare($sql);
             $stmt->execute();
-        }else{
+        }
+        if($status[0] != ''){
             $sql = "UPDATE `formulario` SET status='$status[0]' WHERE id = $id";
             $stmt = DB::prepare($sql);
             $stmt->execute();
+        }
+        if($resposta != ''){
             $sql = "INSERT INTO historico_resposta VALUES ('',$id,'$resposta','$date',$protocolo,'$nome')";
             $stmt = DB::prepare($sql);
             $stmt->execute();
         }
+        
        
         header('Location:/prefeitura/formulario/view-fiscaliza.php');        
 

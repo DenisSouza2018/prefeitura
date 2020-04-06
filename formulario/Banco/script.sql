@@ -8,7 +8,7 @@ CREATE TABLE formulario(
     tipo_comentario varchar(30) not null,
     anexo varchar(40) NOT NULL,
     protocolo int(10) not null,
-    status varchar(20) DEFAULT 'ABERTO'
+    status varchar(30) DEFAULT 'ABERTO'
 );
 
 CREATE TABLE historico_resposta(
