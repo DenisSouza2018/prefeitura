@@ -159,8 +159,11 @@
                                             `;
                                         }
                                     </script>
-                                        <button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='top'
-                                            title='Baixar Anexo'><i class='fas fa-download'></i></button>
+                                    
+                                        <a href='http://localhost/prefeitura/formulario/classe/uploads/".$row['anexo']."'> 
+                                        <button type='submint' class='btn btn-primary' data-toggle='tooltip' data-placement='top' name='download' 
+                                            title='Baixar Anexo' value='".$row['anexo']."'><i class='fas fa-download'></i></button></a>
+                                    
 
                                 </td>
                                 </tr>

@@ -35,7 +35,7 @@
       <div class="container col-md-10">
 
         <h2>Incluir participação</h2>
-        <form method="post" action="prefeitura/formulario/classe/Envio.php">
+        <form method="post" action="prefeitura/formulario/classe/Envio.php" enctype="multipart/form-data">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="nome"><b>Nome: </b></label>
@@ -90,8 +90,8 @@
                 </div>
               </div>
               <div class="form-group col-md-6">
-                <label for="anexo"><b>Anexar Arquivo: </b></label>
-                <input type="file" class="form-control-file" name="anexo">
+                <label for="arquivo"><b>Anexar Arquivo: </b></label>
+                <input type="file" class="form-control-file" name="arquivo">
               </div>
             </div>
             <div class="form-row">
