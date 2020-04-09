@@ -6,6 +6,8 @@ class Formulario extends Crud{
 
     protected $table = 'formulario';
     protected $table2 = 'historico_resposta';
+    protected $table3 = 'ideias';
+    protected $table4 = 'historico_ideias';
     protected $id; 
     protected $data_envio;
     protected $nome;
@@ -18,7 +20,16 @@ class Formulario extends Crud{
     protected $status;
     protected $numero_ordem;
     protected $texto;
+    protected $cpf;
+    protected $tel;
 
+
+    public function setCpf($cpf){
+        $this->cpf = $cpf;
+    }
+    public function setTel($tel){
+        $this->tel = $tel;
+    }
 
     public function setOrdem($numero_ordem){
         $this->numero_ordem = $numero_ordem;
@@ -129,7 +140,7 @@ class Formulario extends Crud{
         return $stmt->execute();
     }
 
-    public function insert_historio_resposta(){   
+    public function insert_historico_resposta(){   
         
         $db = mysqli_connect('localhost','root','','db_prefeitura')
         or die('Error connecting to MySQL server.');
@@ -153,6 +164,47 @@ class Formulario extends Crud{
         return $stmt->execute();
     }
 
+    public function insert_ideias(){   
+        
+        $sql = "INSERT INTO $this->table3(id,data_envio,nome,email,cpf,tel,protocolo,status)
+        VALUES (:id,:data_envio,:nome,:email,:cpf,:tel,:protocolo,:status); ";
+      
+        $stmt = DB::prepare($sql);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':data_envio', $this->data_envio);
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':cpf', $this->cpf);
+        $stmt->bindParam(':tel', $this->tel);
+        $stmt->bindParam(':protocolo', $this->protocolo);
+        $stmt->bindParam(':status', $this->status);
+
+        return $stmt->execute();
+    }
+
+    public function insert_historico_ideias(){   
+        
+        $db = mysqli_connect('localhost','root','','db_prefeitura')
+        or die('Error connecting to MySQL server.');
+        $query = "select id FROM ideias ORDER BY id DESC LIMIT 1; ";
+        mysqli_query($db, $query) or die('Error querying database.');
+        $result = mysqli_query($db, $query);
+        $row = mysqli_fetch_array($result);
+
+        $this->numero_ordem =$row['id'];
+        $sql = "INSERT INTO $this->table4 (id,numero_ordem,texto,data_envio,protocolo_historico,nome)
+        VALUES (:id,:numero_ordem,:texto,:data_envio,:protocolo,:nome);";
+               
+        $stmt = DB::prepare($sql);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':numero_ordem', $this->numero_ordem);
+        $stmt->bindParam(':texto', $this->texto);
+        $stmt->bindParam(':data_envio', $this->data_envio);
+        $stmt->bindParam(':protocolo', $this->protocolo);
+        $stmt->bindParam(':nome', $this->nome);
+       
+        return $stmt->execute();
+    }
 
     
 } 

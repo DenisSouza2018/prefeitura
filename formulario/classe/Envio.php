@@ -135,7 +135,7 @@
             $envio->setTexto($texto_comentario);
             $envio->setOrdem('');
             $envio->insert();
-            $envio->insert_historio_resposta();
+            $envio->insert_historico_resposta();
 
             //>>>>>>>> !!!  CONFIGURAR EMAIL PREFEITURA !!! <<<<<<
             $EmailPrefeitura = 'COLOCAR O EMAIL QUE SERÁ USADO PARA ENVIAR';
@@ -159,6 +159,61 @@
             
         } 
         header('Location:/prefeitura/formulario/incluir-participacao.php'); 
+    }
+
+    if(isset($_POST['ideias'])) {
+        $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_MAGIC_QUOTES);
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_MAGIC_QUOTES);
+        $cpf = filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_MAGIC_QUOTES);
+        $tel = filter_input(INPUT_POST, "tel", FILTER_SANITIZE_MAGIC_QUOTES);
+        $texto_comentario = filter_input(INPUT_POST, "texto_comentario", FILTER_SANITIZE_MAGIC_QUOTES);
+        $protocolo = mt_rand();
+        while(strlen($protocolo) != 10){
+            $protocolo = mt_rand();
+        }    
+        date_default_timezone_set('America/Sao_Paulo');
+        $date = date('d/m/Y  H:i:s');
+
+               
+        //Validando campos só realiza o cadastro caso não seja null
+        if($nome != null && $email != null && $cpf != null  && $texto_comentario != null  && $protocolo != null )
+        {      
+            $envio->setId('');
+            $envio->setDataEnvio($date);
+            $envio->setNome($nome);
+            $envio->setEmail($email);
+            $envio->setCpf($cpf);
+            $envio->setTel("$tel");
+            $envio->setProtocolo($protocolo);
+            $envio->setStatus('ABERTO');
+            $envio->setTexto($texto_comentario);
+            $envio->setOrdem('');
+            $envio->insert_ideias();
+            $envio->insert_historico_ideias();
+
+
+            //>>>>>>>> !!!  CONFIGURAR EMAIL PREFEITURA !!! <<<<<<
+            /* $EmailPrefeitura = 'COLOCAR O EMAIL QUE SERÁ USADO PARA ENVIAR';
+            $SenhaPrefeitura = 'SENHA DESTE EMAIL';
+            $EmailDestinatario = $email;
+           
+            
+            //Mensagem para o usuario com apenas o Protocolo
+            $BodyDestinatario = "<label ><b>Numero do Protocolo: </b>".$protocolo."</label>";
+            $Mensagem = "Numero do Protocolo: ";
+           // Email($EmailPrefeitura,$SenhaPrefeitura,$EmailDestinatario,$Mensagem,$BodyDestinatario);
+            
+            //Mensagem para alguem da prefeitura com dados pedido sendo: NOME,EMAIL,DATA,PROTOCOLO
+            $BodyDestinatario ="<b>Requerimento Emitido </b><br><b>Data: </b>${date}<br><b>Nome: </b>${nome}<br><b>E-mail: </b>${email}<br><b>Numero do Protocolo:</b> ${protocolo}";
+            $Mensagem = "Requerimento Emitido Data: Nome: E-mail: Numero do Protocolo:";
+           
+             if( Email($EmailPrefeitura,$SenhaPrefeitura,$EmailPrefeitura,$Mensagem,$BodyDestinatario)){
+                header('Location:/prefeitura/formulario/incluir-participacao.html'); 
+            }  */
+            header('Location:/prefeitura/formulario/incluir-ideia.php'); 
+            
+        } 
+        header('Location:/prefeitura/formulario/incluir-ideia.php'); 
     }
 
     // Função responsavel por disparar o email de acordo com os dados de parametro

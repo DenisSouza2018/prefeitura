@@ -4,10 +4,10 @@
     or die('Error connecting to MySQL server.');
 
     //Step2
-    $query = "SELECT DISTINCT rh.numero_ordem as n_ordem, rh.protocolo_historico as protocolo,f.data_envio,f.nome,f.email,f.cpf_cnpj,f.tema_comentario,f.tipo_comentario,f.anexo,f.status,
-    (SELECT hr.id as id_historico from historico_resposta hr WHERE hr.numero_ordem = n_ordem ORDER BY hr.id DESC LIMIT 1) as id_auxiliar,
-    (SELECT rp.texto as texto_historico from historico_resposta rp WHERE rp.id = id_auxiliar) as texto 
-    FROM historico_resposta rh INNER JOIN formulario f ON f.id = rh.numero_ordem ORDER BY rh.id DESC";
+    $query = "SELECT DISTINCT rh.numero_ordem as n_ordem, rh.protocolo_historico as protocolo,f.data_envio,f.tel,f.nome,f.email,f.cpf,f.status,
+    (SELECT hr.id as id_historico from historico_ideias hr WHERE hr.numero_ordem = n_ordem ORDER BY hr.id DESC LIMIT 1) as id_auxiliar,
+    (SELECT rp.texto as texto_historico from historico_ideias rp WHERE rp.id = id_auxiliar) as texto 
+    FROM historico_ideias rh INNER JOIN ideias f ON f.id = rh.numero_ordem ORDER BY rh.id DESC";
     mysqli_query($db, $query) or die('Error querying database.');
 
     $result = mysqli_query($db, $query);
@@ -19,7 +19,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Formulario</title>
+    <title>Banco de idéias</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -56,11 +56,9 @@
                         </th>
                         <th class="th-sm">E-mail
                         </th>
-                        <th class="th-sm">CPF/CNPJ
+                        <th class="th-sm">CPF
                         </th>
-                        <th class="th-sm">Tema comentario
-                        </th>
-                        <th class="th-sm">Tipo do comentario
+                        <th class="th-sm">Telefone
                         </th>
                         <th class="th-sm">Protocolo
                         </th>
@@ -84,13 +82,10 @@
                                 ".$row['email']."
                                 </td>
                                 <td>
-                                ".$row['cpf_cnpj']."
+                                ".$row['cpf']."
                                 </td>
                                 <td>
-                                ".$row['tema_comentario']."
-                                </td>
-                                <td>
-                                ".$row['tipo_comentario']."
+                                ".$row['tel']."
                                 </td>
                                 <td>
                                 ".$row['protocolo']."
@@ -111,15 +106,15 @@
                                             <form method='post' action=''>
 
                                                 <div class='form-group'>
-                                                    <label for='' style='margin-left:43%;'><b>Dados da Notificação</b></label>
+                                                    <label for='' style='margin-left:43%;'><b>Dados da Sugestão de Idéia</b></label>
                                                     <div class='form-row'>
                                                         <div class='col-md-4 mb-3'>
                                                             <label for='nome'>Nome</label>
                                                             <input type='text' class='form-control' name='nome' value=".$row['nome']."  readonly>
                                                         </div>
                                                         <div class='col-md-4 mb-3'>
-                                                            <label for='cpfcnpj'>CPF/CNPJ</label>
-                                                            <input type='text' class='form-control' name='cpfcnpj' value='".$row['cpf_cnpj']."'  readonly>
+                                                            <label for='cpf'>CPF/CNPJ</label>
+                                                            <input type='text' class='form-control' name='cpf' value='".$row['cpf']."'  readonly>
                                                         </div>
                                                         <div class='col-md-4 mb-3'>
                                                             <label for='protocolo'>Protocolo</label>
@@ -143,12 +138,8 @@
                                                     </div>
                                                     <div class='form-row'>
                                                         <div class='col-md-6 mb-3'>
-                                                            <label for='tema'>Tema Comentario</label>
-                                                            <input type='text' class='form-control' name='tema' value='".$row['tema_comentario']."'  readonly>
-                                                        </div>
-                                                        <div class='col-md-6 mb-3'>
-                                                            <label for='tipo'>Tipo Comentario</label>
-                                                            <input type='text' class='form-control' name='tipo' value='".$row['tipo_comentario']."'  readonly>
+                                                            <label for='tema'>Telefone</label>
+                                                            <input type='text' class='form-control' name='tel' value='".$row['tel']."'  readonly>
                                                         </div>
                                                     </div>
                                                    
@@ -159,12 +150,7 @@
                                                 </form>
                                             `;
                                         }
-                                    </script>
-                                    
-                                        <a href='http://localhost/prefeitura/formulario/classe/uploads/".$row['anexo']."'> 
-                                        <button type='submint' class='btn btn-primary' data-toggle='tooltip' data-placement='top' name='download' 
-                                            title='Baixar Anexo' value='".$row['anexo']."'><i class='fas fa-download'></i></button></a>
-                                    
+                                    </script>                                   
 
                                 </td>
                                 </tr>
@@ -193,15 +179,15 @@
                     echo" 
                     <form method='post' action='prefeitura/formulario/classe/Resposta.php'>
                         <div class='form-group'>
-                        <label for='' style='margin-left:43%;'><b>Dados da Notificação</b></label>
+                        <label for='' style='margin-left:43%;'><b>Dados da Sugestão de Idéia</b></label>
                         <div class='form-row'>
                             <div class='col-md-4 mb-3'>
                                 <label for='nome'>Nome</label>
                                 <input type='text' class='form-control' name='nome' value=".$_POST['nome']."  readonly>
                             </div>
                             <div class='col-md-4 mb-3'>
-                                <label for='cpfcnpj'>CPF/CNPJ</label>
-                                <input type='text' class='form-control' name='cpfcnpj' value='".$_POST['cpfcnpj']."'  readonly>
+                                <label for='cpf'>CPF/CNPJ</label>
+                                <input type='text' class='form-control' name='cpf' value='".$_POST['cpf']."'  readonly>
                             </div>
                             <div class='col-md-4 mb-3'>
                                 <label for='protocolo'>Protocolo</label>
@@ -229,18 +215,14 @@
                         </div>
                         <div class='form-row'>
                             <div class='col-md-6 mb-3'>
-                                <label for='tema'>Tema Comentario</label>
-                                <input type='text' class='form-control' name='tema' value='".$_POST['tema']."'  readonly>
-                            </div>
-                            <div class='col-md-6 mb-3'>
-                                <label for='tipo'>Tipo Comentario</label>
-                                <input type='text' class='form-control' name='tipo' value='".$_POST['tipo']."'  readonly>
+                                <label for='tel'>Telefone: </label>
+                                <input type='text' class='form-control' name='tel' value='".$_POST['tel']."'  readonly>
                             </div>
                         </div>
                     
                     </div>";
                     
-                    $query = "SELECT * FROM historico_resposta WHERE protocolo_historico = $protocolo;";                
+                    $query = "SELECT * FROM historico_ideias WHERE protocolo_historico = $protocolo;";                
                     mysqli_query($db, $query) or die('Error querying database.');
                     $result = mysqli_query($db, $query);
                     while($row = mysqli_fetch_array($result))
@@ -256,11 +238,11 @@
     
                         <div class='form-group'>
                         <br>
-                            <label for='resposta' >Responder Solicitação</label>
+                            <label for='resposta' >Responder sugestão</label>
                             <textarea class='form-control' name='resposta' rows='3' ></textarea>
                         </div>
 
-                        <button type='submit' name='ok' class='btn btn-primary' >Enviar Resposta</button><br><br>
+                        <button type='submit' name='ideias' class='btn btn-primary' >Enviar Resposta</button><br><br>
                     </form>";}
               
                 ?>
