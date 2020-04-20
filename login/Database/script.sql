@@ -4,4 +4,4 @@ CREATE TABLE `usuario` (
   senha varchar(255) NOT NULL,
   email varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO usuario VALUES(null,'',123,'denis@gmail.com');
+INSERT INTO usuario VALUES(null,'denis',123,'denis.traco@gmail.com');

@@ -5,7 +5,7 @@
 
         protected $table;
 
-        abstract public function insert();
+       // abstract public function insert();
        
  
 
