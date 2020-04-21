@@ -124,19 +124,25 @@
                                         
                                         // Data
                                         //$date = str_split($start,10)[0];
-                                        $date = explode("T",$start)[0];
+                                        if(explode("T",$start)[0]){
+                                            $date = explode("T",$start)[0];
+                                        }else{
+                                            $date = '';
+                                        }
+
                                         //Hora
-                                        $hora_de_inicio = explode("-",explode("T",$start)[1])[0];
-                                        $hora = explode("T",$start)[1];
+                                        //print_r($start);
+                                        if(strlen($start) > 24){
+                                            $hora_de_inicio = explode("-",explode("T",$start)[1])[0];
+                                        }else{
+                                            $hora_de_inicio = '';
+                                        }
+                                       
                                         // Descrição
-                                        $descricao = $event->getDescription();
+                                            $descricao = $event->getDescription() ? $event->getDescription() : '';
+                                       
                                         // Titulo ou assunto
-                                        $titulo = $event->getSummary();
-                                        //print_r($titulo);
-                                        //print_r(`<p>Titulo: <b></b>."$titulo".</p><br>`);
-                                        //echo `<p>Titulo: <b></b>."$titulo".</p><br>`;
-                                        // Criação
-                                        //print_r($event->getCreated());
+                                            $titulo = $event->getSummary() ? $event->getSummary() : '';
                                         
                                         // Condição responsavel por exibir os eventos atuais
                                         if($date == date('yy-m-d') )
@@ -198,18 +204,26 @@
                                         
                                         // Data
                                         //$date = str_split($start,10)[0];
-                                        $date = explode("T",$start)[0];
+                                        if(explode("T",$start)[0]){
+                                            $date = explode("T",$start)[0];
+                                        }else{
+                                            $date = '';
+                                        }
+
                                         //Hora
-                                        $hora_de_inicio = explode("-",explode("T",$start)[1])[0];
-                                        $hora = explode("T",$start)[1];
-                                        // Descrição
-                                        $descricao = $event->getDescription();
-                                        // Titulo ou assunto
-                                        $titulo = $event->getSummary();
+                                        //print_r($start);
+                                        if(strlen($start) > 24){
+                                            $hora_de_inicio = explode("-",explode("T",$start)[1])[0];
+                                        }else{
+                                            $hora_de_inicio = '';
+                                        }
                                         
-                                        // Criação
-                                        //print_r($event->getCreated());
-                                        //printf("%s (%s)\n", $event->getSummary(), $start);
+                                        // Descrição
+                                            $descricao = $event->getDescription() ? $event->getDescription() : '';
+                                       
+                                        // Titulo ou assunto
+                                            $titulo = $event->getSummary() ? $event->getSummary() : '';
+                                       
 
                                         // Condição essencial para a exibição dos eventos que não são do dia atual e sim dos proximos dias
                                         if($date != date('yy-m-d'))
