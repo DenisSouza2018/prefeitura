@@ -10,7 +10,10 @@
     header ('Content-type: text/html; charset=UTF-8');
     session_start();
 
-    function __autoload($class_name){ require_once 'C:/xampp/htdocs/prefeitura/formulario/classe/'. $class_name . '.php'; }
+    // Maq. Casa
+    //function __autoload($class_name){ require_once 'C:/xampp/htdocs/prefeitura/formulario/classe/'. $class_name . '.php'; }
+    //Maq. Serviço
+    function __autoload($class_name){ require_once 'D:/xampp/htdocs/prefeitura/formulario/classe/'. $class_name . '.php'; }
 
     $envio = new Formulario();
     

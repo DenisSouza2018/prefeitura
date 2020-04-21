@@ -3,8 +3,11 @@
     header ('Content-type: text/html; charset=UTF-8');
     session_start();
 
-    //Para o Windows
-    function __autoload($class_name){ require_once 'C:/xampp/htdocs/prefeitura/login/classe/'. $class_name . '.php'; }
+    //Para o Windows casa
+    //function __autoload($class_name){ require_once 'C:/xampp/htdocs/prefeitura/login/classe/'. $class_name . '.php'; }
+
+    //Para o Windows Serviço
+    function __autoload($class_name){ require_once 'D:/xampp/htdocs/prefeitura/login/classe/'. $class_name . '.php'; }
 
     //Para o linux
     //function __autoload($class_name){ require_once '/opt/lampp/htdocs/prefeitura/login/classe/'. $class_name . '.php'; }
