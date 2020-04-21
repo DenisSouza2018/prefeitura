@@ -21,17 +21,17 @@
 
         $db = mysqli_connect('localhost','root','','db_prefeitura')
         or die('Error connecting to MySQL server.');
-        $query = "select true from usuario where email = '$email';";
+        $query = "select true from usuario where email = '$email' AND senha = '$senha'";
         mysqli_query($db, $query) or die('Error querying database.');
         $result = mysqli_query($db, $query);
         $row = mysqli_fetch_array($result);
         $valida = $row['TRUE'];
+        
         if($valida != null){
-            $query = "SELECT true FROM `usuario` where (email = '$email' OR login = '$email') AND senha = $senha";
+            $query = "SELECT true FROM `usuario` where (email = '$email' OR login = '$email') AND senha = '$senha'";
             mysqli_query($db, $query) or die('Error querying database.');
             $result = mysqli_query($db, $query);
             $row = mysqli_fetch_array($result);
-            
             if($row['TRUE']){
                 $id_session = mt_rand();
                     while(strlen($id_session) != 10)
