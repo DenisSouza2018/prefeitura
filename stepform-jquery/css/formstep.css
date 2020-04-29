@@ -1,0 +1,35 @@
+.btn-anterior{
+    color: #fff;
+    background-color: #cc6666;
+    border-color: #cc6666;
+    margin-top: 11%;
+}
+
+.btn-proximo{
+    color: #fff;
+    background-color: #cc6666;
+    border-color: #cc6666;
+    margin-left: 86%;
+    margin-top: -10%;
+}
+
+.btn-enviar{
+    color: #fff;
+    background-color: #6ad14b;
+    border-color: #6ad14b;
+}
+
+
+.validacao{
+    align-items:flex-start;
+    color:#d93025;
+    display:flex;
+    font-size:12px;
+    line-height:normal;
+    margin-top:2px
+}
+
+.validacao-sub{
+    margin-right:8px;
+    margin-top:-2px
+}
