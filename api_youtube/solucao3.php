@@ -1,6 +1,6 @@
 <?php
 
-    $keyApi = "AIzaSyDN8q1BCYvEQ8lN6v7UXJX24Q4ReKZGy6o";  
+    $keyApi = "AIzaSyDN8q1BCYvEQ8lN6v7UXJX25yQReKZGy6o";  
     $IdCanal = "UC6MQScSFXELHjpYkddqYRbQ";
     $API_URL_TODAS_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlists?part=%20snippet%2CcontentDetails&channelId=$IdCanal&maxResults=30&key=$keyApi";
     $todasPlaysList = json_decode( file_get_contents( $API_URL_TODAS_PLAYLIST ));
