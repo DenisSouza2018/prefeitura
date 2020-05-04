@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Multi-step form with FE validations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="form-section" data-ng-app="form" data-multi-step-form>
+  <div class="form-container">
+    <div class="progress-bar">
+      <div class="progress-bar-fg" data-ng-class="progressClass()"></div>
+    </div>
+    <div class="back-link" data-ng-show="formStep > 0">
+      <a href="#" data-ng-click="formStep = formStep - 1">&lt; back</a>
+    </div>
+    <div class="form-step-container">
+      <form class="form-step form-step-one" name="step_one" data-ng-show="formStep == 0" data-ng-submit="submitStep('step_one')">
+        <label>
+          <p>Choose your interest:</p>
+          <select class="form-field" name="interest" data-ng-model="formData.step_one.interest" data-ng-class="{'error':error('interest')}" data-required>
+            <option value="">Select...</option>
+            <option value="dogs">Dogs</option>
+            <option value="cats">Cats</option>
+          </select>
+          <div class="error-msg" data-ng-show="error('interest')" data-ng-bind="error('interest')"></div>
+        </label>
+        <div class="submit-button">
+          <button type="submit">next step</button>
+        </div>
+      </form>
+    </div>
+    <div class="form-step-container">
+      <form class="form-step form-step-two" name="step_two" data-bh-form data-ng-show="formStep == 1" data-ng-submit="submitStep('step_two')">
+        <div class="form-row">
+          <div class="form-column zip-column">
+
+            <label class="zip-field">
+              <p>Zip:</p>
+              <input type="text" data-number-field="true" class="form-field" name="zipcode" data-ng-model="formData.step_two.zipcode" data-required data-ng-class="{'error':error('zipcode')}" maxlength="5">
+              <div class="error-msg" data-ng-show="error('zipcode')" data-ng-bind="error('zipcode')"></div>
+            </label>
+          </div>
+          <div class="form-column city-column">
+            <label class="city-field">
+              <p>City:</p>
+              <input type="text" class="form-field" name="city" data-ng-model="formData.step_two.city" data-required data-ng-class="{'error':error('city')}">
+              <div class="error-msg" data-ng-show="error('city')" data-ng-bind="error('city')"></div>
+            </label>
+          </div>
+          <div class="form-column state-column">
+            <label class="state-field">
+              <p>Breed:</p>
+              <select class="form-field" name="state" data-ng-model="formData.step_two.state" data-required data-ng-class="{'error':error('state')}" data-breed-field="step_one,interest" data-ng-options="v.key as k for (k, v) in options | dogFilter:dogs">
+                <option value="">Select...</option>
+              </select>
+              <div class="error-msg" data-ng-show="error('state')" data-ng-bind="error('state')"></div>
+            </label>
+          </div>
+        </div>
+        <div class="submit-button">
+          <button type="submit">next step</button>
+        </div>
+      </form>
+    </div>
+    <div class="form-step-container">
+      <form class="form-step form-step-three" name="step_three" data-bh-form data-ng-show="formStep == 2" data-ng-submit="submitStep('step_three')">
+        <div class="form-row">
+          <div class="form-column name-column">
+            <label>
+              <p>First Name:</p>
+              <span class="input-wrapper" data-ng-class="{'error':error('first_name'),valid:valid('step_three','first_name')}">
+                <input type="text" class="form-field" name="first_name" data-ng-model="formData.step_three.first_name" data-required data-ng-class="{'error':error('first_name')}" data-validate-on-blur>
+              </span>
+              <div class="error-msg" data-ng-show="error('first_name')" data-ng-bind="error('first_name')"></div>
+            </label>
+          </div>
+          <div class="form-column name-column">
+            <label>
+              <p>Last Name:</p>
+              <span class="input-wrapper" data-ng-class="{'error':error('last_name'),valid:valid('step_three','last_name')}">
+                <input type="text" class="form-field" name="last_name" data-ng-model="formData.step_three.last_name" data-required data-ng-class="{'error':error('last_name')}" data-validate-on-blur>
+              </span>
+              <div class="error-msg" data-ng-show="error('last_name')" data-ng-bind="error('last_name')"></div>
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-column phone-column" data-multi-field="phone_number">
+            <label>
+              <p>Main Phone Number:</p>
+              <span class="phone-field"><input type="tel" data-number-field class="form-field phone-input" name="area_code" data-ng-model="area_code" maxlength="3" data-min-length="3" data-required data-error="phone_number" data-ng-class="{'error':error('phone_number')}"></span>
+              <span class="phone-field"><input type="tel" data-number-field class="form-field phone-input" name="exchange" data-ng-model="exchange" maxlength="3" data-min-length="3" data-required data-error="phone_number" data-ng-class="{'error':error('phone_number')}"></span>
+              <span class="phone-field"><input type="tel" data-number-field class="form-field phone-input" name="suffix" data-ng-model="suffix" maxlength="4" data-min-length="4" data-required data-error="phone_number" data-ng-class="{'error':error('phone_number')}"></span>
+              <div class="error-msg" data-ng-show="error('phone_number')" data-ng-bind="error('phone_number')"></div>
+            </label>
+          </div>
+          <div class="form-column phone-column">
+            <label>
+              <p>Alternate Phone:</p>
+              <span class="input-wrapper" data-ng-class="{'error':error('phone_number2'),valid:valid('step_three','phone_number2')}">
+                <input type="tel" class="form-field" name="phone_number2" data-ng-model="formData.step_three.phone_number2" data-required data-ng-class="{'error':error('phone_number2')}" data-min-length="14" data-phone-mask="(***) ***-****" data-validate-on-blur>
+              </span>
+              <div class="error-msg" data-ng-show="error('phone_number2')" data-ng-bind="error('phone_number2')"></div>
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-column email-column">
+            <label>
+              <p>Email:</p>
+              <input type="email" class="form-field" name="email" data-ng-model="formData.step_three.email" data-required data-ng-class="{'error':error('email')}">
+              <div class="error-msg" data-ng-show="error('email')" data-ng-bind="error('email')"></div>
+            </label>
+          </div>
+          <div class="form-column email-column">
+            <label>
+              <p>Confirm Email:</p>
+              <input type="email" class="form-field" name="confirm_email" data-ng-model="formData.step_three.confirm_email" data-required data-ng-class="{'error':error('confirm_email')}" data-match="email" data-error-msg="Email Addresses Must Match">
+              <div class="error-msg" data-ng-show="error('confirm_email')" data-ng-bind="error('confirm_email')"></div>
+            </label>
+          </div>
+        </div>
+        <div class="disclaimer" data-disclaimer="phone_number2" data-ng-show="show">
+          <p>Disclaimer</p>
+        </div>
+        <div class="submit-button">
+          <button type="submit" data-ng-disabled="disableSubmit">next step</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
