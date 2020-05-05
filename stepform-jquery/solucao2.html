@@ -17,47 +17,50 @@
     <div class="container">
         <h2 class="page-header">Basic Form Example</h2>
         <p><button id="init-form" type="button" class="btn btn-large btn-primary">Start Example</button></p>
-        <form id="example-form" action="#" style="display: none;">
-            <div>
-                <h3>Account</h3>
-                <section>
-                    <label for="userName">User name *</label>
-                    <input id="userName" name="userName" type="text" class="required">
-                    <label for="password">Password *</label>
-                    <input id="password" name="password" type="text" class="required">
-                    <label for="confirm">Confirm Password *</label>
-                    <input id="confirm" name="confirm" type="text" class="required">
-                    <p>(*) Mandatory</p>
-                </section>
-
-                <h3>Profile</h3>
-                <section>
-                    <label for="name">First name *</label>
-                    <input id="name" name="name" type="text" class="required">
-                    <label for="surname">Last name *</label>
-                    <input id="surname" name="surname" type="text" class="required">
-                    <label for="email">Email *</label>
-                    <input id="email" name="email" type="text" class="required email">
-                    <label for="address">Address</label>
-                    <input id="address" name="address" type="text">
-                    <p>(*) Mandatory</p>
-                </section>
-
-                <h3>Hints</h3>
-                <section>
-                    <ul>
-                        <li>Foo</li>
-                        <li>Bar</li>
-                        <li>Foobar</li>
-                    </ul>
-                </section>
-
-                <h3>Finish</h3>
-                <section>
-                    <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label
-                        for="acceptTerms">I agree with the Terms and Conditions.</label>
-                </section>
+        <form>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault01">First name</label>
+                    <input type="text" class="form-control" id="validationDefault01" placeholder="First name"
+                        value="Mark" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault02">Last name</label>
+                    <input type="text" class="form-control" id="validationDefault02" placeholder="Last name"
+                        value="Otto" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefaultUsername">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend21">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username"
+                            aria-describedby="inputGroupPrepend21" required>
+                    </div>
+                </div>
             </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault03">City</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationDefault04">State</label>
+                    <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationDefault05">Zip</label>
+                    <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="invalidCheck12" required>
+                    <label class="custom-control-label" for="invalidCheck">Agree to terms and conditions</label>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-sm" type="submit">Submit form</button>
         </form>
     </div>
     <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>

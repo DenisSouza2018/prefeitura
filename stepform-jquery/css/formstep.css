@@ -2,7 +2,8 @@
     color: #fff;
     background-color: #cc6666;
     border-color: #cc6666;
-    margin-top: 11%;
+    margin-top: -10%;
+    margin-left: 172%;
 }
 
 .btn-proximo{
@@ -13,11 +14,33 @@
     margin-top: -10%;
 }
 
+.div-confirma-dados{
+    margin-top:10% ;
+}
+
 .btn-enviar{
     color: #fff;
     background-color: #6ad14b;
     border-color: #6ad14b;
 }
+
+.btn-true{
+    color: #fff;
+    background-color: #6ad14b;
+    border-color: #6ad14b;
+    margin-top: 1%;
+    margin-left: 8%;
+}
+
+.btn-false{
+    color: #fff;
+    background-color: #cc6666;
+    border-color: #cc6666;
+    margin-top: 1%;
+    margin-left: 8%;
+}
+
+
 
 
 .validacao{

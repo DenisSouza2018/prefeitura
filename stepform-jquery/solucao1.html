@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stepsform</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/formstep.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Formulário Pessoa Jurídica FUPAI</h2>
+                <span style="font-size: 24px; color: #336699;">PASSO <span id="passo"></span></span>
+                
+                <form class="form-signin" method="post" enctype="multipart/form-data" action="processa.php">
+                    <div id="step_1" class="step">
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="razao">*Razão Social:</label>
+                                <input type="text" class="form-control" id="razao" name="razao"
+                                    placeholder="Razão Social" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="fantasia">*Nome Fantasia:</label>
+                                <input type="text" class="form-control" id="fantasia" name="fantasia"
+                                    placeholder="Nome fantasia" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="cnpj">*CNPJ: </label>
+                                <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="cnpj"
+                                    required="require">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="estadual">*Inscrição Estadual: </label>
+                                <input type="text" class="form-control" id="estadual" name="estadual"
+                                    placeholder="Inscrição Estadual" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-4">
+                                <label for="cep">*CEP: </label>
+                                <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP"
+                                    required="require">
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label for="endereco">*Endereço: </label>
+                                <input type="text" class="form-control" id="endereco" name="endereco"
+                                    placeholder="Endereço" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-2 mb-4">
+                                <label for="numero">*Número: </label>
+                                <input type="text" class="form-control" id="numero" name="numero" placeholder="Número"
+                                    required="require">
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <label for="complemento">*Complemento: </label>
+                                <input type="text" class="form-control" id="complemento" name="complemento"
+                                    placeholder="Complemento" required="require">
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <label for="bairro">*Bairro: </label>
+                                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro"
+                                    required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-5 mb-4">
+                                <label for="cidade">*Cidade: </label>
+                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade"
+                                    required="require">
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <label for="estado">*Estado: </label>
+                                <select id="estado" name="estado" class="form-control" required="required">
+                                    <option selected>MG</option>
+                                    <option>AC</option>
+                                    <option>AL</option>
+                                    <option>AP</option>
+                                    <option>AM</option>
+                                    <option>BA</option>
+                                    <option>CE</option>
+                                    <option>DF</option>
+                                    <option>ES</option>
+                                    <option>GO</option>
+                                    <option>MA</option>
+                                    <option>MT</option>
+                                    <option>MS</option>
+                                    <option>PA</option>
+                                    <option>PB</option>
+                                    <option>PR</option>
+                                    <option>PE</option>
+                                    <option>PI</option>
+                                    <option>RJ</option>
+                                    <option>RN</option>
+                                    <option>RO</option>
+                                    <option>RR</option>
+                                    <option>SC</option>
+                                    <option>SP</option>
+                                    <option>SE</option>
+                                    <option>TO</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <label for="contato">*Contato: </label>
+                                <input type="text" class="form-control" id="contato" name="contato"
+                                    placeholder="Contato" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="cargo">Cargo: </label>
+                                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="departamento">Departamento: </label>
+                                <input type="text" class="form-control" id="departamento" name="departamento"
+                                    placeholder="Departamento">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="telefone">*Telefone: </label>
+                                <input type="text" name="telefone" id="telefone" class="form-control"
+                                    placeholder="Telefone" required="require">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="fax">Fax: </label>
+                                <input type="text" name="fax" id="fax" class="form-control" placeholder="Fax">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-3">
+                                <label for="email">*E-mail: </label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
+                                    required="require">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="step_2" class="step">
+                        <div style="width: 940px; font-family: Open Sans, sans-serif; font-size:14px; float:left; border-top: 7px solid #669999; margin-top: -1px;">
+                            <div style="margin-top: 50px; width: 960px;">
+                                <div style="float: left;">
+                                    <input name="pagamento" type="radio" id="pagamento" style="margin-left: 20px; float: left; margin-top: 15%;" value="Boleto"> <img style="margin-left: 20px;" src="./img/icone_boleto.png">
+                                </div>
+                                <div style="width: 376px; float: left; margin-left: 60px; margin-top: 5px;">
+                                    <input style="float: left;margin-top: 4%;" type="radio" name="pagamento" id="deposito2" value="Depósito"><span style="font-size: 16px; color: #666666; margin-left: 10px; margin-top: 2.5%;float: left;">Depósito</span><img style="margin-left: 20px;float: left;" src="./img/icone_bb.png">
+                                    <div style="float:left; width: 148px;margin-left: 10px;line-height: 1.3;color: #666666; font-size: 12px; color: #666666; margin-top: -2.3px;">
+                                        <span>Agêência 0308-5</span> 
+                                        <span style="float: left;">Conta corrente 49033-4</span> 
+                                        <span style="float: left;">CNPJ 18.025.536/0001-27</span>
+                                    </div>
+                                </div>
+                                <div style="float: left; color: #666666; margin-left: 7px;width: 157px;">
+                                    <input style="margin-left: 0px; float: left; margin-top: 13%;" type="radio" name="pagamento" id="antecipado" value="Antecipado"> 
+                                    <div style="float:left; width: 139px;">
+                                        <span style="font-size: 16px; float: left;margin-left: 28px;">Antecipado</span>
+                                        <span style="font-size: 12px; float: left; font-weight: 600;margin-left: 15px;">(Consulte desconto)</span>
+                                    </div>
+                                </div>
+                                <div style="float: left; color: #666666; margin-left: 40px;width: 180px;">
+                                    <input style="margin-left: 0px; float: left; margin-top: 11%;" type="radio" name="pagamento" id="a_combinar" value="A combinar"> 
+                                    <div style="float:left; width: 103px;margin-top: 14px;">
+                                        <span style="font-size: 16px; float: left;margin-left: 10px;">A combinar</span>
+                                    </div>
+                                </div>
+
+                                <div id="opcao_boleto" style="width: 940px; display: none;">
+                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px; margin-left: 15px;">
+                                        <input type="radio" name="tipoBoleto" value="a vista">A vista
+                                        <input style="margin-left: 30px;" type="radio" name="tipoBoleto" value="7 dias">7 dias ddl
+                                    </div>
+                                </div>	
+                                <div id="opcao_deposito" style="width: 940px; display: none;">
+                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px; margin-left: 195px;">
+                                        <input type="radio" name="tipoDeposito" value="a vista">A vista
+                                        <input style="margin-left: 30px;" type="radio" name="tipoDeposito" value="7 dias">7 dias ddl
+                                    </div>
+                                </div>	
+                                <div id="opcao_combinar" style="width: 940px; display: none;">
+                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px;">
+                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 25%;"> 
+                                            <span style="font-weight: 600; font-size: 16px;">Especificar e justificar a forma de pagamento pretendida</span>
+                                            <span style="font-weight: 600; font-size: 12px;">(sujeito a aprovação)</span>
+                                        </div>
+                                        <div style="float: left; margin-left: 16px; margin-right: auto; width: 73%; background: #eaeaea; height: 80px; border-radius: 5px;"> 
+                                            <textarea style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none;" name="especificacao"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>	
+                        </div>
+                        <br/><br/>
+                    </div>
+                    <div id="step_3" class="step">
+
+                        <div style="width: 100%; float: left; margin-top: 30px; margin-left: auto; margin-right: auto;">
+                            <div style="margin-top:20px;">
+                                <div>
+                                    <span style="float:left; margin-top: 11px">*E-mail para envio da NF-e</span>
+                                    <div style="background:#eaeaea; width: 698px; margin-left: 35px; height: 37px;float: left;border-radius: 5px;">
+                                        <input required="" type="email" name="email_nota_fiscal" style="font-size: 16px; width: 662px; height: 35px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
+                                    </div>	
+                                </div>	
+                                
+                                <div style="float: left; margin-top: 39px; color: #666666; font-weight: 600; font-size: 16px;">
+                                    <span>Deseja cadastrar outros e-mails para envio da NF-e?</span>
+                                    <input id="sim_email_nota" style="margin-left: 20px;" type="radio" name="opcao_email_nota" value="sim_email_nota"> <span>SIM</span>
+                                    <input checked="" id="nao_email_nota" style="margin-left: 20px;" type="radio" name="opcao_email_nota" value="nao_email_nota"> <span>NãO</span>
+                                </div>	
+                                
+                                <div id="area_mais_email" style="display:none; width: 940px;">
+                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px;">
+                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 21%; margin-top: 13px;"> 
+                                            <span style="font-weight: 600; font-size: 16px;">Coloque os emails</span>
+                                            <span style="font-weight: 600; font-size: 16px;">separados por</span><br>
+                                            <span style="font-weight: 600; font-size: 16px;"> ';' (ponto e vírgula)</span>
+                                        </div>
+                                        <div style="float: left; margin-left: 34px; margin-right: auto; width: 74%; background: #eaeaea; height: 110px; border-radius: 5px;"> 
+                                            <textarea style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none; border-radius: 5px; padding-left: 15px;" name="mais_email_nota"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 10px; font-size: 11px; float: right; margin-right: 4px;">
+                                    <span>*Preenchimento obrigatório</span>
+                                </div>
+                            </div>
+                            
+                            <div style="float: left; margin-top: 30px; width: 100%;">
+                                <span style="float:left; margin-top: 6px;">Existem informações extras para preenchimento da NF-e?</span>
+                                <div style="margin-left: 20px; height: 37px;float: left;border-radius: 5px; margin-top: 7px;">
+                                    <!--<input onclick="mostraExtras();" id="sim" value="sim" type="radio" name="extras">SIM</input>-->
+                                    <input id="sim" value="sim" type="radio" name="extras">SIM
+                                    <!--<input onclick="someExtras();" id="nao" value="nao" type="radio" name="extras">N&atilde;O</input>-->
+                                    <input checked="" id="nao" value="nao" type="radio" name="extras">NãO
+                                </div>	
+                            </div>
+                            
+                            <div id="extras" style="display: none;">
+                                <div id="quais" style="width: 940px;">
+                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 0px; margin-left: 10px;" id="divBoleto">
+                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 21%; margin-top: 13px;"> 
+                                            <span style="font-weight: 600; font-size: 16px;">Quais informações devem constar na NF-e?</span>
+                                            <span style="font-weight: 600; font-size: 12px;">(Ex. pedido de compra, nº de autorização, etc)</span>
+                                        </div>
+                                        <div style="float: left; margin-left: 34px; margin-right: auto; width: 74%; background: #eaeaea; height: 110px; border-radius: 5px;"> 
+                                            <textarea style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none; border-radius: 5px; padding-left: 15px;" name="informacoes_nota"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div id="informe" style="float: left; margin-top: -16px;">
+                                        <div style="width: 231px;float: left;margin-top: 30px; font-size: 12px; margin-left: 11px;">
+                                            <span style="float:left; margin-top: 6px; font-size: 16px; margin-bottom: -7px;">Informe o prazo para a</span>
+                                            <span style="float:left; margin-top: 6px; font-size: 16px;">emissão da NF-e</span><span style="float: left; margin-top: 8px; margin-left: 5px;">(se houver)</span>
+                                        </div>	
+                                        <div style="background:#eaeaea; width: 217px;margin-left: 0px; height: 41px;float: left;border-radius: 5px;margin-top: 36px;">
+                                            <input type="text" maxlength="10" onkeypress="javascript: mascara(this, nascimento_mask);" name="prazo_emissao" style="font-size: 16px; width: 200px; height: 38px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
+                                        </div>	
+                                    </div>
+                                    
+                                    <div id="dias" style="float: left;width: 456px;margin-left: 20px; margin-top: -16px;">
+                                        <div style="width: 231px; float: left;margin-top: 29px; font-size: 12px; margin-left: 11px;">
+                                            <span style="float:left; margin-top: 6px; font-size: 16px; margin-bottom: -7px;">Dia da semana para o</span>
+                                            <span style="float:left; margin-top: 6px; font-size: 16px;">vencimento da NF-e</span><span style="float: left; margin-top: 8px; margin-left: 5px;">(se houver)</span>
+                                        </div>	
+                                        <div style="width: 439px;margin-left: 16px; height: 41px;/* float: left; */border-radius: 5px; color: #666666;margin-top: 31px;">
+                                            
+                                            <select name="dia_semana" id="dia_semana" style="margin-top: 3px; font-size: 16px; border: none;width: 209px; height: 41px; background-color: #eaeaea; border-radius: 5px; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 3px;/* float: left; */">
+                                                <option value="">Escolha</option>
+                                                <option value="Segunda-feira">Segunda-feira</option>
+                                                <option value="Terça-feira">Terça-feira</option>
+                                                <option value="Quarta-feira">Quarta-feira</option>
+                                                <option value="Quinta-feira">Quinta-feira</option>
+                                                <option value="Sexta-feira">Sexta-feira</option>
+                                            </select>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>	
+                        </div>
+
+                        
+                    </div>
+
+                    <div id="step_4" class="step">
+
+                        <div class="form-row">
+                            
+                            <div class="col-md-3 mb-4">
+                                <label for="quantidade">*Quantos participantes irá cadastrar ?</label>
+                                <input type="number" class="form-control" id="quantidade" name="quantidade"
+                                    placeholder="Nome fantasia" required="require">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-sm btn-enviar" name="enviar">Enviar</button>
+                        </div>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+        <!-- <?php
+                    if (isset($_GET['erro']) && $_GET['erro'] == '1') {
+                    echo "
+                    <div class='validacao'>
+                        <span class='validacao-sub'>
+                    <svg aria-hidden='true' class='stUf5b qpSchb' fill='currentColor' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'>
+                    <path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path>
+                    </svg>
+                    </span>Preencha todos os campos do formulario corretamente</div>
+                    ";
+                    }
+                ?> -->
+
+        <div class="row">
+
+            <div class="col-lg-6 " style="margin-top: 5%;">
+                <label for="">Os dados informados estão corretos ? </label><br />
+                <button class="btn btn-sm btn-false" onclick="validarUser()">Não</button>
+                <button class="btn btn-sm btn-true" onclick="validarUser()">Sim</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <button class="btn btn-sm btn-anterior" id="prev">Anterior</button>
+            </div>
+            <div class="col-lg-6">
+                <button type="submit" class="btn btn-sm btn-proximo" id="next" disabled>Próximo</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        function validarUser() {
+            var razao = document.getElementById("razao").value,
+                fantasia = document.getElementById("fantasia").value,
+                cnpj = document.getElementById("cnpj").value,
+                estadual = document.getElementById("estadual").value,
+                cep = document.getElementById("cep").value,
+                endereco = document.getElementById("endereco").value,
+                numero = document.getElementById("numero").value,
+                complemento = document.getElementById("complemento").value,
+                bairro = document.getElementById("bairro").value,
+                cidade = document.getElementById("cidade").value,
+                estado = document.getElementById("estado").value,
+                contato = document.getElementById("contato").value,
+                telefone = document.getElementById("telefone").value,
+                email = document.getElementById("email").value;
+
+            // verifica cada variável para ver se tem conteúdo ou não
+            if (razao && fantasia && cnpj && estadual && cep && endereco && numero && complemento && bairro && cidade && estado && contato && telefone && email) {
+                document.getElementById("next").disabled = false;
+                //alert("Dados confirmado, por favor prossiga !");
+                Swal.fire(
+                    'Dados Verificado com Sucesso',
+                    'Por favor, prossiga !',
+                    'success'
+                );
+            }else{
+                document.getElementById("next").disabled = false;
+                Swal.fire(
+                    'Dados Incompletos',
+                    'Por favor, verifique suas informações !',
+                    'info'
+                );
+            }
+
+
+        }
+
+
+        $(document).ready(function carrega() {
+
+
+
+            //Esconde todos os passos e exibe o primeiro ao carregar a página 
+            $('.step').hide();
+            $('.step').first().show();
+
+            //Exibe no topo em qual passo estamos pela ordem da div que esta visivel
+            var passoexibido = function () {
+                var index = parseInt($(".step:visible").index());
+                if (index == 0) {
+                    //Se for o primeiro passo desabilita o botão de voltar
+                    $("#prev").prop('disabled', true);
+                } else if (index == (parseInt($(".step").length) - 1)) {
+                    //Se for o ultimo passo desabilita o botão de avançar
+                    $("#next").prop('disabled', true);
+                } else {
+                    //Em outras situações os dois serão habilitados
+                    $("#next").prop('disabled', false);
+                    $("#prev").prop('disabled', false);
+                }
+                $("#passo").html(index + 1);
+
+            };
+
+
+
+            //Executa a função ao carregar a página
+            passoexibido();
+
+            //avança para o próximo passo
+
+
+
+            $("#next").click(function () {
+                $(".step:visible").hide().next().show();
+                passoexibido();
+                document.getElementById("next").disabled = true;
+            });
+
+
+            //retrocede para o passo anterior
+            $("#prev").click(function () {
+                $(".step:visible").hide().prev().show();
+                passoexibido();
+            });
+
+        });
+
+
+    </script>
+</body>
+
+</html>
