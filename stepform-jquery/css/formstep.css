@@ -14,6 +14,26 @@
     margin-top: -10%;
 }
 
+.btn-finalizar{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+    margin-left: 94%;
+    margin-top: 1%;
+}
+
+
+
+  .btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    margin-left: 95%;
+  }
+
 .div-confirma-dados{
     margin-top:10% ;
 }

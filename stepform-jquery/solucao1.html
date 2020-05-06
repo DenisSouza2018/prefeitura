@@ -9,6 +9,9 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <!-- Custom styles for this template -->
@@ -21,9 +24,9 @@
             <div class="col-lg-12">
                 <h2>Formulário Pessoa Jurídica FUPAI</h2>
                 <span style="font-size: 24px; color: #336699;">PASSO <span id="passo"></span></span>
-                
+
                 <form class="form-signin" method="post" enctype="multipart/form-data" action="processa.php">
-                    <div id="step_1" class="step">
+                    <!-- <div id="step_1" class="step">
                         <div class="form-row">
                             <div class="col-md mb-4">
                                 <label for="razao">*Razão Social:</label>
@@ -246,9 +249,7 @@
                             <div style="float: left; margin-top: 30px; width: 100%;">
                                 <span style="float:left; margin-top: 6px;">Existem informações extras para preenchimento da NF-e?</span>
                                 <div style="margin-left: 20px; height: 37px;float: left;border-radius: 5px; margin-top: 7px;">
-                                    <!--<input onclick="mostraExtras();" id="sim" value="sim" type="radio" name="extras">SIM</input>-->
                                     <input id="sim" value="sim" type="radio" name="extras">SIM
-                                    <!--<input onclick="someExtras();" id="nao" value="nao" type="radio" name="extras">N&atilde;O</input>-->
                                     <input checked="" id="nao" value="nao" type="radio" name="extras">NãO
                                 </div>	
                             </div>
@@ -299,18 +300,260 @@
                         </div>
 
                         
-                    </div>
+                    </div> -->
 
                     <div id="step_4" class="step">
-
+                        <button type="button" class="btn btn-success btn-circle btn-lg"  onclick="salvar()" data-toggle="tooltip" data-placement="top" title="Adiciona Participante"><i
+                                class="glyphicon glyphicon-plus"></i></button>
                         <div class="form-row">
-                            
+                            <div class="col-md-6 mb-4">
+                                <label for="treinamento1">*Treinamento: </label>
+                                <input type="text" class="form-control" id="treinamento1" name="treinamento1"
+                                    placeholder="Treinamento" required="require">
+                            </div>
                             <div class="col-md-3 mb-4">
-                                <label for="quantidade">*Quantos participantes irá cadastrar ?</label>
-                                <input type="number" class="form-control" id="quantidade" name="quantidade"
-                                    placeholder="Nome fantasia" required="require">
+                                <label for="dataT1">*Data: </label>
+                                <input type="text" class="form-control" id="dataT1" name="dataT1"
+                                    placeholder="Data do Treinamento" required="require">
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <label for="escolaridade1">Escolaridade: </label>
+                                <select id="escolaridade1" name="escolaridade1" class="form-control"
+                                    required="required">
+                                    <option selected>Tecnico</option>
+                                    <option>Superior</option>
+                                    <option>Mestrado</option>
+                                    <option>Pós Gradução</option>
+                                    <option>Doutorado</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="nomeParticipante1">*Nome: </label>
+                                <input type="text" class="form-control" id="nomeParticipante1" name="nomeParticipante1"
+                                    placeholder="Treinamento" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="formacao1">Formação: </label>
+                                <input type="text" class="form-control" id="formacao1" name="formacao1"
+                                    placeholder="Formação" required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="cep1">*CEP: </label>
+                                <input type="text" class="form-control" id="cep1" name="cep1" placeholder="CEP"
+                                    required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="endereco1">*Endereço: </label>
+                                <input type="text" class="form-control" id="endereco1" name="endereco1"
+                                    placeholder="Endereço" required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="numero1">*Número: </label>
+                                <input type="text" class="form-control" id="numero1" name="numero1" placeholder="Número"
+                                    required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="complemento1">Complemento: </label>
+                                <input type="text" class="form-control" id="complemento1" name="complemento1"
+                                    placeholder="Complemento" required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="bairro1">*Bairro: </label>
+                                <input type="text" class="form-control" id="bairro1" name="bairro1" placeholder="Bairro"
+                                    required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="dataNasc1">Data de nascimento: </label>
+                                <input type="date" class="form-control" id="dataNasc1" name="dataNasc1"
+                                    placeholder="Data de nascimento" required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="cpf1">*CPF: </label>
+                                <input type="text" class="form-control" id="cpf1" name="cpf1" placeholder="CPF"
+                                    required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="rg1">*RG: </label>
+                                <input type="text" class="form-control" id="rg1" name="rg1" placeholder="RG"
+                                    required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="orgaoEx1">*Orgão expedidor: </label>
+                                <input type="text" class="form-control" id="orgaoEx1" name="orgaoEx1"
+                                    placeholder="Orgão expedidor" required="require">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="cidade1">*Cidade: </label>
+                                <input type="text" class="form-control" id="cidade1" name="cidade1" placeholder="Cidade"
+                                    required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="celular1">*Celular: </label>
+                                <input type="text" class="form-control" id="celular1" name="celular1"
+                                    placeholder="Celular" required="require">
+                            </div>
+                            <div class="col-md-2 mb-4">
+                                <label for="estado1">*Estado: </label>
+                                <select id="estado1" name="estado1" class="form-control" required="required">
+                                    <option selected>MG</option>
+                                    <option>AC</option>
+                                    <option>AL</option>
+                                    <option>AP</option>
+                                    <option>AM</option>
+                                    <option>BA</option>
+                                    <option>CE</option>
+                                    <option>DF</option>
+                                    <option>ES</option>
+                                    <option>GO</option>
+                                    <option>MA</option>
+                                    <option>MT</option>
+                                    <option>MS</option>
+                                    <option>PA</option>
+                                    <option>PB</option>
+                                    <option>PR</option>
+                                    <option>PE</option>
+                                    <option>PI</option>
+                                    <option>RJ</option>
+                                    <option>RN</option>
+                                    <option>RO</option>
+                                    <option>RR</option>
+                                    <option>SC</option>
+                                    <option>SP</option>
+                                    <option>SE</option>
+                                    <option>TO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md mb-4">
+                                <label for="email1">*E-mail: </label>
+                                <input type="email1" class="form-control" id="email1" name="email1" placeholder="E-mail"
+                                    required="require">
+                            </div>
+                            <div class="col-md mb-4">
+                                <label for="telResidencial1">*Telefone Residencial: </label>
+                                <input type="text" class="form-control" id="telResidencial1" name="telResidencial1"
+                                    placeholder="Telefone Residencial" required="require">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-finalizar">Finalizar</button>
+
+                        <script>
+
+                            function salvar() {
+
+                                if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
+                                    let dados = JSON.parse(localStorage.getItem("lista-pessoas"))
+                                    console.log(dados)
+                                    // arrayPessoas.push(JSON.parse(localStorage.getItem("pessoas")));
+
+                                }
+
+                                var nome = document.getElementById("nomeParticipante1").value;
+                                var cep = document.getElementById("cep1").value;
+                                var treinamento = document.getElementById("treinamento1").value;
+                                var dataT = document.getElementById("dataT1").value;
+                                var escolaridade = document.getElementById("escolaridade1").value;
+                                var formacao = document.getElementById("formacao1").value;
+                                var endereco = document.getElementById("endereco1").value;
+                                var numero = document.getElementById("numero1").value;
+                                var complemento = document.getElementById("complemento1").value;
+                                var bairro = document.getElementById("bairro1").value;
+                                var dataNasc = document.getElementById("dataNasc1").value;
+                                var cpf = document.getElementById("cpf1").value;
+                                var rg = document.getElementById("rg1").value;
+                                var orgaoEx = document.getElementById("orgaoEx1").value;
+                                var cidade = document.getElementById("cidade1").value;
+                                var celular = document.getElementById("celular1").value;
+                                var estado = document.getElementById("estado1").value;
+                                var email = document.getElementById("email1").value;
+                                var telResidencial = document.getElementById("telResidencial1").value;
+
+
+
+                                if (treinamento && dataT && nome && cep && endereco && numero && bairro && cpf && rg && orgaoEx && cidade && celular && estado && email && telResidencial) {
+                                    // Pega a lista já cadastrada, se não houver vira um array vazio
+                                    var lista_pessoas = JSON.parse(localStorage.getItem('lista-pessoas') || '[]');
+                                    // Adiciona pessoa ao cadastro
+                                    lista_pessoas.push({
+                                        nome: nome,
+                                        cep: cep,
+                                        treinamento: treinamento,
+                                        dataT: dataT,
+                                        escolaridade: escolaridade,
+                                        formacao: formacao,
+                                        endereco: endereco,
+                                        numero: numero,
+                                        complemento: complemento,
+                                        bairro: bairro,
+                                        dataNasc: dataNasc,
+                                        cpf: cpf,
+                                        rg: rg,
+                                        orgaoEx: orgaoEx,
+                                        cidade: cidade,
+                                        celular: celular,
+                                        estado: estado,
+                                        email: email,
+                                        telResidencial: telResidencial
+                                    });
+
+                                    // Salva a lista alterada
+                                    localStorage.setItem("lista-pessoas", JSON.stringify(lista_pessoas));
+
+                                    //Limpa os campos pra proximo participante
+                                    document.getElementById("nomeParticipante1").value = '';
+                                    document.getElementById("cep1").value = '';
+                                    treinamento = document.getElementById("treinamento1").value = '';
+                                    dataT = document.getElementById("dataT1").value = '';
+                                    escolaridade = document.getElementById("escolaridade1").value = '';
+                                    formacao = document.getElementById("formacao1").value = '';
+                                    endereco = document.getElementById("endereco1").value = '';
+                                    numero = document.getElementById("numero1").value = '';
+                                    complemento = document.getElementById("complemento1").value = '';
+                                    bairro = document.getElementById("bairro1").value = '';
+                                    dataNasc = document.getElementById("dataNasc1").value = '';
+                                    cpf = document.getElementById("cpf1").value = '';
+                                    rg = document.getElementById("rg1").value = '';
+                                    orgaoEx = document.getElementById("orgaoEx1").value = '';
+                                    cidade = document.getElementById("cidade1").value = '';
+                                    celular = document.getElementById("celular1").value = '';
+                                    estado = document.getElementById("estado1").value = '';
+                                    email = document.getElementById("email1").value = '';
+                                    telResidencial = document.getElementById("telResidencial1").value = '';
+
+                                } else {
+                                    console.log('Campos obrigatorios não preenchido');
+                                    Swal.fire(
+                                        'Campos obrigatórios não preenchido',
+                                        'Por favor, preencha os campos !',
+                                        'info'
+                                    );
+                                }
+
+                                //console.log('Salva com sucesso.');
+
+
+
+
+                            }
+
+
+
+
+                        </script>
 
 
                         <div class="form-group">
@@ -365,7 +608,7 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
         function validarUser() {
             var razao = document.getElementById("razao").value,
@@ -392,7 +635,7 @@
                     'Por favor, prossiga !',
                     'success'
                 );
-            }else{
+            } else {
                 document.getElementById("next").disabled = false;
                 Swal.fire(
                     'Dados Incompletos',
