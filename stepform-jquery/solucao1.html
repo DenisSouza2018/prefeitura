@@ -25,7 +25,7 @@
                 <h2>Formulário Pessoa Jurídica FUPAI</h2>
                 <span style="font-size: 24px; color: #336699;">PASSO <span id="passo"></span></span>
 
-                <form class="form-signin" method="post" enctype="multipart/form-data" action="processa.php">
+                <form class="form-signin" id="form_final" method="post" enctype="multipart/form-data" >
                     <!-- <div id="step_1" class="step">
                         <div class="form-row">
                             <div class="col-md mb-4">
@@ -303,7 +303,8 @@
                     </div> -->
 
                     <div id="step_4" class="step">
-                        <button type="button" class="btn btn-success btn-circle btn-lg"  onclick="salvar()" data-toggle="tooltip" data-placement="top" title="Adiciona Participante"><i
+                        <button type="button" class="btn btn-success btn-circle btn-lg" onclick="salvar()"
+                            data-toggle="tooltip" data-placement="top" title="Adiciona Participante"><i
                                 class="glyphicon glyphicon-plus"></i></button>
                         <div class="form-row">
                             <div class="col-md-6 mb-4">
@@ -448,116 +449,10 @@
                                     placeholder="Telefone Residencial" required="require">
                             </div>
                         </div>
-
-                        <button type="button" class="btn btn-sm btn-finalizar">Finalizar</button>
-
-                        <script>
-
-                            function salvar() {
-
-                                if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
-                                    let dados = JSON.parse(localStorage.getItem("lista-pessoas"))
-                                    console.log(dados)
-                                    // arrayPessoas.push(JSON.parse(localStorage.getItem("pessoas")));
-
-                                }
-
-                                var nome = document.getElementById("nomeParticipante1").value;
-                                var cep = document.getElementById("cep1").value;
-                                var treinamento = document.getElementById("treinamento1").value;
-                                var dataT = document.getElementById("dataT1").value;
-                                var escolaridade = document.getElementById("escolaridade1").value;
-                                var formacao = document.getElementById("formacao1").value;
-                                var endereco = document.getElementById("endereco1").value;
-                                var numero = document.getElementById("numero1").value;
-                                var complemento = document.getElementById("complemento1").value;
-                                var bairro = document.getElementById("bairro1").value;
-                                var dataNasc = document.getElementById("dataNasc1").value;
-                                var cpf = document.getElementById("cpf1").value;
-                                var rg = document.getElementById("rg1").value;
-                                var orgaoEx = document.getElementById("orgaoEx1").value;
-                                var cidade = document.getElementById("cidade1").value;
-                                var celular = document.getElementById("celular1").value;
-                                var estado = document.getElementById("estado1").value;
-                                var email = document.getElementById("email1").value;
-                                var telResidencial = document.getElementById("telResidencial1").value;
-
-
-
-                                if (treinamento && dataT && nome && cep && endereco && numero && bairro && cpf && rg && orgaoEx && cidade && celular && estado && email && telResidencial) {
-                                    // Pega a lista já cadastrada, se não houver vira um array vazio
-                                    var lista_pessoas = JSON.parse(localStorage.getItem('lista-pessoas') || '[]');
-                                    // Adiciona pessoa ao cadastro
-                                    lista_pessoas.push({
-                                        nome: nome,
-                                        cep: cep,
-                                        treinamento: treinamento,
-                                        dataT: dataT,
-                                        escolaridade: escolaridade,
-                                        formacao: formacao,
-                                        endereco: endereco,
-                                        numero: numero,
-                                        complemento: complemento,
-                                        bairro: bairro,
-                                        dataNasc: dataNasc,
-                                        cpf: cpf,
-                                        rg: rg,
-                                        orgaoEx: orgaoEx,
-                                        cidade: cidade,
-                                        celular: celular,
-                                        estado: estado,
-                                        email: email,
-                                        telResidencial: telResidencial
-                                    });
-
-                                    // Salva a lista alterada
-                                    localStorage.setItem("lista-pessoas", JSON.stringify(lista_pessoas));
-
-                                    //Limpa os campos pra proximo participante
-                                    document.getElementById("nomeParticipante1").value = '';
-                                    document.getElementById("cep1").value = '';
-                                    treinamento = document.getElementById("treinamento1").value = '';
-                                    dataT = document.getElementById("dataT1").value = '';
-                                    escolaridade = document.getElementById("escolaridade1").value = '';
-                                    formacao = document.getElementById("formacao1").value = '';
-                                    endereco = document.getElementById("endereco1").value = '';
-                                    numero = document.getElementById("numero1").value = '';
-                                    complemento = document.getElementById("complemento1").value = '';
-                                    bairro = document.getElementById("bairro1").value = '';
-                                    dataNasc = document.getElementById("dataNasc1").value = '';
-                                    cpf = document.getElementById("cpf1").value = '';
-                                    rg = document.getElementById("rg1").value = '';
-                                    orgaoEx = document.getElementById("orgaoEx1").value = '';
-                                    cidade = document.getElementById("cidade1").value = '';
-                                    celular = document.getElementById("celular1").value = '';
-                                    estado = document.getElementById("estado1").value = '';
-                                    email = document.getElementById("email1").value = '';
-                                    telResidencial = document.getElementById("telResidencial1").value = '';
-
-                                } else {
-                                    console.log('Campos obrigatorios não preenchido');
-                                    Swal.fire(
-                                        'Campos obrigatórios não preenchido',
-                                        'Por favor, preencha os campos !',
-                                        'info'
-                                    );
-                                }
-
-                                //console.log('Salva com sucesso.');
-
-
-
-
-                            }
-
-
-
-
-                        </script>
-
-
+                        <button type="button" class="btn btn-sm btn-finalizar" onclick="onSubmit()">Finalizar</button>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-sm btn-enviar" name="enviar">Enviar</button>
+
+                            <!-- <button type="submit" class="btn btn-sm btn-enviar">Enviar</button> -->
                         </div>
                     </div>
 
@@ -566,18 +461,6 @@
                 </form>
             </div>
         </div>
-        <!-- <?php
-                    if (isset($_GET['erro']) && $_GET['erro'] == '1') {
-                    echo "
-                    <div class='validacao'>
-                        <span class='validacao-sub'>
-                    <svg aria-hidden='true' class='stUf5b qpSchb' fill='currentColor' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'>
-                    <path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path>
-                    </svg>
-                    </span>Preencha todos os campos do formulario corretamente</div>
-                    ";
-                    }
-                ?> -->
 
         <div class="row">
 
@@ -607,9 +490,140 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
+
+        function onSubmit() {
+            document.getElementById("form_final").submit();
+            var dados;
+            if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
+                dados = JSON.parse(localStorage.getItem("lista-pessoas"))
+                console.log(dados)
+            }
+
+            // var dados = {
+            //     login: $("#login").val(),
+            //     numero: $("#numero").val(),
+            //     nome: $("#nome").val(),
+            //     telefone: $("#telefone").val()
+            // };
+            $.ajax({
+                url: 'http://localhost/prefeitura/stepform-jquery/processa.php',
+                type: 'POST',
+                data: dados,
+                datatype: 'text'
+            })
+                .done(function (data) {
+                    $("#form_final").submit();
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    //Tratar o erro
+                });
+            //console.log(document.getElementById('form_final').value);
+        }
+
+        function salvar() {
+
+            if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
+                let dados = JSON.parse(localStorage.getItem("lista-pessoas"))
+                console.log(dados)
+                // arrayPessoas.push(JSON.parse(localStorage.getItem("pessoas")));
+
+            }
+
+            var nome = document.getElementById("nomeParticipante1").value;
+            var cep = document.getElementById("cep1").value;
+            var treinamento = document.getElementById("treinamento1").value;
+            var dataT = document.getElementById("dataT1").value;
+            var escolaridade = document.getElementById("escolaridade1").value;
+            var formacao = document.getElementById("formacao1").value;
+            var endereco = document.getElementById("endereco1").value;
+            var numero = document.getElementById("numero1").value;
+            var complemento = document.getElementById("complemento1").value;
+            var bairro = document.getElementById("bairro1").value;
+            var dataNasc = document.getElementById("dataNasc1").value;
+            var cpf = document.getElementById("cpf1").value;
+            var rg = document.getElementById("rg1").value;
+            var orgaoEx = document.getElementById("orgaoEx1").value;
+            var cidade = document.getElementById("cidade1").value;
+            var celular = document.getElementById("celular1").value;
+            var estado = document.getElementById("estado1").value;
+            var email = document.getElementById("email1").value;
+            var telResidencial = document.getElementById("telResidencial1").value;
+
+
+
+            if (treinamento && dataT && nome && cep && endereco && numero && bairro && cpf && rg && orgaoEx && cidade && celular && estado && email && telResidencial) {
+                // Pega a lista já cadastrada, se não houver vira um array vazio
+                var lista_pessoas = JSON.parse(localStorage.getItem('lista-pessoas') || '[]');
+                // Adiciona pessoa ao cadastro
+                lista_pessoas.push({
+                    nome: nome,
+                    cep: cep,
+                    treinamento: treinamento,
+                    dataT: dataT,
+                    escolaridade: escolaridade,
+                    formacao: formacao,
+                    endereco: endereco,
+                    numero: numero,
+                    complemento: complemento,
+                    bairro: bairro,
+                    dataNasc: dataNasc,
+                    cpf: cpf,
+                    rg: rg,
+                    orgaoEx: orgaoEx,
+                    cidade: cidade,
+                    celular: celular,
+                    estado: estado,
+                    email: email,
+                    telResidencial: telResidencial
+                });
+
+                // Salva a lista alterada
+                localStorage.setItem("lista-pessoas", JSON.stringify(lista_pessoas));
+
+                //Limpa os campos pra proximo participante
+                document.getElementById("nomeParticipante1").value = '';
+                document.getElementById("cep1").value = '';
+                treinamento = document.getElementById("treinamento1").value = '';
+                dataT = document.getElementById("dataT1").value = '';
+                escolaridade = document.getElementById("escolaridade1").value = '';
+                formacao = document.getElementById("formacao1").value = '';
+                endereco = document.getElementById("endereco1").value = '';
+                numero = document.getElementById("numero1").value = '';
+                complemento = document.getElementById("complemento1").value = '';
+                bairro = document.getElementById("bairro1").value = '';
+                dataNasc = document.getElementById("dataNasc1").value = '';
+                cpf = document.getElementById("cpf1").value = '';
+                rg = document.getElementById("rg1").value = '';
+                orgaoEx = document.getElementById("orgaoEx1").value = '';
+                cidade = document.getElementById("cidade1").value = '';
+                celular = document.getElementById("celular1").value = '';
+                estado = document.getElementById("estado1").value = '';
+                email = document.getElementById("email1").value = '';
+                telResidencial = document.getElementById("telResidencial1").value = '';
+
+            } else {
+                console.log('Campos obrigatorios não preenchido');
+                Swal.fire(
+                    'Campos obrigatórios não preenchido',
+                    'Por favor, preencha os campos !',
+                    'info'
+                );
+            }
+
+            //console.log('Salva com sucesso.');
+
+
+
+
+        }
+
+
+
+
         function validarUser() {
             var razao = document.getElementById("razao").value,
                 fantasia = document.getElementById("fantasia").value,
