@@ -14,7 +14,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template -->    
     <link rel="stylesheet" type="text/css" href="css/formstep.css">
 </head>
 
@@ -26,7 +26,7 @@
                 <span style="font-size: 24px; color: #336699;">PASSO <span id="passo"></span></span>
 
                 <form method="POST" class="form-signin" id="form_final" action="processa.php" enctype="multipart/form-data">
-                    <!-- <div id="step_1" class="step">
+                    <div id="step_1" class="step">
                         <div class="form-row">
                             <div class="col-md mb-4">
                                 <label for="razao">*Razão Social:</label>
@@ -300,7 +300,7 @@
                         </div>
 
                         
-                    </div> -->
+                    </div>
 
                     <div id="step_4" class="step">
                         <button type="button" class="btn btn-success btn-circle btn-lg" onclick="salvar()"
@@ -446,7 +446,7 @@
                                     placeholder="Telefone Residencial">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-finalizar" >Finalizar</button>
+                        <button type="submit" class="btn btn-sm btn-finalizar"  >Finalizar</button>
                         <div class="form-group">
 
                             <!-- <button type="submit" class="btn btn-sm btn-enviar">Enviar</button> -->
@@ -497,87 +497,14 @@
    <script>
 
 
-        function onSubmit() {
-
-            var dados;
-            if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
-                dados = JSON.parse(localStorage.getItem("lista-pessoas"))
-                console.log(dados)
-            }
-
-
-            jQuery.post("processa.php", { dados: dados }, function (data) {
-               // window.location.href = '/prefeitura/stepform-jquery/processa.php'
-               
-
-
-            }).fail(function () {
-                console.log("Algo está errado.");
-            });
-
-
-
-            // Previni o evento de atualizar a pagina 
-            // document.getElementById("form_final").addEventListener("submit", function (event) {
-            //     event.preventDefault();
-
-            //     var url = Routing.generate('prefeitura/stepform-jquery/processa.php');
-            //     $.ajax({
-            //         url: url,
-            //         type: "POST",
-            //         data: {cidade: 'suaCidade', estado: 'seuEstado'} ,
-            //         dataType: "html"
-
-            //     }).done(function (resposta) {
-            //         console.log(resposta);
-
-            //     }).fail(function (jqXHR, textStatus) {
-            //         console.log("Request failed: " + textStatus);
-
-            //     }).always(function () {
-            //         console.log("completou");
-            //     });
-
-            // fetch('http://localhost/prefeitura/stepform-jquery/processa.php', {
-            //     method: 'POST',
-            //     body: dados
-            // })
-            //     .then(function (response) {
-            //         if (response.ok) {
-            //             console.log("Sucesso")
-            //             window.location.href = '/prefeitura/stepform-jquery/processa.php'
-            //         }
-            //     })
-            // })
-
-            // var dados = {
-            //     login: $("#login").val(),
-            //     numero: $("#numero").val(),
-            //     nome: $("#nome").val(),
-            //     telefone: $("#telefone").val()
-            // };
-            // $.ajax({
-            //     url: 'http://localhost/prefeitura/stepform-jquery/processa.php',
-            //     type: 'GET',
-            //     data: dados,
-            //     datatype: 'text'
-            // })
-            //     .done(function (data) {
-            //         $("#form_final").submit();
-            //     })
-            //     .fail(function (jqXHR, textStatus, errorThrown) {
-            //         //Tratar o erro
-            //     });
-            //console.log(document.getElementById('form_final').value);
-        }
-
+        
         
 
         function salvar() {
             let dados;
             if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
                 dados = JSON.parse(localStorage.getItem("lista-pessoas"))
-                console.log(dados)
+                
                 // arrayPessoas.push(JSON.parse(localStorage.getItem("pessoas")));
 
             }
@@ -632,17 +559,17 @@
 
                 // Salva a lista alterada
                 localStorage.setItem("lista-pessoas", JSON.stringify(lista_pessoas));
-
-
+                
+                
                 document.cookie = `dados = ${JSON.stringify(lista_pessoas)}`;
 
-
+                console.log(lista_pessoas);
                 //Limpa os campos pra proximo participante
                 document.getElementById("nomeParticipante1").value = '';
                 document.getElementById("cep1").value = '';
                 treinamento = document.getElementById("treinamento1").value = '';
                 dataT = document.getElementById("dataT1").value = '';
-                escolaridade = document.getElementById("escolaridade1").value = '';
+                escolaridade = document.getElementById("escolaridade1").value = 'Tecnico';
                 formacao = document.getElementById("formacao1").value = '';
                 endereco = document.getElementById("endereco1").value = '';
                 numero = document.getElementById("numero1").value = '';
@@ -654,7 +581,7 @@
                 orgaoEx = document.getElementById("orgaoEx1").value = '';
                 cidade = document.getElementById("cidade1").value = '';
                 celular = document.getElementById("celular1").value = '';
-                estado = document.getElementById("estado1").value = '';
+                estado = document.getElementById("estado1").value = 'MG';
                 email = document.getElementById("email1").value = '';
                 telResidencial = document.getElementById("telResidencial1").value = '';
 
@@ -667,13 +594,8 @@
                 );
             }
 
+            //localStorage.removeItem( JSON.stringify(lista_pessoas));
             
-            document.cookie = "user = Denis";
-            document.cookie = "companha = Denis; expires=Mon, 26 oct 2020 12:00:00 UTC; path=/";
-            document.cookie = `dados = ${JSON.stringify(dados)}`;
-                console.log(document.cookie)
-
-            //console.log('Salva com sucesso.');
 
 
 
@@ -753,9 +675,6 @@
             passoexibido();
 
             //avança para o próximo passo
-
-
-
             $("#next").click(function () {
                 $(".step:visible").hide().next().show();
                 passoexibido();
@@ -768,6 +687,21 @@
                 $(".step:visible").hide().prev().show();
                 passoexibido();
             });
+
+            var url = window.location.href; 
+            var res = url.split('?'); 
+            
+            if(res[1] == 'sucess=1'){
+                var lista_pessoas = JSON.parse(localStorage.getItem('lista-pessoas') || '[]');
+                localStorage.removeItem( 'lista-pessoas');
+                Swal.fire(
+                    'Sucesso',
+                    'Ao realizar o cadastro!',
+                    'success'
+                );
+            }
+
+
 
         });
 
