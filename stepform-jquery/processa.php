@@ -219,7 +219,8 @@
         if(sizeof(json_decode($dados)) > 0 && $nomeParticipante1 != ''){
           print_r ('Lista com '.sizeof(json_decode($dados)).' participantes ');
           echo " | Com dados no ultimo POST ";
-
+          $html_corpo_ultimo_post = '';
+          if($treinamento1 != '' && $dataT1  != '' && $nomeParticipante1 != '' && $cep1 != '' && $endereco1 != '' && $numero1 != '' && $bairro1 != '' && $cep1 != '' && $rg1 != '' && $orgaoEx1 != '' && $cidade1 != '' && $celular1 != '' && $estado1 != '' && $email1 != '' && $telResidencial){
           $html_corpo_ultimo_post ="
           <tr>
                <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Treinamento</td>
@@ -279,7 +280,7 @@
                <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>E-mail</td>
                <td style='border: 1px solid #000000;' colspan='8'>$email1</td>
              </tr>
-             ";           
+             ";}           
 
           foreach (json_decode($dados) as $key => $value) {
             //echo '<pre>';
@@ -347,6 +348,13 @@
                 ";              
             
           }
+          $html_final = '';
+          if($html_corpo_ultimo_post != ''){
+          $html_final = $html . $html_titulo . $html_corpo_ultimo_post .$html_corpo . $html_fim;
+          }else{
+            $html_final = $html . $html_titulo . $html_corpo . $html_fim;
+          }            
+          echo $html_final;
 
         }
 
