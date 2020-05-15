@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-    <!-- Custom styles for this template -->    
+    <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="css/formstep.css">
 </head>
 
@@ -24,456 +23,423 @@
             <div class="col-lg-12">
                 <h2>Formulário Pessoa Jurídica FUPAI</h2>
                 <span style="font-size: 24px; color: #336699;">PASSO <span id="passo"></span></span>
+                <span id='titulo' class="titulo_topo"></span>
 
-                <form method="POST" class="form-signin" id="form_final" action="processa.php" enctype="multipart/form-data">
+                <form method="POST" class="form-signin" id="form_final" action="processa.php"
+                    enctype="multipart/form-data">
+
                     <div id="step_1" class="step">
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="razao">*Razão Social:</label>
-                                <input type="text" class="form-control" id="razao" name="razao"
-                                    placeholder="Razão Social" required="require">
+                        <div style="width: 940px; float: left;   border-top: 7px solid #cc9933;"></div> <br>
+                        <div
+                            style="border: 1px solid #dadada;float: left;width: 940px;height: 60px;border-radius: 5px;">
+                            <span
+                                style="font-size: 13px; /* font-weight: bold; */ color: #666666; margin-left: 18px;/* width: 713px; */float: left;margin-bottom: 14px;margin-top: 21px;/* border: 1px solid #dddddd; */">Recomendamos
+                                que os dados abaixo sejam preenchidos integralmente e de forma correta, para evitar o
+                                cancelamento da Nota Fiscal Eletrônica.</span></div><br>
+                        <br><br><br>
+
+                        <div class="container-sm">
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="razao">*Razão Social:</label>
+                                    <input type="text" class="form-control" id="razao" name="razao"
+                                        placeholder="Razão Social" required="require">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="fantasia">*Nome Fantasia:</label>
-                                <input type="text" class="form-control" id="fantasia" name="fantasia"
-                                    placeholder="Nome fantasia" required="require">
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="fantasia">*Nome Fantasia:</label>
+                                    <input type="text" class="form-control" id="fantasia" name="fantasia"
+                                        placeholder="Nome fantasia" required="require">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-4">
-                                <label for="cnpj">*CNPJ: </label>
-                                <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="cnpj"
-                                    required="require">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="cnpj">*CNPJ: </label>
+                                    <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="cnpj"
+                                        required="require">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="estadual">*Inscrição Estadual: </label>
+                                    <input type="text" class="form-control" id="estadual" name="estadual"
+                                        placeholder="Inscrição Estadual" required="require">
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="estadual">*Inscrição Estadual: </label>
-                                <input type="text" class="form-control" id="estadual" name="estadual"
-                                    placeholder="Inscrição Estadual" required="require">
+                            <div class="form-row">
+                                <div class="col-md-4 mb-4">
+                                    <label for="cep">*CEP: </label>
+                                    <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP"
+                                        required="require">
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label for="endereco">*Endereço: </label>
+                                    <input type="text" class="form-control" id="endereco" name="endereco"
+                                        placeholder="Endereço" required="require">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-4 mb-4">
-                                <label for="cep">*CEP: </label>
-                                <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP"
-                                    required="require">
+                            <div class="form-row">
+                                <div class="col-md-2 mb-4">
+                                    <label for="numero">*Número: </label>
+                                    <input type="text" class="form-control" id="numero" name="numero"
+                                        placeholder="Número" required="require">
+                                </div>
+                                <div class="col-md-5 mb-3">
+                                    <label for="complemento">*Complemento: </label>
+                                    <input type="text" class="form-control" id="complemento" name="complemento"
+                                        placeholder="Complemento" required="require">
+                                </div>
+                                <div class="col-md-5 mb-3">
+                                    <label for="bairro">*Bairro: </label>
+                                    <input type="text" class="form-control" id="bairro" name="bairro"
+                                        placeholder="Bairro" required="require">
+                                </div>
                             </div>
-                            <div class="col-md-8 mb-3">
-                                <label for="endereco">*Endereço: </label>
-                                <input type="text" class="form-control" id="endereco" name="endereco"
-                                    placeholder="Endereço" required="require">
+                            <div class="form-row">
+                                <div class="col-md-5 mb-4">
+                                    <label for="cidade">*Cidade: </label>
+                                    <input type="text" class="form-control" id="cidade" name="cidade"
+                                        placeholder="Cidade" required="require">
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label for="estado">*Estado: </label>
+                                    <select id="estado" name="estado" class="form-control" required="required">
+                                        <option selected>MG</option>
+                                        <option>AC</option>
+                                        <option>AL</option>
+                                        <option>AP</option>
+                                        <option>AM</option>
+                                        <option>BA</option>
+                                        <option>CE</option>
+                                        <option>DF</option>
+                                        <option>ES</option>
+                                        <option>GO</option>
+                                        <option>MA</option>
+                                        <option>MT</option>
+                                        <option>MS</option>
+                                        <option>PA</option>
+                                        <option>PB</option>
+                                        <option>PR</option>
+                                        <option>PE</option>
+                                        <option>PI</option>
+                                        <option>RJ</option>
+                                        <option>RN</option>
+                                        <option>RO</option>
+                                        <option>RR</option>
+                                        <option>SC</option>
+                                        <option>SP</option>
+                                        <option>SE</option>
+                                        <option>TO</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5 mb-3">
+                                    <label for="contato">*Contato: </label>
+                                    <input type="text" class="form-control" id="contato" name="contato"
+                                        placeholder="Contato" required="require">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-2 mb-4">
-                                <label for="numero">*Número: </label>
-                                <input type="text" class="form-control" id="numero" name="numero" placeholder="Número"
-                                    required="require">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="cargo">Cargo: </label>
+                                    <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="departamento">Departamento: </label>
+                                    <input type="text" class="form-control" id="departamento" name="departamento"
+                                        placeholder="Departamento">
+                                </div>
                             </div>
-                            <div class="col-md-5 mb-3">
-                                <label for="complemento">*Complemento: </label>
-                                <input type="text" class="form-control" id="complemento" name="complemento"
-                                    placeholder="Complemento" required="require">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefone">*Telefone: </label>
+                                    <input type="text" name="telefone" id="telefone" class="form-control"
+                                        placeholder="Telefone" required="require">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="fax">Fax: </label>
+                                    <input type="text" name="fax" id="fax" class="form-control" placeholder="Fax">
+                                </div>
                             </div>
-                            <div class="col-md-5 mb-3">
-                                <label for="bairro">*Bairro: </label>
-                                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro"
-                                    required="require">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-5 mb-4">
-                                <label for="cidade">*Cidade: </label>
-                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade"
-                                    required="require">
-                            </div>
-                            <div class="col-md-2 mb-3">
-                                <label for="estado">*Estado: </label>
-                                <select id="estado" name="estado" class="form-control" required="required">
-                                    <option selected>MG</option>
-                                    <option>AC</option>
-                                    <option>AL</option>
-                                    <option>AP</option>
-                                    <option>AM</option>
-                                    <option>BA</option>
-                                    <option>CE</option>
-                                    <option>DF</option>
-                                    <option>ES</option>
-                                    <option>GO</option>
-                                    <option>MA</option>
-                                    <option>MT</option>
-                                    <option>MS</option>
-                                    <option>PA</option>
-                                    <option>PB</option>
-                                    <option>PR</option>
-                                    <option>PE</option>
-                                    <option>PI</option>
-                                    <option>RJ</option>
-                                    <option>RN</option>
-                                    <option>RO</option>
-                                    <option>RR</option>
-                                    <option>SC</option>
-                                    <option>SP</option>
-                                    <option>SE</option>
-                                    <option>TO</option>
-                                </select>
-                            </div>
-                            <div class="col-md-5 mb-3">
-                                <label for="contato">*Contato: </label>
-                                <input type="text" class="form-control" id="contato" name="contato"
-                                    placeholder="Contato" required="require">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-4">
-                                <label for="cargo">Cargo: </label>
-                                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="departamento">Departamento: </label>
-                                <input type="text" class="form-control" id="departamento" name="departamento"
-                                    placeholder="Departamento">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <label for="telefone">*Telefone: </label>
-                                <input type="text" name="telefone" id="telefone" class="form-control"
-                                    placeholder="Telefone" required="require">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="fax">Fax: </label>
-                                <input type="text" name="fax" id="fax" class="form-control" placeholder="Fax">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-3">
-                                <label for="email">*E-mail: </label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
-                                    required="require">
+                            <div class="form-row">
+                                <div class="col-md mb-3">
+                                    <label for="email">*E-mail: </label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="E-mail" required="require">
+                                </div>
                             </div>
                         </div>
 
+                        <div style="width: 940px; float: left;   border-top: 7px solid #cc9933;"></div> <br>
                     </div>
+
                     <div id="step_2" class="step">
-                        <div style="width: 940px; font-family: Open Sans, sans-serif; font-size:14px; float:left; border-top: 7px solid #669999; margin-top: -1px;">
+
+                        <div
+                            style="width: 940px; font-family: Open Sans, sans-serif; font-size:14px; float:left; border-top: 7px solid #669999; margin-top: -1px;">
                             <div style="margin-top: 50px; width: 960px;">
                                 <div style="float: left;">
-                                    <input name="pagamento" type="radio" id="pagamento" style="margin-left: 20px; float: left; margin-top: 15%;" value="Boleto"> <img style="margin-left: 20px;" src="./img/icone_boleto.png">
+                                    <input name="pagamento" type="radio" id="pagamento-boleto"
+                                        style="margin-left: 20px; float: left; margin-top: 15%;" value="Boleto"> <img
+                                        style="margin-left: 20px;" src="./img/icone_boleto.png">
                                 </div>
                                 <div style="width: 376px; float: left; margin-left: 60px; margin-top: 5px;">
-                                    <input style="float: left;margin-top: 4%;" type="radio" name="pagamento" id="deposito2" value="Depósito"><span style="font-size: 16px; color: #666666; margin-left: 10px; margin-top: 2.5%;float: left;">Depósito</span><img style="margin-left: 20px;float: left;" src="./img/icone_bb.png">
-                                    <div style="float:left; width: 148px;margin-left: 10px;line-height: 1.3;color: #666666; font-size: 12px; color: #666666; margin-top: -2.3px;">
-                                        <span>Agêência 0308-5</span> 
-                                        <span style="float: left;">Conta corrente 49033-4</span> 
+                                    <input style="float: left;margin-top: 4%;" type="radio" name="pagamento"
+                                        id="deposito2" value="Depósito"><span
+                                        style="font-size: 16px; color: #666666; margin-left: 10px; margin-top: 2.5%;float: left;">Depósito</span><img
+                                        style="margin-left: 20px;float: left;" src="./img/icone_bb.png">
+                                    <div
+                                        style="float:left; width: 148px;margin-left: 10px;line-height: 1.3;color: #666666; font-size: 12px; color: #666666; margin-top: -2.3px;">
+                                        <span>Agêência 0308-5</span>
+                                        <span style="float: left;">Conta corrente 49033-4</span>
                                         <span style="float: left;">CNPJ 18.025.536/0001-27</span>
                                     </div>
                                 </div>
                                 <div style="float: left; color: #666666; margin-left: 7px;width: 157px;">
-                                    <input style="margin-left: 0px; float: left; margin-top: 13%;" type="radio" name="pagamento" id="antecipado" value="Antecipado"> 
+                                    <input style="margin-left: 0px; float: left; margin-top: 13%;" type="radio"
+                                        name="pagamento" id="antecipado" value="Antecipado">
                                     <div style="float:left; width: 139px;">
                                         <span style="font-size: 16px; float: left;margin-left: 28px;">Antecipado</span>
-                                        <span style="font-size: 12px; float: left; font-weight: 600;margin-left: 15px;">(Consulte desconto)</span>
+                                        <span
+                                            style="font-size: 12px; float: left; font-weight: 600;margin-left: 15px;">(Consulte
+                                            desconto)</span>
                                     </div>
                                 </div>
                                 <div style="float: left; color: #666666; margin-left: 40px;width: 180px;">
-                                    <input style="margin-left: 0px; float: left; margin-top: 11%;" type="radio" name="pagamento" id="a_combinar" value="A combinar"> 
+                                    <input style="margin-left: 0px; float: left; margin-top: 11%;" type="radio"
+                                        name="pagamento" id="a_combinar" value="A combinar">
                                     <div style="float:left; width: 103px;margin-top: 14px;">
                                         <span style="font-size: 16px; float: left;margin-left: 10px;">A combinar</span>
                                     </div>
                                 </div>
 
-                                <div id="opcao_boleto" style="width: 940px; display: none;">
-                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px; margin-left: 15px;">
-                                        <input type="radio" name="tipoBoleto" value="a vista">A vista
-                                        <input style="margin-left: 30px;" type="radio" name="tipoBoleto" value="7 dias">7 dias ddl
-                                    </div>
-                                </div>	
-                                <div id="opcao_deposito" style="width: 940px; display: none;">
-                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px; margin-left: 195px;">
-                                        <input type="radio" name="tipoDeposito" value="a vista">A vista
-                                        <input style="margin-left: 30px;" type="radio" name="tipoDeposito" value="7 dias">7 dias ddl
-                                    </div>
-                                </div>	
-                                <div id="opcao_combinar" style="width: 940px; display: none;">
-                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px;">
-                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 25%;"> 
-                                            <span style="font-weight: 600; font-size: 16px;">Especificar e justificar a forma de pagamento pretendida</span>
-                                            <span style="font-weight: 600; font-size: 12px;">(sujeito a aprovação)</span>
-                                        </div>
-                                        <div style="float: left; margin-left: 16px; margin-right: auto; width: 73%; background: #eaeaea; height: 80px; border-radius: 5px;"> 
-                                            <textarea style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none;" name="especificacao"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>	
-                        </div>
-                        <br/><br/>
-                    </div>
-                    <div id="step_3" class="step">
+                                <div id="opcao-escolhida" style="width: 940px;  "></div>
 
+
+                                <div
+                                    style="width: 940px; float: left;   border-top: 7px solid #669999; margin-top: 6%;">
+                                </div> <br><br>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="step_3" class="step">
+                        <div style="width: 940px; float: left;   border-top: 7px solid #993366;"></div> <br>
                         <div style="width: 100%; float: left; margin-top: 30px; margin-left: auto; margin-right: auto;">
                             <div style="margin-top:20px;">
                                 <div>
-                                    <span style="float:left; margin-top: 11px">*E-mail para envio da NF-e</span>
-                                    <div style="background:#eaeaea; width: 698px; margin-left: 35px; height: 37px;float: left;border-radius: 5px;">
-                                        <input required="" type="email" name="email_nota_fiscal" style="font-size: 16px; width: 662px; height: 35px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
-                                    </div>	
-                                </div>	
-                                
-                                <div style="float: left; margin-top: 39px; color: #666666; font-weight: 600; font-size: 16px;">
-                                    <span>Deseja cadastrar outros e-mails para envio da NF-e?</span>
-                                    <input id="sim_email_nota" style="margin-left: 20px;" type="radio" name="opcao_email_nota" value="sim_email_nota"> <span>SIM</span>
-                                    <input checked="" id="nao_email_nota" style="margin-left: 20px;" type="radio" name="opcao_email_nota" value="nao_email_nota"> <span>NãO</span>
-                                </div>	
-                                
-                                <div id="area_mais_email" style="display:none; width: 940px;">
-                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px;">
-                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 21%; margin-top: 13px;"> 
-                                            <span style="font-weight: 600; font-size: 16px;">Coloque os emails</span>
-                                            <span style="font-weight: 600; font-size: 16px;">separados por</span><br>
-                                            <span style="font-weight: 600; font-size: 16px;"> ';' (ponto e vírgula)</span>
-                                        </div>
-                                        <div style="float: left; margin-left: 34px; margin-right: auto; width: 74%; background: #eaeaea; height: 110px; border-radius: 5px;"> 
-                                            <textarea style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none; border-radius: 5px; padding-left: 15px;" name="mais_email_nota"></textarea>
-                                        </div>
+                                    <span style="float:left; margin-top: 11px; font-family: Open Sans, sans-serif; color: #666666; font-weight: 600;   
+                                        font-size: 16px;">*E-mail
+                                        para envio da NF-e</span>
+                                    <div
+                                        style="background:#eaeaea; width: 698px; margin-left: 35px; height: 37px;float: left;border-radius: 5px;">
+                                        <input required="" type="email" name="email_nota_fiscal"
+                                            style="font-size: 16px; width: 662px; height: 35px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
                                     </div>
                                 </div>
-                                
+
+                                <div style="float: left; margin-top: 39px;  font-size: 11px; font-family: Open Sans, sans-serif; color: #666666; font-weight: 600;   
+                                font-size: 16px;">
+                                    <span style="float:left; margin-top: 11px; "> Deseja cadastrar outros e-mails para
+                                        envio da NF-e?</span>
+                                    <input id="sim_email_nota" style="margin-left: 20px;" type="radio"
+                                        name="opcao_email_nota" value="sim_email_nota"> <span>SIM</span>
+                                    <input checked="" id="nao_email_nota" style="margin-left: 20px;" type="radio"
+                                        name="opcao_email_nota" value="nao_email_nota"> <span>NãO</span>
+                                </div>
                                 <div style="margin-top: 10px; font-size: 11px; float: right; margin-right: 4px;">
-                                    <span>*Preenchimento obrigatório</span>
+                                    <span style="margin-left: -179%; color: red;">*Preenchimento obrigatório</span>
+                                </div>
+                                <div id='email-sim'></div>
+                            </div>
+
+                            <div style="float: left; margin-top: 30px; width: 100%; font-family: Open Sans, sans-serif; color: #666666; font-weight: 600;   
+                            font-size: 16px;">
+                                <span style="float:left; margin-top: 6px;">Existem informações extras para preenchimento
+                                    da NF-e?</span>
+                                <div
+                                    style="margin-left: 20px; height: 37px;float: left;border-radius: 5px; margin-top: 7px;">
+                                    <input id="sim-extra" value="sim" type="radio" name="extras"> SIM
+                                    <input checked="" id="nao-extra" value="nao" type="radio" name="extras"
+                                        style="margin-left: 20px;"> NãO
                                 </div>
                             </div>
-                            
-                            <div style="float: left; margin-top: 30px; width: 100%;">
-                                <span style="float:left; margin-top: 6px;">Existem informações extras para preenchimento da NF-e?</span>
-                                <div style="margin-left: 20px; height: 37px;float: left;border-radius: 5px; margin-top: 7px;">
-                                    <input id="sim" value="sim" type="radio" name="extras">SIM
-                                    <input checked="" id="nao" value="nao" type="radio" name="extras">NãO
-                                </div>	
-                            </div>
-                            
-                            <div id="extras" style="display: none;">
-                                <div id="quais" style="width: 940px;">
-                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 0px; margin-left: 10px;" id="divBoleto">
-                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 21%; margin-top: 13px;"> 
-                                            <span style="font-weight: 600; font-size: 16px;">Quais informações devem constar na NF-e?</span>
-                                            <span style="font-weight: 600; font-size: 12px;">(Ex. pedido de compra, nº de autorização, etc)</span>
-                                        </div>
-                                        <div style="float: left; margin-left: 34px; margin-right: auto; width: 74%; background: #eaeaea; height: 110px; border-radius: 5px;"> 
-                                            <textarea style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none; border-radius: 5px; padding-left: 15px;" name="informacoes_nota"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <div id="informe" style="float: left; margin-top: -16px;">
-                                        <div style="width: 231px;float: left;margin-top: 30px; font-size: 12px; margin-left: 11px;">
-                                            <span style="float:left; margin-top: 6px; font-size: 16px; margin-bottom: -7px;">Informe o prazo para a</span>
-                                            <span style="float:left; margin-top: 6px; font-size: 16px;">emissão da NF-e</span><span style="float: left; margin-top: 8px; margin-left: 5px;">(se houver)</span>
-                                        </div>	
-                                        <div style="background:#eaeaea; width: 217px;margin-left: 0px; height: 41px;float: left;border-radius: 5px;margin-top: 36px;">
-                                            <input type="text" maxlength="10" onkeypress="javascript: mascara(this, nascimento_mask);" name="prazo_emissao" style="font-size: 16px; width: 200px; height: 38px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
-                                        </div>	
-                                    </div>
-                                    
-                                    <div id="dias" style="float: left;width: 456px;margin-left: 20px; margin-top: -16px;">
-                                        <div style="width: 231px; float: left;margin-top: 29px; font-size: 12px; margin-left: 11px;">
-                                            <span style="float:left; margin-top: 6px; font-size: 16px; margin-bottom: -7px;">Dia da semana para o</span>
-                                            <span style="float:left; margin-top: 6px; font-size: 16px;">vencimento da NF-e</span><span style="float: left; margin-top: 8px; margin-left: 5px;">(se houver)</span>
-                                        </div>	
-                                        <div style="width: 439px;margin-left: 16px; height: 41px;/* float: left; */border-radius: 5px; color: #666666;margin-top: 31px;">
-                                            
-                                            <select name="dia_semana" id="dia_semana" style="margin-top: 3px; font-size: 16px; border: none;width: 209px; height: 41px; background-color: #eaeaea; border-radius: 5px; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 3px;/* float: left; */">
-                                                <option value="">Escolha</option>
-                                                <option value="Segunda-feira">Segunda-feira</option>
-                                                <option value="Terça-feira">Terça-feira</option>
-                                                <option value="Quarta-feira">Quarta-feira</option>
-                                                <option value="Quinta-feira">Quinta-feira</option>
-                                                <option value="Sexta-feira">Sexta-feira</option>
-                                            </select>
-                                        </div>	
-                                    </div>
-                                </div>
-                            </div>	
+
+
+                            <div id="informacao-extra"></div>
                         </div>
 
-                        
+                        <div style="width: 940px; float: left;   border-top: 7px solid #993366;"></div> <br><br>
+
                     </div>
 
                     <div id="step_4" class="step">
-                        <button type="button" class="btn btn-success btn-circle btn-lg" onclick="salvar()"
-                            data-toggle="tooltip" data-placement="top" title="Adiciona Participante"><i
-                                class="glyphicon glyphicon-plus"></i></button>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-4">
-                                <label for="treinamento1">*Treinamento: </label>
-                                <input type="text" class="form-control" id="treinamento1" name="treinamento1"
-                                    placeholder="Treinamento">
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <label for="dataT1">*Data: </label>
-                                <input type="text" class="form-control" id="dataT1" name="dataT1"
-                                    placeholder="Data do Treinamento">
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <label for="escolaridade1">Escolaridade: </label>
-                                <select id="escolaridade1" name="escolaridade1" class="form-control"
-                                    required="required">
-                                    <option selected>Tecnico</option>
-                                    <option>Superior</option>
-                                    <option>Mestrado</option>
-                                    <option>Pós Gradução</option>
-                                    <option>Doutorado</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="nomeParticipante1">*Nome: </label>
-                                <input type="text" class="form-control" id="nomeParticipante1" name="nomeParticipante1"
-                                    placeholder="Treinamento">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="formacao1">Formação: </label>
-                                <input type="text" class="form-control" id="formacao1" name="formacao1"
-                                    placeholder="Formação">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="cep1">*CEP: </label>
-                                <input type="text" class="form-control" id="cep1" name="cep1" placeholder="CEP">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="endereco1">*Endereço: </label>
-                                <input type="text" class="form-control" id="endereco1" name="endereco1"
-                                    placeholder="Endereço">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="numero1">*Número: </label>
-                                <input type="text" class="form-control" id="numero1" name="numero1"
-                                    placeholder="Número">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="complemento1">Complemento: </label>
-                                <input type="text" class="form-control" id="complemento1" name="complemento1"
-                                    placeholder="Complemento">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="bairro1">*Bairro: </label>
-                                <input type="text" class="form-control" id="bairro1" name="bairro1"
-                                    placeholder="Bairro">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="dataNasc1">Data de nascimento: </label>
-                                <input type="date" class="form-control" id="dataNasc1" name="dataNasc1"
-                                    placeholder="Data de nascimento">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="cpf1">*CPF: </label>
-                                <input type="text" class="form-control" id="cpf1" name="cpf1" placeholder="CPF">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="rg1">*RG: </label>
-                                <input type="text" class="form-control" id="rg1" name="rg1" placeholder="RG">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="orgaoEx1">*Orgão expedidor: </label>
-                                <input type="text" class="form-control" id="orgaoEx1" name="orgaoEx1"
-                                    placeholder="Orgão expedidor">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="cidade1">*Cidade: </label>
-                                <input type="text" class="form-control" id="cidade1" name="cidade1"
-                                    placeholder="Cidade">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="celular1">*Celular: </label>
-                                <input type="text" class="form-control" id="celular1" name="celular1"
-                                    placeholder="Celular">
-                            </div>
-                            <div class="col-md-2 mb-4">
-                                <label for="estado1">*Estado: </label>
-                                <select id="estado1" name="estado1" class="form-control" required="required">
-                                    <option selected>MG</option>
-                                    <option>AC</option>
-                                    <option>AL</option>
-                                    <option>AP</option>
-                                    <option>AM</option>
-                                    <option>BA</option>
-                                    <option>CE</option>
-                                    <option>DF</option>
-                                    <option>ES</option>
-                                    <option>GO</option>
-                                    <option>MA</option>
-                                    <option>MT</option>
-                                    <option>MS</option>
-                                    <option>PA</option>
-                                    <option>PB</option>
-                                    <option>PR</option>
-                                    <option>PE</option>
-                                    <option>PI</option>
-                                    <option>RJ</option>
-                                    <option>RN</option>
-                                    <option>RO</option>
-                                    <option>RR</option>
-                                    <option>SC</option>
-                                    <option>SP</option>
-                                    <option>SE</option>
-                                    <option>TO</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md mb-4">
-                                <label for="email1">*E-mail: </label>
-                                <input type="email1" class="form-control" id="email1" name="email1"
-                                    placeholder="E-mail">
-                            </div>
-                            <div class="col-md mb-4">
-                                <label for="telResidencial1">*Telefone Residencial: </label>
-                                <input type="text" class="form-control" id="telResidencial1" name="telResidencial1"
-                                    placeholder="Telefone Residencial">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-finalizar"  >Finalizar</button>
-                        <div class="form-group">
+                        <div style="width: 940px; float: left;   border-top: 7px solid #336699;"></div> <br>
 
-                            <!-- <button type="submit" class="btn btn-sm btn-enviar">Enviar</button> -->
+                        <div class="container-sm">
+                            <button type="button" class="btn btn-success btn-circle btn-lg" onclick="salvar()"
+                                data-toggle="tooltip" data-placement="top" title="Adiciona Participante"><i
+                                    class="glyphicon glyphicon-plus"></i></button>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="treinamento1">*Treinamento: </label>
+                                    <input type="text" class="form-control" id="treinamento1" name="treinamento1"
+                                        placeholder="Treinamento">
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <label for="dataT1">*Data: </label>
+                                    <input type="text" class="form-control" id="dataT1" name="dataT1"
+                                        placeholder="Data do Treinamento">
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <label for="escolaridade1">Escolaridade: </label>
+                                    <select id="escolaridade1" name="escolaridade1" class="form-control"
+                                        required="required">
+                                        <option selected>Tecnico</option>
+                                        <option>Superior</option>
+                                        <option>Mestrado</option>
+                                        <option>Pós Gradução</option>
+                                        <option>Doutorado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="nomeParticipante1">*Nome: </label>
+                                    <input type="text" class="form-control" id="nomeParticipante1"
+                                        name="nomeParticipante1" placeholder="Treinamento">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="formacao1">Formação: </label>
+                                    <input type="text" class="form-control" id="formacao1" name="formacao1"
+                                        placeholder="Formação">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="cep1">*CEP: </label>
+                                    <input type="text" class="form-control" id="cep1" name="cep1" placeholder="CEP">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="endereco1">*Endereço: </label>
+                                    <input type="text" class="form-control" id="endereco1" name="endereco1"
+                                        placeholder="Endereço">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="numero1">*Número: </label>
+                                    <input type="text" class="form-control" id="numero1" name="numero1"
+                                        placeholder="Número">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="complemento1">Complemento: </label>
+                                    <input type="text" class="form-control" id="complemento1" name="complemento1"
+                                        placeholder="Complemento">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="bairro1">*Bairro: </label>
+                                    <input type="text" class="form-control" id="bairro1" name="bairro1"
+                                        placeholder="Bairro">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="dataNasc1">Data de nascimento: </label>
+                                    <input type="date" class="form-control" id="dataNasc1" name="dataNasc1"
+                                        placeholder="Data de nascimento">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="cpf1">*CPF: </label>
+                                    <input type="text" class="form-control" id="cpf1" name="cpf1" placeholder="CPF">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="rg1">*RG: </label>
+                                    <input type="text" class="form-control" id="rg1" name="rg1" placeholder="RG">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="orgaoEx1">*Orgão expedidor: </label>
+                                    <input type="text" class="form-control" id="orgaoEx1" name="orgaoEx1"
+                                        placeholder="Orgão expedidor">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="cidade1">*Cidade: </label>
+                                    <input type="text" class="form-control" id="cidade1" name="cidade1"
+                                        placeholder="Cidade">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="celular1">*Celular: </label>
+                                    <input type="text" class="form-control" id="celular1" name="celular1"
+                                        placeholder="Celular">
+                                </div>
+                                <div class="col-md-2 mb-4">
+                                    <label for="estado1">*Estado: </label>
+                                    <select id="estado1" name="estado1" class="form-control" required="required">
+                                        <option selected>MG</option>
+                                        <option>AC</option>
+                                        <option>AL</option>
+                                        <option>AP</option>
+                                        <option>AM</option>
+                                        <option>BA</option>
+                                        <option>CE</option>
+                                        <option>DF</option>
+                                        <option>ES</option>
+                                        <option>GO</option>
+                                        <option>MA</option>
+                                        <option>MT</option>
+                                        <option>MS</option>
+                                        <option>PA</option>
+                                        <option>PB</option>
+                                        <option>PR</option>
+                                        <option>PE</option>
+                                        <option>PI</option>
+                                        <option>RJ</option>
+                                        <option>RN</option>
+                                        <option>RO</option>
+                                        <option>RR</option>
+                                        <option>SC</option>
+                                        <option>SP</option>
+                                        <option>SE</option>
+                                        <option>TO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md mb-4">
+                                    <label for="email1">*E-mail: </label>
+                                    <input type="email1" class="form-control" id="email1" name="email1"
+                                        placeholder="E-mail">
+                                </div>
+                                <div class="col-md mb-4">
+                                    <label for="telResidencial1">*Telefone Residencial: </label>
+                                    <input type="text" class="form-control" id="telResidencial1" name="telResidencial1"
+                                        placeholder="Telefone Residencial">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-finalizar">Finalizar</button>
                         </div>
+
+
+                        <div style="width: 940px; float: left;   border-top: 7px solid #336699; margin-top: 2%;"></div>
+                        <br><br>
                     </div>
-
-
 
                 </form>
 
+
+
             </div>
         </div>
 
-        <div class="row">
 
-            <div class="col-lg-6 " style="margin-top: 5%;">
-                <label for="">Os dados informados estão corretos ? </label><br />
-                <button class="btn btn-sm btn-false" onclick="validarUser()">Não</button>
-                <button class="btn btn-sm btn-true" onclick="validarUser()">Sim</button>
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-6">
                 <button class="btn btn-sm btn-anterior" id="prev">Anterior</button>
-            </div>
-            <div class="col-lg-6">
-                <button type="submit" class="btn btn-sm btn-proximo" id="next" disabled>Próximo</button>
+                <button type="submit" class="btn btn-sm btn-proximo" id="next">Próximo</button>
             </div>
         </div>
     </div>
@@ -491,27 +457,180 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-   
-    
-
-   <script>
 
 
-        
-        
+
+    <script>
+
+        // Informações extras
+        document.getElementById('sim-extra').onclick = function () {
+            var html = `<div id="extras" >
+                                <div id="quais" style="width: 940px;">
+                                    <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 0px; "
+                                        id="divBoleto">
+                                        <div
+                                            style="float: left; margin-left: auto; margin-right: auto; width: 21%; margin-top: 13px;">
+                                            <span style="font-weight: 600; font-size: 16px;">Quais informações devem
+                                                constar na NF-e?</span>
+                                            <span style="font-weight: 600; font-size: 12px;">(Ex. pedido de compra, nº
+                                                de autorização, etc)</span>
+                                        </div>
+                                        <div
+                                            style="float: left; margin-left: 10px; margin-right: auto; width: 74%; background: #eaeaea; height: 110px; border-radius: 5px;">
+                                            <textarea
+                                                style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none; border-radius: 5px; padding-left: 15px;"
+                                                name="informacoes_nota"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div id="informe" style="float: left; margin-top: -16px; margin-left: -1%;">
+                                        <div
+                                            style="width: 231px;float: left;margin-top: 30px; font-size: 12px; margin-left: 11px;">
+                                            <span
+                                                style="float:left; margin-top: 6px; font-size: 16px; margin-bottom: -7px;">Informe
+                                                o prazo para a</span>
+                                            <span style="float:left; margin-top: 6px; font-size: 16px;">emissão da
+                                                NF-e</span><span
+                                                style="float: left; margin-top: 8px; margin-left: 5px;">(se
+                                                houver)</span>
+                                        </div>
+                                        <div
+                                            style="background:#eaeaea; width: 217px;margin-left: 0px; height: 41px;float: left;border-radius: 5px;margin-top: 36px;">
+                                            <input type="text" maxlength="10"
+                                                onkeypress="javascript: mascara(this, nascimento_mask);"
+                                                name="prazo_emissao"
+                                                style="font-size: 16px; width: 200px; height: 38px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
+                                        </div>
+                                    </div>
+
+                                    <div id="dias"
+                                        style="float: left;width: 456px;margin-left: 2px; margin-top: -16px;">
+                                        <div
+                                            style="width: 231px; float: left;margin-top: 29px; font-size: 12px; margin-left: 11px;">
+                                            <span
+                                                style="float:left; margin-top: 6px; font-size: 16px; margin-bottom: -7px;">Dia
+                                                da semana para o</span>
+                                            <span style="float:left; margin-top: 6px; font-size: 16px;">vencimento da
+                                                NF-e</span><span
+                                                style="float: left; margin-top: 8px; margin-left: 5px;">(se
+                                                houver)</span>
+                                        </div>
+                                        <div
+                                            style="width: 439px;margin-left: 16px; height: 41px;/* float: left; */border-radius: 5px; color: #666666;margin-top: 31px;">
+
+                                            <select name="dia_semana" id="dia_semana"
+                                                style="margin-top: 3px; font-size: 16px; border: none;width: 209px; height: 41px; background-color: #eaeaea; border-radius: 5px; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 3px;/* float: left; */">
+                                                <option value="">Escolha</option>
+                                                <option value="Segunda-feira">Segunda-feira</option>
+                                                <option value="Terça-feira">Terça-feira</option>
+                                                <option value="Quarta-feira">Quarta-feira</option>
+                                                <option value="Quinta-feira">Quinta-feira</option>
+                                                <option value="Sexta-feira">Sexta-feira</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+            document.getElementById('informacao-extra').innerHTML = html;
+        }
+        document.getElementById('nao-extra').onclick = function () {
+            var html = ``;
+            document.getElementById('informacao-extra').innerHTML = html;
+        }
+
+        // Opção nota fiscal
+        document.getElementById('sim_email_nota').onclick = function () {
+            var html = `<div id="area_mais_email" style="width: 940px;">
+                                    <div
+                                        style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px;">
+                                        <div
+                                            style="float: left; margin-left: auto; margin-right: auto; width: 21%; margin-top: 13px;">
+                                            <span style="font-weight: 600; font-size: 16px;">Coloque os emails</span>
+                                            <span style="font-weight: 600; font-size: 16px;">separados por</span><br>
+                                            <span style="font-weight: 600; font-size: 16px;"> ';' (ponto e
+                                                vírgula)</span>
+                                        </div>
+                                        <div
+                                            style="float: left; margin-left: 7px; margin-right: auto; width: 74%; background: #eaeaea; height: 110px; border-radius: 5px;">
+                                            <textarea
+                                                style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none; border-radius: 5px; padding-left: 15px;"
+                                                name="mais_email_nota"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 10px; font-size: 11px; float: right; margin-right: 4px;">
+                                    <span     style ="margin-left: -179%; color: red;">*Preenchimento obrigatório</span>
+                                </div>`;
+            document.getElementById('email-sim').innerHTML = html;
+        }
+        document.getElementById('nao_email_nota').onclick = function () {
+            var html = '';
+            document.getElementById('email-sim').innerHTML = html;
+        }
+
+        // Opções de Antecipado
+        document.getElementById("antecipado").onclick = function () {
+            var html = '';
+            document.getElementById('opcao-escolhida').innerHTML = html;
+        };
+
+        // Opções de Combinar
+        document.getElementById("a_combinar").onclick = function () {
+            var html = `<div
+                                        style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px;">
+                                        <div style="float: left; margin-left: auto; margin-right: auto; width: 25%;">
+                                            <span style="font-weight: 600; font-size: 16px;">Especificar e justificar a
+                                                forma de pagamento pretendida</span>
+                                            <span style="font-weight: 600; font-size: 12px;">(sujeito a
+                                                aprovação)</span>
+                                        </div>
+                                        <div
+                                            style="float: left; margin-left: 16px; margin-right: auto; width: 73%; background: #eaeaea; height: 80px; border-radius: 5px;">
+                                            <textarea
+                                                style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none;"
+                                                name="especificacao"></textarea>
+                                        </div>
+                                    </div>`;
+            document.getElementById('opcao-escolhida').innerHTML = html;
+        };
+
+        // Opções de Deposito
+        document.getElementById("deposito2").onclick = function () {
+            var html = `<div
+                                        style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px; margin-left: 195px;">
+                                        <input type="radio" name="tipoPagamento" id="tipoPagamento" value="a vista">A vista
+                                        <input style="margin-left: 30px;" type="radio" name="tipoPagamento" id="tipoPagamento"
+                                            value="7 dias">7 dias ddl
+                                    </div>`;
+            document.getElementById('opcao-escolhida').innerHTML = html;
+        };
+
+        // Opções de boleto
+        document.getElementById("pagamento-boleto").onclick = function () {
+            var html = `
+                                            <div style="font-family: Open Sans, sans-serif; font-size: 12px; color: #666666; float: left; width: 100%; margin-top: 30px; margin-left: 15px;">
+                                                <input type="radio" name="tipoPagamento" id="tipoPagamento" value="a vista">A vista
+                                                <input style="margin-left: 30px;" type="radio" name="tipoPagamento" id="tipoPagamento" value="7 dias"> 7 dias ddl
+                                            </div>
+                                        </div>`;
+
+            document.getElementById('opcao-escolhida').innerHTML = html;
+        };
 
         function salvar() {
             let dados;
             if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
                 dados = JSON.parse(localStorage.getItem("lista-pessoas"))
-                
+
                 // arrayPessoas.push(JSON.parse(localStorage.getItem("pessoas")));
 
             }
 
             var nome = document.getElementById("nomeParticipante1").value;
             var cep = document.getElementById("cep1").value;
-            var treinamento = document.getElementById("treinamento1").value;    
+            var treinamento = document.getElementById("treinamento1").value;
             var dataT = document.getElementById("dataT1").value;
             var escolaridade = document.getElementById("escolaridade1").value;
             var formacao = document.getElementById("formacao1").value;
@@ -559,8 +678,8 @@
 
                 // Salva a lista alterada
                 localStorage.setItem("lista-pessoas", JSON.stringify(lista_pessoas));
-                
-                
+
+
                 document.cookie = `dados = ${JSON.stringify(lista_pessoas)}`;
 
                 console.log(lista_pessoas);
@@ -595,57 +714,14 @@
             }
 
             //localStorage.removeItem( JSON.stringify(lista_pessoas));
-            
 
 
 
-
-        }
-
-
-
-
-        function validarUser() {
-            var razao = document.getElementById("razao").value,
-                fantasia = document.getElementById("fantasia").value,
-                cnpj = document.getElementById("cnpj").value,
-                estadual = document.getElementById("estadual").value,
-                cep = document.getElementById("cep").value,
-                endereco = document.getElementById("endereco").value,
-                numero = document.getElementById("numero").value,
-                complemento = document.getElementById("complemento").value,
-                bairro = document.getElementById("bairro").value,
-                cidade = document.getElementById("cidade").value,
-                estado = document.getElementById("estado").value,
-                contato = document.getElementById("contato").value,
-                telefone = document.getElementById("telefone").value,
-                email = document.getElementById("email").value;
-
-            // verifica cada variável para ver se tem conteúdo ou não
-            if (razao && fantasia && cnpj && estadual && cep && endereco && numero && complemento && bairro && cidade && estado && contato && telefone && email) {
-                document.getElementById("next").disabled = false;
-                //alert("Dados confirmado, por favor prossiga !");
-                Swal.fire(
-                    'Dados Verificado com Sucesso',
-                    'Por favor, prossiga !',
-                    'success'
-                );
-            } else {
-                document.getElementById("next").disabled = false;
-                Swal.fire(
-                    'Dados Incompletos',
-                    'Por favor, verifique suas informações !',
-                    'info'
-                );
-            }
 
 
         }
-
 
         $(document).ready(function carrega() {
-
-
 
             //Esconde todos os passos e exibe o primeiro ao carregar a página 
             $('.step').hide();
@@ -665,10 +741,32 @@
                     $("#next").prop('disabled', false);
                     $("#prev").prop('disabled', false);
                 }
+
+                var titulo = '';
+                switch (index) {
+                    case 0:
+                        titulo = 'Preencha corretamente os campos abaixo.';
+                        break;
+
+                    case 1:
+                        titulo = 'Escolha a forma de pagamento';
+                        break;
+
+                    case 2:
+                        titulo = 'Emissão da Nota Fiscal Eletrônica (NF-e).';
+                        break;
+
+                    case 3:
+                        titulo = 'Preencha corretamente os dados do participante.';
+                        break;
+
+
+                }
+
                 $("#passo").html(index + 1);
+                $("#titulo").html(titulo);
 
             };
-
 
 
             //Executa a função ao carregar a página
@@ -676,9 +774,82 @@
 
             //avança para o próximo passo
             $("#next").click(function () {
-                $(".step:visible").hide().next().show();
-                passoexibido();
-                document.getElementById("next").disabled = true;
+                var index = parseInt($(".step:visible").index());
+                console.log(index);
+                switch (index) {
+                    case 0:
+                        var razao = document.getElementById('razao').value;
+                        var nome_fantasia = document.getElementById('fantasia').value;
+                        var cnpj = document.getElementById('cnpj').value;
+                        var inscricao_estadual = document.getElementById('estadual').value;
+                        var cep = document.getElementById('cep').value;
+                        var endereco = document.getElementById('endereco').value;
+                        var numero = document.getElementById('numero').value;
+                        var complemento = document.getElementById('complemento').value;
+                        var bairro = document.getElementById('bairro').value;
+                        var cidade = document.getElementById('cidade').value;
+                        var estado = document.getElementById('estado').value;
+                        var contato = document.getElementById('contato').value;
+                        var telefone = document.getElementById('telefone').value;
+                        var email = document.getElementById('email').value;
+
+                        if (razao != '' && nome_fantasia != '' && cnpj != '' && inscricao_estadual != '' && cep != '' && endereco != ''
+                            && numero != '' && complemento != '' && bairro != '' && cidade != '' && estado != '' && contato != ''
+                            && telefone != '' && email != '') {
+
+                            $(".step:visible").hide().next().show();
+                            passoexibido();
+                        } else {
+                            Swal.fire(
+                                'Dados Incorretos',
+                                'Por favor, preencha os campos obrigatorios !',
+                                'info'
+                            );
+                        }
+
+                        break;
+
+                    case 1:
+
+                        var forma_pagamento = '';
+                        document.getElementById('pagamento-boleto').onclick = function () {
+                            forma_pagamento = 'true';
+                            console.log(forma_pagamento);
+                        };
+                        document.getElementById('deposito2').onclick = function () {
+                            forma_pagamento = 'true';
+                        };
+                        document.getElementById('antecipado').onclick = function () {
+                            forma_pagamento = 'true';
+                        };
+                        document.getElementById('a_combinar').onclick = function () {
+                            forma_pagamento = 'true';
+                        };
+
+                        console.log(forma_pagamento);
+                        if(forma_pagamento != ''){
+                            $(".step:visible").hide().next().show();
+                            passoexibido();
+                        }else{
+                            Swal.fire(
+                                'Opção não selecionada',
+                                'Por favor,  defina uma formada de pagamento!',
+                                'info'
+                            );
+                        }
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+
+                }
+
+                // $(".step:visible").hide().next().show();
+
+                // passoexibido();
             });
 
 
@@ -688,12 +859,13 @@
                 passoexibido();
             });
 
-            var url = window.location.href; 
-            var res = url.split('?'); 
-            
-            if(res[1] == 'sucess=1'){
+
+            var url = window.location.href;
+            var res = url.split('?');
+
+            if (res[1] == 'sucess=1') {
                 var lista_pessoas = JSON.parse(localStorage.getItem('lista-pessoas') || '[]');
-                localStorage.removeItem( 'lista-pessoas');
+                localStorage.removeItem('lista-pessoas');
                 Swal.fire(
                     'Sucesso',
                     'Ao realizar o cadastro!',
@@ -701,9 +873,12 @@
                 );
             }
 
-
-
         });
+
+
+
+
+
 
 
     </script>

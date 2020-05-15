@@ -11,10 +11,11 @@
             $ip_address = $_SERVER [ 'REMOTE_ADDR' ]; 
         }
     /*FIM DA PARTE QUE SALVA O IP DE QUEM ESTÁ ENVIANDO O FORMULARIO*/	
-
-
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
     if($_POST['razao'] != ''){
-
+        
         // Cadastro de uma pessoa Juridica;
         $razaoSocial = $_POST['razao'];
         $nomeFantasia = $_POST['fantasia'];
@@ -33,8 +34,8 @@
         $telefone_empresa = $_POST['telefone'];
         $fax_empresa = $_POST['fax'];
         $email_empresa = $_POST['email'];
-        $pagamento = 'ARRUMAR FORMULARIO';
-        $tipo_pagamento = 'ARRUMAR FORMULARIO';
+        $pagamento = $_POST['pagamento'];
+        $tipo_pagamento = $_POST['tipoPagamento'];
         $especificacao = $_POST['especificacao'];
         $email_nota_fiscal = $_POST['email_nota_fiscal'];
         $opcao_email_nota = $_POST['opcao_email_nota'];
