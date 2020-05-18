@@ -223,6 +223,7 @@
           $html_corpo_ultimo_post = '';
           if($treinamento1 != '' && $dataT1  != '' && $nomeParticipante1 != '' && $cep1 != '' && $endereco1 != '' && $numero1 != '' && $bairro1 != '' && $cep1 != '' && $rg1 != '' && $orgaoEx1 != '' && $cidade1 != '' && $celular1 != '' && $estado1 != '' && $email1 != '' && $telResidencial){
           $html_corpo_ultimo_post ="
+          
           <tr>
                <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Treinamento</td>
                <td colspan='8' style='border: 1px solid #000000; font-size: 14px;'>$treinamento1</td>
@@ -281,6 +282,7 @@
                <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>E-mail</td>
                <td style='border: 1px solid #000000;' colspan='8'>$email1</td>
              </tr>
+             <td colspan='10' style='color: #336699; /*! font-weight: bold; */ font-size:18px;border: 6px solid cadetblue;background: cadetblue;'></td>
              ";}           
 
           foreach (json_decode($dados) as $key => $value) {
@@ -346,6 +348,7 @@
                   <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>E-mail</td>
                   <td style='border: 1px solid #000000;' colspan='8'>$value->email</td>
                 </tr>
+                <td colspan='10' style='color: #336699; /*! font-weight: bold; */ font-size:18px;border: 6px solid cadetblue;background: cadetblue;'></td>
                 ";              
             
           }
@@ -429,6 +432,7 @@
                     <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>E-mail</td>
                     <td style='border: 1px solid #000000;' colspan='8'>$value->email</td>
                   </tr>
+                  <td colspan='10' style='color: #336699; /*! font-weight: bold; */ font-size:18px;border: 6px solid cadetblue;background: cadetblue;'></td>
                   ";
 
                  

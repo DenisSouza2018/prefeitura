@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stepsform</title>
+    <title>Formulario</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
 
 
     <!-- Custom styles for this template -->
@@ -24,9 +24,8 @@
                 <h2>Formulário Pessoa Jurídica FUPAI</h2>
                 <span style="font-size: 24px; color: #336699;">PASSO <span id="passo"></span></span>
                 <span id='titulo' class="titulo_topo"></span>
-
-                <form method="POST" class="form-signin" id="form_final" action="processa.php"
-                    enctype="multipart/form-data">
+                
+                <form class="form-signin" name="formulario"  method="post" action="processa.php" enctype="multipart/form-data">
 
                     <div id="step_1" class="step">
                         <div style="width: 940px; float: left;   border-top: 7px solid #cc9933;"></div> <br>
@@ -195,7 +194,7 @@
                                 </div>
                                 <div style="float: left; color: #666666; margin-left: 7px;width: 157px;">
                                     <input style="margin-left: 0px; float: left; margin-top: 13%;" type="radio"
-                                        name="pagamento" id="antecipado" value="Antecipado">
+                                        name="pagamento" id="antecipado" value="Antecipado" checked>
                                     <div style="float:left; width: 139px;">
                                         <span style="font-size: 16px; float: left;margin-left: 28px;">Antecipado</span>
                                         <span
@@ -233,7 +232,7 @@
                                         para envio da NF-e</span>
                                     <div
                                         style="background:#eaeaea; width: 698px; margin-left: 35px; height: 37px;float: left;border-radius: 5px;">
-                                        <input required="" type="email" name="email_nota_fiscal"
+                                        <input required="" type="email" name="email_nota_fiscal" id="email_nota_fiscal"
                                             style="font-size: 16px; width: 662px; height: 35px; background-color: #eaeaea; border-radius: 5px; border: none; border-color: #eaeaea; font-family: Open Sans, sans-serif; font-weight: 600; color: #666666; margin-left: 10px;">
                                     </div>
                                 </div>
@@ -284,12 +283,12 @@
                                 <div class="col-md-6 mb-4">
                                     <label for="treinamento1">*Treinamento: </label>
                                     <input type="text" class="form-control" id="treinamento1" name="treinamento1"
-                                        placeholder="Treinamento">
+                                        placeholder="Treinamento" required="required">
                                 </div>
                                 <div class="col-md-3 mb-4">
                                     <label for="dataT1">*Data: </label>
                                     <input type="text" class="form-control" id="dataT1" name="dataT1"
-                                        placeholder="Data do Treinamento">
+                                        placeholder="Data do Treinamento" required="required">
                                 </div>
                                 <div class="col-md-3 mb-4">
                                     <label for="escolaridade1">Escolaridade: </label>
@@ -307,7 +306,7 @@
                                 <div class="col-md mb-4">
                                     <label for="nomeParticipante1">*Nome: </label>
                                     <input type="text" class="form-control" id="nomeParticipante1"
-                                        name="nomeParticipante1" placeholder="Treinamento">
+                                        name="nomeParticipante1" placeholder="Treinamento" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -318,19 +317,19 @@
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="cep1">*CEP: </label>
-                                    <input type="text" class="form-control" id="cep1" name="cep1" placeholder="CEP">
+                                    <input type="text" class="form-control" id="cep1" name="cep1" placeholder="CEP" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md mb-4">
                                     <label for="endereco1">*Endereço: </label>
                                     <input type="text" class="form-control" id="endereco1" name="endereco1"
-                                        placeholder="Endereço">
+                                        placeholder="Endereço" required="required">
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="numero1">*Número: </label>
                                     <input type="text" class="form-control" id="numero1" name="numero1"
-                                        placeholder="Número">
+                                        placeholder="Número" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -342,7 +341,7 @@
                                 <div class="col-md mb-4">
                                     <label for="bairro1">*Bairro: </label>
                                     <input type="text" class="form-control" id="bairro1" name="bairro1"
-                                        placeholder="Bairro">
+                                        placeholder="Bairro" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -353,28 +352,28 @@
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="cpf1">*CPF: </label>
-                                    <input type="text" class="form-control" id="cpf1" name="cpf1" placeholder="CPF">
+                                    <input type="text" class="form-control" id="cpf1" name="cpf1" placeholder="CPF" required="required">
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="rg1">*RG: </label>
-                                    <input type="text" class="form-control" id="rg1" name="rg1" placeholder="RG">
+                                    <input type="text" class="form-control" id="rg1" name="rg1" placeholder="RG" required="required">
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="orgaoEx1">*Orgão expedidor: </label>
                                     <input type="text" class="form-control" id="orgaoEx1" name="orgaoEx1"
-                                        placeholder="Orgão expedidor">
+                                        placeholder="Orgão expedidor" required="required">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md mb-4">
                                     <label for="cidade1">*Cidade: </label>
                                     <input type="text" class="form-control" id="cidade1" name="cidade1"
-                                        placeholder="Cidade">
+                                        placeholder="Cidade" required="required">
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="celular1">*Celular: </label>
                                     <input type="text" class="form-control" id="celular1" name="celular1"
-                                        placeholder="Celular">
+                                        placeholder="Celular" required="required">
                                 </div>
                                 <div class="col-md-2 mb-4">
                                     <label for="estado1">*Estado: </label>
@@ -412,18 +411,19 @@
                                 <div class="col-md mb-4">
                                     <label for="email1">*E-mail: </label>
                                     <input type="email1" class="form-control" id="email1" name="email1"
-                                        placeholder="E-mail">
+                                        placeholder="E-mail" required="required">
                                 </div>
                                 <div class="col-md mb-4">
                                     <label for="telResidencial1">*Telefone Residencial: </label>
                                     <input type="text" class="form-control" id="telResidencial1" name="telResidencial1"
-                                        placeholder="Telefone Residencial">
+                                        placeholder="Telefone Residencial" required="required">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-sm btn-finalizar">Finalizar</button>
+                            
                         </div>
 
-
+                        <button type="submit" class="btn btn-sm btn-finalizar" value="finalizar" id="finalizar">Finalizar</button>
+                       
                         <div style="width: 940px; float: left;   border-top: 7px solid #336699; margin-top: 2%;"></div>
                         <br><br>
                     </div>
@@ -448,19 +448,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
 
     <script>
+        //Submit formulario
+        /* document.getElementById('finalizar').onclick = function(e){
+            console.log(e.isTrusted)
+          
+        } */
 
         // Informações extras
         document.getElementById('sim-extra').onclick = function () {
@@ -588,7 +588,7 @@
                                         </div>
                                         <div
                                             style="float: left; margin-left: 16px; margin-right: auto; width: 73%; background: #eaeaea; height: 80px; border-radius: 5px;">
-                                            <textarea
+                                            <textarea id='texto'
                                                 style="color: #666666; font-family: Open Sans, sans-serif; font-size: 16px; background: #eaeaea; width: 99%; height: 85%; border: none;"
                                                 name="especificacao"></textarea>
                                         </div>
@@ -619,14 +619,11 @@
             document.getElementById('opcao-escolhida').innerHTML = html;
         };
 
+        // Salvar os dados local storage e realiza carregamentos dos cookie
         function salvar() {
             let dados;
             if (JSON.parse(localStorage.getItem("lista-pessoas")) != null) {
-                dados = JSON.parse(localStorage.getItem("lista-pessoas"))
-
-                // arrayPessoas.push(JSON.parse(localStorage.getItem("pessoas")));
-
-            }
+                dados = JSON.parse(localStorage.getItem("lista-pessoas"))}
 
             var nome = document.getElementById("nomeParticipante1").value;
             var cep = document.getElementById("cep1").value;
@@ -721,6 +718,7 @@
 
         }
 
+        // Lê primeiramente o html e esconde todas as tag
         $(document).ready(function carrega() {
 
             //Esconde todos os passos e exibe o primeiro ao carregar a página 
@@ -765,6 +763,7 @@
 
                 $("#passo").html(index + 1);
                 $("#titulo").html(titulo);
+                
 
             };
 
@@ -775,7 +774,7 @@
             //avança para o próximo passo
             $("#next").click(function () {
                 var index = parseInt($(".step:visible").index());
-                console.log(index);
+                
                 switch (index) {
                     case 0:
                         var razao = document.getElementById('razao').value;
@@ -811,45 +810,28 @@
 
                     case 1:
 
-                        var forma_pagamento = '';
-                        document.getElementById('pagamento-boleto').onclick = function () {
-                            forma_pagamento = 'true';
-                            console.log(forma_pagamento);
-                        };
-                        document.getElementById('deposito2').onclick = function () {
-                            forma_pagamento = 'true';
-                        };
-                        document.getElementById('antecipado').onclick = function () {
-                            forma_pagamento = 'true';
-                        };
-                        document.getElementById('a_combinar').onclick = function () {
-                            forma_pagamento = 'true';
-                        };
-
-                        console.log(forma_pagamento);
-                        if(forma_pagamento != ''){
-                            $(".step:visible").hide().next().show();
+                    $(".step:visible").hide().next().show();
                             passoexibido();
-                        }else{
-                            Swal.fire(
-                                'Opção não selecionada',
-                                'Por favor,  defina uma formada de pagamento!',
-                                'info'
-                            );
-                        }
 
                         break;
 
                     case 2:
-
+                        email = document.getElementById("email_nota_fiscal").value;
+                        
+                        if(email){
+                            $(".step:visible").hide().next().show();
+                            passoexibido();
+                        }else{
+                            Swal.fire(
+                                'Dados Incorretos',
+                                'Por favor, preencha os campos obrigatorios !',
+                                'info'
+                            );
+                        }
                         break;
 
 
                 }
-
-                // $(".step:visible").hide().next().show();
-
-                // passoexibido();
             });
 
 
