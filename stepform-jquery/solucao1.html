@@ -456,11 +456,6 @@
 
 
     <script>
-        //Submit formulario
-        /* document.getElementById('finalizar').onclick = function(e){
-            console.log(e.isTrusted)
-          
-        } */
 
         // Informações extras
         document.getElementById('sim-extra').onclick = function () {
@@ -679,7 +674,7 @@
 
                 document.cookie = `dados = ${JSON.stringify(lista_pessoas)}`;
 
-                console.log(lista_pessoas);
+                //console.log(lista_pessoas);
                 //Limpa os campos pra proximo participante
                 document.getElementById("nomeParticipante1").value = '';
                 document.getElementById("cep1").value = '';
@@ -702,7 +697,6 @@
                 telResidencial = document.getElementById("telResidencial1").value = '';
 
             } else {
-                console.log('Campos obrigatorios não preenchido');
                 Swal.fire(
                     'Campos obrigatórios não preenchido',
                     'Por favor, preencha os campos !',
@@ -711,10 +705,6 @@
             }
 
             //localStorage.removeItem( JSON.stringify(lista_pessoas));
-
-
-
-
 
         }
 

@@ -11,11 +11,13 @@
             $ip_address = $_SERVER [ 'REMOTE_ADDR' ]; 
         }
     /*FIM DA PARTE QUE SALVA O IP DE QUEM ESTÁ ENVIANDO O FORMULARIO*/	
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    
+   // echo "<pre>";
+   // print_r($_POST);
+   // print_r($_COOKIE);
+   // echo "</pre>";
     if($_POST['razao'] != ''){
-        
+        unsetcookie('companha');
         // Cadastro de uma pessoa Juridica;
         $razaoSocial = $_POST['razao'];
         $nomeFantasia = $_POST['fantasia'];
@@ -35,15 +37,29 @@
         $fax_empresa = $_POST['fax'];
         $email_empresa = $_POST['email'];
         $pagamento = $_POST['pagamento'];
-        $tipo_pagamento = $_POST['tipoPagamento'];
-        $especificacao = $_POST['especificacao'];
+        $opcao_email = $_POST['opcao_email_nota'];
+        if($pagamento != 'Antecipado' && $pagamento != 'A combinar'){
+          $tipo_pagamento = $_POST['tipoPagamento'];
+        }
+        if($pagamento == 'A combinar' ){
+          $especificacao = $_POST['especificacao'];
+        } 
+        if( $opcao_email == "sim_email_nota"){
+          $mais_email_nota = $_POST['mais_email_nota'];
+        }else{
+          $mais_email_nota = '';
+        }      
         $email_nota_fiscal = $_POST['email_nota_fiscal'];
-        $opcao_email_nota = $_POST['opcao_email_nota'];
-        $mais_email_nota = $_POST['mais_email_nota'];
         $extras = $_POST['extras'];
-        $informacoes_nota = $_POST['informacoes_nota'];
-        $prazo_emissao = $_POST['prazo_emissao'];
-        $dia_semana = $_POST['dia_semana'];
+        if($extras == 'sim'){
+          $informacoes_nota = $_POST['informacoes_nota'];
+          $prazo_emissao = $_POST['prazo_emissao'];
+          $dia_semana = $_POST['dia_semana'];
+        }else{
+          $informacoes_nota = '';
+          $prazo_emissao = '';
+          $dia_semana = '';
+        }
         
         // Pessoas cadastradas nos treinamento de uma pessoa
         $treinamento1 = $_POST['treinamento1'];
@@ -67,10 +83,10 @@
         $telResidencial = $_POST['telResidencial1']; 
 
         // Dados de varios participantes;
-        $dados = $_COOKIE['dados'];
-
-        
-        // 
+        if(sizeof($_COOKIE) == 1){
+          $dados = $_COOKIE['dados'];
+        }
+              
         $html ="
         <html>
         <head>
@@ -163,7 +179,7 @@
               
              <tr>
                 <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Email para NF-e</td>
-                <td style='border: 1px solid #000000;' colspan='8'>$email_nota_fiscal / $mais_email_nota</td>
+                <td style='border: 1px solid #000000;' colspan='8'>$email_nota_fiscal / $mais_email_nota </td>
               </tr>
              
              <tr>
@@ -194,12 +210,10 @@
              $html_titulo="
                    <tr>
                      <td colspan='10' style='color: #336699; font-weight: bold; font-size:14px;border: 1px solid #000000;'>Dados do participante</td>
-                   </tr>
-                  
+                   </tr>   
              ";
  
              $html_fim = "
-             
                    <tr>
                        <td colspan='2' style='color: #336699; font-weight: bold; border-top: 2px solid #000000;border-left: 2px solid #000000; border-right: 2px solid #000000;'>&nbsp;</td>
                      <td style='border: 1px solid #000000;' colspan='8' rowspan='3'></td>
@@ -217,9 +231,9 @@
                ";
 
         // Cadastrar os participantes que estão nos cookies e no corpo do ultimo POST
-        if(sizeof(json_decode($dados)) > 0 && $nomeParticipante1 != ''){
-          print_r ('Lista com '.sizeof(json_decode($dados)).' participantes ');
-          echo " | Com dados no ultimo POST ";
+        if(sizeof($_COOKIE) == 1 && $nomeParticipante1 != ''){
+         // print_r ('Lista com '.sizeof(json_decode($dados)).' participantes ');
+         // echo " | Com dados no ultimo POST ";
           $html_corpo_ultimo_post = '';
           if($treinamento1 != '' && $dataT1  != '' && $nomeParticipante1 != '' && $cep1 != '' && $endereco1 != '' && $numero1 != '' && $bairro1 != '' && $cep1 != '' && $rg1 != '' && $orgaoEx1 != '' && $cidade1 != '' && $celular1 != '' && $estado1 != '' && $email1 != '' && $telResidencial){
           $html_corpo_ultimo_post ="
@@ -286,8 +300,6 @@
              ";}           
 
           foreach (json_decode($dados) as $key => $value) {
-            //echo '<pre>';
-           // print_r($value);
 
            $html_corpo .="
              <tr>
@@ -358,105 +370,22 @@
           }else{
             $html_final = $html . $html_titulo . $html_corpo . $html_fim;
           }            
+         
+         
+          // Formulario finaliza com todos os dados pra enviar pro email;
           echo $html_final;
 
-        }
+          //Limpa os Cookies - Ao enviar o email disparar a função * unsetcookie('dados') para limpar todos os cookie da requisição.
+          unsetcookie('dados');
 
-
-        // Cadastrar os participantes que estão nos cookies
-        if(sizeof(json_decode($dados)) > 0 && $nomeParticipante1 == ''){
-            
-            print_r ('Lista com '.sizeof(json_decode($dados)).' participantes ');
-            
-           
-            foreach (json_decode($dados) as $key => $value) {
-              //echo '<pre>';
-             // print_r($value);
- 
-             $html_corpo .="
-               <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Treinamento</td>
-                    <td colspan='8' style='border: 1px solid #000000; font-size: 14px;'>$value->treinamento</td>
-                </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Data</td>
-                    <td style='border: 1px solid #000000; font-size: 14px;' colspan='8'>$value->dataT</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Nome</td>
-                    <td style='border: 1px solid #000000;' colspan='8'>$value->nome</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Escolaridade</td>
-                    <td style='border: 1px solid #000000;' colspan='3'>$value->escolaridade</td>
-                    <td colspan='2'><span style='color: #336699; font-weight: bold;'>Formação</span></td>
-                    <td colspan='3' style='color: #000;border: 1px solid #000000;'>$value->formacao</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Nascimento</td>
-                    <td style='border: 1px solid #000000;' colspan='2'>$value->dataNasc</td>
-                    <td colspan='1' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>CPF</td>
-                    <td style='border: 1px solid #000000;' colspan='2'>$value->cpf</td>
-                    <td colspan='1' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>RG</td>
-                    <td style='border: 1px solid #000000;' colspan='2'>$value->rg - $value->orgaoEx</td>
-                  </tr>
-                  <tr>
-                    <td  colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Endereço</td>
-                    <td style='border: 1px solid #000000;' colspan='8'>$value->endereco</td>
-                  </tr>
-                   <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Número</td>
-                    <td style='border: 1px solid #000000;' colspan='2'>$value->numero</td>
-                    <td colspan='2'><span style='color: #336699; font-weight: bold;'>Complemento</span></td>
-                    <td colspan='4' style='color: #000;border: 1px solid #000000;'>$value->complemento</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Bairro</td>
-                    <td style='border: 1px solid #000000;' colspan='8'>$value->bairro</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Cidade</td>
-                    <td style='border: 1px solid #000000;' colspan='2'>$value->cidade</td>
-                    <td colspan='1' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Estado</td>
-                    <td style='border: 1px solid #000000;' colspan='1'>$value->estado</td>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>CEP</td>
-                    <td style='border: 1px solid #000000;' colspan='2'>$value->cep</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>Telefone residencial</td>
-                    <td style='border: 1px solid #000000;' colspan='3'>$value->telResidencial</td>
-                    <td colspan='2'><span style='color: #336699; font-weight: bold;'>Celular</span></td>
-                    <td colspan='3' style='color: #000;border: 1px solid #000000;'>$value->celular</td>
-                  </tr>
-                  <tr>
-                    <td colspan='2' style='color: #336699; font-weight: bold;border: 1px solid #000000;'>E-mail</td>
-                    <td style='border: 1px solid #000000;' colspan='8'>$value->email</td>
-                  </tr>
-                  <td colspan='10' style='color: #336699; /*! font-weight: bold; */ font-size:18px;border: 6px solid cadetblue;background: cadetblue;'></td>
-                  ";
-
-                 
-                
-              
-            }
-
-
-            
-           $html_final = $html . $html_titulo . $html_corpo . $html_fim;
-
-            
-           echo $html_final;
-
-           //Limpa os Cookies
-           //unsetcookie('dados');
-
-           //header('Location:/prefeitura/stepform-jquery/solucao1.html?sucess=1'); 
+          // URL de retorno para page passando algum parametro para pagar todos os dados salvo do localStorage
+          header('Location:/prefeitura/stepform-jquery/solucao1.html?sucess=1'); 
 
         }
 
         // Cadastrar apenas um participante, sendo os dados do POST mesmo.
-        if(sizeof(json_decode($dados)) == 0  && $nomeParticipante1 != '' ){
-          echo "Lista com 1 participante !";
+        if(sizeof($_COOKIE) == 0  && $nomeParticipante1 != '' ){
+         // echo "Lista com 1 participante !";
             $html_corpo="
                   <tr>
                     <td colspan='10' style='color: #336699; font-weight: bold; font-size:14px;border: 1px solid #000000;'>Dados do participante</td>
@@ -538,9 +467,14 @@
 
           $html_final = $html . $html_corpo;
 
-          echo $html_final;
+           // Formulario finaliza com todos os dados pra enviar pro email;
+           echo $html_final;
 
-          header('Location:/prefeitura/stepform-jquery/solucao1.html?sucess=1'); 
+           //Limpa os Cookies - Ao enviar o email disparar a função * unsetcookie('dados') para limpar todos os cookie da requisição.
+           //unsetcookie('dados');
+           
+           // URL de retorno para page passando algum parametro para pagar todos os dados salvo do localStorage
+           //header('Location:/prefeitura/stepform-jquery/solucao1.html?sucess=1'); 
         }
 
         
@@ -549,8 +483,7 @@
 
     
     // Função responsavel por limpar cookeis
-    function unsetcookie($key, $path = '', $domain = '', $secure = false)
-    {
+    function unsetcookie($key, $path = '', $domain = '', $secure = false){
         if (array_key_exists($key, $_COOKIE)) {
             if (false === setcookie($key, null, -1, $path, $domain, $secure)) {
                 return false;
