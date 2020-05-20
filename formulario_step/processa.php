@@ -1,16 +1,6 @@
 <?php
  
 
-    $to = "fake.tracoleal@gmail.com";
-    $subject = "Formulário de inscrição - Pessoa Jurídica";
-    
-    /*SALVAR O IP DE QUEM ESTÁ ENVIANDO O FORMULARIO*/
-        if ( isset ( $_SERVER [ 'HTTP_X_FORWARDED_FOR' ])  && $_SERVER [ 'HTTP_X_FORWARTDED_FOR' ]  !=  '' )  {
-            $ip_address = $_SERVER [ 'HTTP_X_FORWARDED_FOR' ]; 
-        }  else{
-            $ip_address = $_SERVER [ 'REMOTE_ADDR' ]; 
-        }
-    /*FIM DA PARTE QUE SALVA O IP DE QUEM ESTÁ ENVIANDO O FORMULARIO*/	
     
    // echo "<pre>";
    // print_r($_POST);
@@ -471,10 +461,10 @@
            echo $html_final;
 
            //Limpa os Cookies - Ao enviar o email disparar a função * unsetcookie('dados') para limpar todos os cookie da requisição.
-           //unsetcookie('dados');
+           unsetcookie('dados');
            
            // URL de retorno para page passando algum parametro para pagar todos os dados salvo do localStorage
-           //header('Location:/prefeitura/stepform-jquery/solucao1.html?sucess=1'); 
+           header('Location:/prefeitura/stepform-jquery/solucao1.html?sucess=1'); 
         }
 
         
