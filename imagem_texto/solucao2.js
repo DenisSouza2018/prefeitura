@@ -1,12 +1,12 @@
-const tesseract = require("node-tesseract-ocr")
- 
+const tesseract = require("node-tesseract-ocr");
+
 const config = {
   lang: "eng",
   oem: 1,
   psm: 3,
 }
- 
-tesseract.recognize("image.jpg", config)
+
+tesseract.recognize("imgs/img1.jpg", config)
   .then(text => {
     console.log("Result:", text)
   })
