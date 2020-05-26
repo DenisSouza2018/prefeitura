@@ -2,10 +2,28 @@ const fs = require("fs");
 const tesseract = require("node-tesseract-ocr");
 const okrabyte = require("okrabyte");
 const delay = require('delay');
-
+//const contentFilePath = './content.json';
 // Biblioteca https://www.npmjs.com/package/node-tesseract-ocr
+
+
+
 (async () => {
 
+    
+
+    async function getInfo(name_img) {
+        let result = '';
+        result = await tesseract.recognize("imgs/" + name_img, {
+            load_system_dawg: 0,
+            tessedit_char_whitelist: "0123456789",
+            presets: ["txt"],
+        })
+       // fs.writeFileSync(contentFilePath,result);
+        return result;
+
+    }
+
+    fs.w
     async function words() {
         const files = await new Promise((resolve, reject) => {
             fs.readdir('imgs/', (err, files) => {
@@ -18,48 +36,33 @@ const delay = require('delay');
         });
 
         const filtered = files.filter(file => file !== "Icon_");
+        console.log(filtered.length)
 
+        let cont = 0;
 
-        // const mapped = await Promise.all(filtered.map((file) => {
-        //     return new Promise((resolve, reject) => {
-        //         okrabyte.decodeBuffer(fs.readFileSync("imgs/" + file), (err, data) => {
-        //             if (err) {
-        //                 return reject(err);
-        //             } else {
-        //                 resolve(data);
-        //             }
-        //         })
-        //     })
-        // }))
+        while (cont != filtered.length) {
+            console.log(filtered[cont]);
+            let result = await getInfo(filtered[cont]);
 
-        // const config = {
-        //     lang: "eng",
-        //     oem: 1,
-        //     psm: 3,
-        // }
-        // let mapped;
+            if (result == '' || result == undefined) {
+                console.log('vazio');
+            } else {
+                console.log(result);
+                if (cont != filtered.length) {
+                    cont++;
+                }
+            }
+        }
 
-        // tesseract.recognize("imgs/" + filtered[2], config)
-        //     .then(text => {
-        //         console.log("Result:", text)
-        //         mapped = text;
-        //     })
-        //     .catch(error => {
-        //         console.log(error.message)
-        //     })
-        console.log(filtered);
-        const result = await tesseract.recognize("imgs/" + filtered[3], {
-            load_system_dawg: 0,
-            tessedit_char_whitelist: "0123456789",
-            presets: ["txt"],
-        })
-
-        return result;
+        if(cont == filtered.length){
+            console.log("Finalizou");
+        }
+        //return result;
     }
 
     const teste = await words();
     if (teste != undefined) {
-        console.log(teste);
+        // console.log(teste);
     }
 
 })()
