@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A simple gallery</title>
+  <meta name="description" content="A simple jquery gallery plugin">
+  <meta name="author" content="Steve Rydz">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 3em;
+      color: #333;
+      background: #eee;
+    }
+    img {
+      max-width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      height: auto;
+      background: #fff;
+      box-shadow: 1px 1px 7px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 3em;
+      line-height: 1;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-bottom: 1.5em;
+    }
+    ul {
+      list-style: none;
+      margin-bottom: 1.5em;
+    }
+    .main-image {
+      width: 380px;
+      margin-bottom: 0.75em;
+    }
+    .thumbnails li {
+      display: inline;
+      margin: 0 10px 0 0;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>simpleGal</h1>
+
+  <p>Author: <a href="http://steverydz.com">Steve Rydz</a> | <a href="http://github.com/steverydz/simpleGal">Github repo</a> | <a href="http://steverydz.mit-license.org/">License</a></p>
+
+  <div class="main-image">
+    <img src="assets/img/img-01.jpg" alt="Placeholder" class="custom">
+  </div>
+
+  <ul class="thumbnails">
+    <li><a href="assets/img/img-01.jpg"><img src="assets/img/img-01-tn.jpg" alt="Thumbnails"></a></li>
+    <li><a href="assets/img/img-02.jpg"><img src="assets/img/img-02-tn.jpg" alt="Thumbnails"></a></li>
+    <li><a href="assets/img/img-03.jpg"><img src="assets/img/img-03-tn.jpg" alt="Thumbnails"></a></li>
+  </ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="../dist/jquery.simpleGal.js"></script>
+  <script>
+  $(document).ready(function () {
+    $('.thumbnails').simpleGal({
+      mainImage: '.custom'
+    });
+  });
+  </script>
+
+</body>
+</html>
