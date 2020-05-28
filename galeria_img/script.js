@@ -7,8 +7,14 @@ $('.carousel').slick({
 
 function img(atual){
  
-  html = `<img src="img/${atual}.jpg" >`;
+  html = `<img src="img/${atual}.jpg" class="img-final">`;
   document.getElementById('img-center').innerHTML = html;
 
+}
+
+function reset(){
+
+  html = ``;
+  document.getElementById('img-center').innerHTML = html;
 }
 
