@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: white;
 }
 
 .carousel {
@@ -16,3 +16,14 @@ body {
   
 }
 
+
+.caixa_preta{
+ 
+    background: black;
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    margin-top: -23%;
+    height: auto;
+    opacity: 0.8;
+}
