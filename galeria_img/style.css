@@ -1,0 +1,18 @@
+body {
+  background-color: black;
+}
+
+.carousel {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.main-image {
+  width: 31%;
+  margin-bottom: 0.75em;
+  margin: 0 auto;
+  margin-top: 7%;
+  
+}
+
