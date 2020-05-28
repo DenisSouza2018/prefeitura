@@ -1,0 +1,20 @@
+{
+  "name": "imagem_texto",
+  "version": "1.0.0",
+  "main": "solucao1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "okrabyte": "^0.1.1"
+  },
+  "dependencies": {
+    "delay": "^4.3.0",
+    "express": "^4.17.1",
+    "node-tesseract-ocr": "^1.0.0"
+  },
+  "description": ""
+}
