@@ -13,3 +13,9 @@ Protótipo de teste e visualização de dados .
 # API YOUTUBE
 
 1. Crie primeiramente sua Key -> [Instruções](https://developers.google.com/youtube/v3/getting-started) 
+
+# ENQUETE , FORMULARIO , FORMULARIO_STEP, GALERIA_IMG, LOGIN
+
+1. Utilize um servidor local;
+2. Realize as configurações com banco de dados;
+
