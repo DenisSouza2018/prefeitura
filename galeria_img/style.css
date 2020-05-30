@@ -2,6 +2,10 @@ body {
   background-color: skyblue;
 }
 
+.body2 {
+  background-color: #464646 !important;
+}
+
 .carousel {
   width: 1000px;
   margin: 0 auto;
@@ -9,14 +13,26 @@ body {
   
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.slider{
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 1%;
+}
 .main-image {
   background: #0000007a;
-  z-index: 1;
+  /* z-index: 1; */
   width: 99%;
   position: absolute;
-  margin-top: -52%;
-  height: auto;
-  opacity: 0.9;
+  margin-top: -84%;
+  height: 234%;
+  
 
 }
 
@@ -27,7 +43,10 @@ body {
   
 }
 
-
+.button-close{
+  margin-left: 98%;
+  margin-top: 1%;
+}
 .texto{
   margin-left: 32%;
 }
@@ -40,4 +59,9 @@ body {
   margin-top: -23%;
   height: auto;
   opacity: 0.6;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: -2.6;
 }
