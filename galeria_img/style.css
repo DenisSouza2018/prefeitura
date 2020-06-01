@@ -1,29 +1,67 @@
 body {
-  background-color: white;
+  background-color: skyblue;
+}
+
+.body2 {
+  background-color: #464646 !important;
 }
 
 .carousel {
   width: 1000px;
   margin: 0 auto;
-  margin-top: 5%;
-}
-
-.main-image {
-  width: 31%;
-  margin-bottom: 0.75em;
-  margin: 0 auto;
-  margin-top: 7%;
+  margin-top: 1%;
   
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.slider{
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 1%;
+}
+.main-image {
+  background: #0000007a;
+  /* z-index: 1; */
+  width: 99%;
+  position: absolute;
+  margin-top: -84%;
+  height: 234%;
+  
+
+}
+
+.img-final{
+  width: 20%;
+  margin-left: 34%;
+  margin-top: 20%;
+  
+}
+
+.button-close{
+  margin-left: 98%;
+  margin-top: 1%;
+}
+.texto{
+  margin-left: 32%;
+}
 
 .caixa_preta{
- 
-    background: black;
-    z-index: 1;
-    width: 100%;
-    position: absolute;
-    margin-top: -23%;
-    height: auto;
-    opacity: 0.8;
+  background: black;
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  margin-top: -23%;
+  height: auto;
+  opacity: 0.6;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: -2.6;
 }
