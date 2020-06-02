@@ -2,14 +2,12 @@ const fs = require("fs");
 const tesseract = require("node-tesseract-ocr");
 const okrabyte = require("okrabyte");
 const delay = require('delay');
-//const contentFilePath = './content.json';
+const contentFilePath = './txt/';
 // Biblioteca https://www.npmjs.com/package/node-tesseract-ocr
 
 
 
 (async () => {
-
-    
 
     async function getInfo(name_img) {
         let result = '';
@@ -18,12 +16,21 @@ const delay = require('delay');
             tessedit_char_whitelist: "0123456789",
             presets: ["txt"],
         })
-       // fs.writeFileSync(contentFilePath,result);
-        return result;
+        let name = name_img.substr(0, (name_img.length - 3)) + "txt";
+        let caminho = contentFilePath + name;
+        
+        console.log("Results: ",result.length);
 
+        if (result.length > 10) {
+            fs.writeFileSync(caminho, result);
+            return result;
+        }else{
+            return "Erro: "+name_img;
+        }
+        
+        //return result;
     }
 
-    fs.w
     async function words() {
         const files = await new Promise((resolve, reject) => {
             fs.readdir('imgs/', (err, files) => {
@@ -45,16 +52,16 @@ const delay = require('delay');
             let result = await getInfo(filtered[cont]);
 
             if (result == '' || result == undefined) {
-                console.log('vazio');
+                //console.log('vazio');
             } else {
-                console.log(result);
+                //console.log(result);
                 if (cont != filtered.length) {
                     cont++;
                 }
             }
         }
 
-        if(cont == filtered.length){
+        if (cont == filtered.length) {
             console.log("Finalizou");
         }
         //return result;
