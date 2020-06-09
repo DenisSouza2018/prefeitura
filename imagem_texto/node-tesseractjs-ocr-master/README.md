@@ -1,2 +1,0 @@
-# node-tesseractjs-ocr
-
