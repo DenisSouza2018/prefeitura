@@ -11,22 +11,6 @@ const client = new vision.ImageAnnotatorClient({
   keyFilename: 'APIKey.json'
 });
 
-
-// client
-//   .textDetection('./img/01.000.1.fg.01.jpg')
-//   .then(results => {
-//       //console.log(results)
-//     // const labels = results[0].labelAnnotations;
-//      const texto = results[0].fullTextAnnotation.text;
-//      //console.log(texto);
-//      fs.writeFileSync(contentFilePath+'arquivo1'+'.txt',texto);
-//     // labels.forEach(label => console.log(label));
-//     // //console.log(results);
-//   })
-//   .catch(err => {
-//     console.error('ERROR:', err);
-//   });
-
 (async () => {
 
 
@@ -38,11 +22,11 @@ const client = new vision.ImageAnnotatorClient({
       .then(results => {
         // Pega todo o texto
         const texto = results[0].fullTextAnnotation.text;
-       
+
         // Remove altera a extenção
-        name = name_img.substr(0,(name_img.length - 3)) + 'txt'
+        name = name_img.substr(0, (name_img.length - 3)) + 'txt'
         fs.writeFileSync(contentFilePath + name, texto);
-        
+
         // Verifica de o texto é maior que 10 caracteres
         if (texto.length > 10) {
           verifica = true;
@@ -81,6 +65,7 @@ const client = new vision.ImageAnnotatorClient({
 
     while (cont != filtered.length) {
       console.log(filtered[cont]);
+      console.log("Faltando: ", filtered.length - cont);
       let result = await getInfo(filtered[cont]);
 
       if (result) {
@@ -90,12 +75,15 @@ const client = new vision.ImageAnnotatorClient({
         }
       } else {
         console.log("Erro: ", result);
+        if (cont != filtered.length) {
+          cont++;
+        }
       }
     }
 
     if (cont == filtered.length) {
       console.log("Finalizou");
-      fs.writeFileSync(contentFilePath + 'Arquivos Reprovados.txt', "Quantidade: "+arquivosReprovados.length+ "| Arquivos-->  "+arquivosReprovados);
+      fs.writeFileSync(contentFilePath + 'Arquivos Reprovados.txt', "Quantidade: " + arquivosReprovados.length + "| Arquivos-->  " + arquivosReprovados);
     }
     //return result;
   }
