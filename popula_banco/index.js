@@ -49,9 +49,10 @@ cliente.connect(function (err) {
                 const e = sequencia[j];
 
                 if (e.charAt(e.length - 1) === '-') {
-                    textoUnico += " "+e.substr(e,e.length-1).replace(/"/g, '');
+                    textoUnico += e.substr(e,e.length-1).replace(/"/g, '');
                 }else{
-                    textoUnico += " "+e.replace(/"/g, '');
+                    
+                    textoUnico += e.replace(/"/g, '')+" ";
                 }
                
             }
@@ -94,6 +95,9 @@ cliente.connect(function (err) {
                                 console.log("Erro ao inserir !")
                             }
                         });
+                    }else{
+                        console.log("Arquivo já Inserido !");
+                        console.log(descricao);
                     }
                 });
             }());
