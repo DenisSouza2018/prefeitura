@@ -3,14 +3,26 @@
     header ('Content-type: text/html; charset=UTF-8');
     session_start();
 
-    function __autoload($class_name){
+    // function __autoload($class_name){
         
-        require_once 'D:/xampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php';
-    }
+    //     require_once 'D:/xampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php';
+
+        
+    // }
+
+    //Para o linux
+    function __autoload($class_name){ require_once '/opt/lampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php'; }
+
 
     
     $envio = new Enquete();
+        
+ echo "<pre>";
 
+//    print_r($_COOKIE);
+   //print_r($_POST);
+   
+   echo "</pre>";
     if(isset($_POST['ok'])) {
         $titule = filter_input(INPUT_POST, "form_nameEnquente", FILTER_SANITIZE_MAGIC_QUOTES);
         $qtd_escolha = filter_input(INPUT_POST, "inlineRadioOptions", FILTER_SANITIZE_MAGIC_QUOTES);
