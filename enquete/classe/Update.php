@@ -3,10 +3,16 @@
     header ('Content-type: text/html; charset=UTF-8');
     session_start();
 
-    function __autoload($class_name){
+    // function __autoload($class_name){
         
-        require_once 'D:/xampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php';
+    //     require_once 'D:/xampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php';
+    // }
+
+     //Para o linux
+    function __autoload($class_name){ 
+        require_once '/opt/lampp/htdocs/prefeitura/enquete/classe/'. $class_name . '.php'; 
     }
+
    
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {

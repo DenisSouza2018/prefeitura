@@ -30,17 +30,16 @@ echo number_format($porcentagem,0);
 <head>
     <meta charset="utf-8">
     <title>Enquete</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+   
+  <link rel="stylesheet" href="../enquete/css/index.css">
+  <link rel="stylesheet" href="../enquete/recursos/bootstrap.css">
+  
 
 
-    <link rel="stylesheet" href="enquete/css/index.css">
-
-    <link rel="stylesheet" href="../enquete/recursos/bootstrap.css">
-
-
-    <!--  <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
-
+     <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+     <base href="/">
 </head>
 
 <body>
@@ -53,7 +52,7 @@ echo number_format($porcentagem,0);
 
     </div>
 
-    <form method="post" action="prefeitura/enquete/classe/Envio.php">
+    <form method="post" action="prefeitura/enquete/classe/Envio.php"  id="formulario">
         <div class="container col-md-10 form-group">
             <label for="exampleInputEmail1" class="enquete">ENQUETE</label>
             <div class="img-aspa">
@@ -218,7 +217,7 @@ echo number_format($porcentagem,0);
 
         
        <div class="container col-md-10">
-        <button type="submit" name="votar" class="btn btn-primary"
+        <button name="votar" class="btn btn-primary" type="submit" id="voto" 
             style="margin-left: 83%;   margin-top: -1%;">Votar</button>
        </div>
 
@@ -231,16 +230,115 @@ echo number_format($porcentagem,0);
     <div class="container col-md-10">
         --- container 2 ----
 
-
-
+        <style>
+    .pieContainer {
+          height: 100px;
+     }
+     .pieBackground {
+          background-color: grey;
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          -moz-border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -o-border-radius: 50px;
+          border-radius: 50px;
+          -moz-box-shadow: -1px 1px 3px #000;
+          -webkit-box-shadow: -1px 1px 3px #000;
+          -o-box-shadow: -1px 1px 3px #000;
+          box-shadow: -1px 1px 3px #000;
+     }
+     .pie {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          -moz-border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -o-border-radius: 50px;
+          border-radius: 50px;
+          clip: rect(0px, 50px, 100px, 0px);
+     }
+     .hold {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          -moz-border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -o-border-radius: 50px;
+          border-radius: 50px;
+          clip: rect(0px, 100px, 100px, 50px);
+     }
+       
+     #pieSlice1 .pie {
+          background-color: #1b458b;
+          -webkit-transform:rotate(150deg);
+          -moz-transform:rotate(150deg);
+          -o-transform:rotate(150deg);
+          transform:rotate(150deg);
+     }
+     #pieSlice2 {
+          -webkit-transform:rotate(150deg);
+          -moz-transform:rotate(150deg);
+          -o-transform:rotate(150deg);
+          transform:rotate(150deg);
+     }
+     #pieSlice2 .pie {
+          background-color: #ccbb87;
+          -webkit-transform:rotate(40deg);
+          -moz-transform:rotate(40deg);
+          -o-transform:rotate(40deg);
+          transform:rotate(40deg);
+     }
+     #pieSlice3 {
+          -webkit-transform:rotate(190deg);
+          -moz-transform:rotate(190deg);
+          -o-transform:rotate(190deg);
+          transform:rotate(190deg);
+     }
+     #pieSlice3 .pie {
+          background-color: #cc0000;
+          -webkit-transform:rotate(70deg);
+          -moz-transform:rotate(70deg);
+          -o-transform:rotate(70deg);
+          transform:rotate(70deg);
+     }
+     #pieSlice4 {
+          -webkit-transform:rotate(260deg);
+          -moz-transform:rotate(260deg);
+          -o-transform:rotate(260deg);
+          transform:rotate(260deg);
+     }
+     #pieSlice4 .pie {
+          background-color: #cc00ff;
+          -webkit-transform:rotate(100deg);
+          -moz-transform:rotate(100deg);
+          -o-transform:rotate(100deg);
+          transform:rotate(100deg);
+     }
+</style>
+  
+<div class="pieContainer">
+     <div class="pieBackground"></div>
+     <div id="pieSlice1" class="hold"><div class="pie"></div></div>
+     <div id="pieSlice2" class="hold"><div class="pie"></div></div>
+     <div id="pieSlice3" class="hold"><div class="pie"></div></div>
+     <div id="pieSlice4" class="hold"><div class="pie"></div></div>
+</div>
 
 
     </div>
 
+
+<script>
+     function salvar() {
+        lista_pessoas({
+                   
+                });
+
+        document.cookie = `dados = ${JSON.stringify(lista_pessoas)}`;
+     }
+</script>
 </body>
 
 </html>
 
-<?php
-
-?>
