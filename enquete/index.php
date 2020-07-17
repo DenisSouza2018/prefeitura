@@ -20,10 +20,11 @@ $result = mysqli_query($db, $query);
 <head>
   <meta charset="utf-8">
   <title>Enquete</title>
-  <base href="/">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="enquete/css/index.css">
+  <link rel="stylesheet" href="/enquete/css/index.css">
   <link rel="stylesheet" href="../enquete/recursos/bootstrap.css">
+  <base href="/">
 </head>
 
 <body>
