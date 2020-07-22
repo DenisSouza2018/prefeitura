@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hemeroteca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css'> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 class="highlight-title"> Biblioteca Digital</h1>
+
+
+    <nav class="navbar navbar-expand-sm " style="background-color:#0079b0;">
+ 
+      <ul class="navbar-nav" style="margin-left: 35%;">
+        <li class="nav-item">
+          <button onclick="onBuscaSimples()" class="btn" style="color: aliceblue;">
+            Busca Simples
+          </button>
+
+        </li>
+
+        <li class="nav-item">
+          <button class="btn" style="color: aliceblue;" onclick="onBuscaAvancada()">
+            Busca Avançada
+          </button>
+
+        </li>
+      </ul>
+    </nav>
+
+    <div id="busca">
+      <!-- action="./php/Consulta.php" -->
+      <form method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group input-text-wrapper">
+              <label class="control-label required" for="palavra-chave"> Buscar por palavra-chave </label>
+              <input class="field field-required form-control" id="palavra-chave" name="palavra-chave"
+                placeholder="Ex: Redes neurais, Visão Computacional ..."
+                title="Ex: Redes neurais, Visão Computacional ..." type="text" value="" aria-required="true">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group input-text-wrapper">
+              <label class="control-label required" for="exibir"> Exibir </label>
+              <input class="field field-required form-control" id="exibir" name="exibir" type="number" value="5"
+                maxlength="3" aria-required="true">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group input-select-wrapper has-success">
+              <label class="control-label required" for="ordenar"> Idioma </label>
+              <select class="form-control field-required success-field" id="idioma" name="idioma" aria-required="true">
+                <option class="" selected="" value="portugues"> Portugues </option>
+                <option class="" value="frances"> Francês </option>
+                <option class="" value="italiano"> Italiano </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label required" for="ordenar"> Periodo Inicial </label>
+            <div class=" range-wrap">
+              <div class="range-value" id="rangeV"></div>
+              <input id="range" name="periodo_inicial" type="range" min="1917" max="1980" value="1947" step="1">
+            </div>
+          </div>
+
+          <div class="col-md-3" style="margin-left: 25%;">
+            <label class="control-label required" for="ordenar"> Periodo Final </label>
+            <div class="range-wrap2">
+              <div class="range-value2" id="rangeV2"></div>
+              <input id="range2" name="periodo_final" type="range" min="1917" max="1980" value="1948" step="1">
+            </div>
+          </div>
+        </div>
+
+      </form>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-primary right btn-default" id="buscar" name="hemeroteca_villaLobos" type="button"
+            onclick="submit()">
+            <span class="lfr-btn-label">Buscar</span> </button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="tituloWrapper" style="    margin-top: 40px;">
+          <div class="titulo">
+            Resultados da pesquisa (<span id="CountResult">7</span>)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="pesquisaListWrapper">
+            <div id="Records">
+
+              <div class="col-md-6">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="Algarve e Alemtejo"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="201" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">Algarve e Alemtejo</div>
+                      <div class="autor"></div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">1895-1904</div>
+                      <div class="local">Faro</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 par">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="O progresso do Sul"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="254" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">O progresso do Sul</div>
+                      <div class="autor">adm. José Verissimo de Moura e Almeida</div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">1889-1895</div>
+                      <div class="local">Faro</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="Algarve pitoresco"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="273" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">Algarve pitoresco : revista ilustrada de propaganda e defesa dos interesses do
+                        Algarve</div>
+                      <div class="autor">propr. Empresa A Algarbiense ; dir. e ed. José Eduardo de Sousa Gago</div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">1935</div>
+                      <div class="local">Faro</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 par">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="O Algarve"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="288" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">O Algarve : semanário independente</div>
+                      <div class="autor">dir. Arthur Aguedo</div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">1908-</div>
+                      <div class="local">Faro</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="Algarve comercial e industrial"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="292" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">Algarve comercial e industrial</div>
+                      <div class="autor">dir., propr. e ed. José Maria C. C. Gordinho</div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">[1937?-1941]</div>
+                      <div class="local">Faro</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 par">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="Algarve desportivo"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="300" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">Algarve desportivo</div>
+                      <div class="autor">dir. e ed. J. Chumbinho</div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">1931-1936</div>
+                      <div class="local">Faro</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="pesquisaBoxWrapper">
+                  <div class="boxEsquerda megcE">
+                    <div class="imagemJ"><img src="./img/modelo.png"
+                        class="img-responsive" alt="Algarbh"></div>
+                    <div class="pdfLink"><img src="./img/pesquisaPDF.png" alt="PDF" id="302" class="getItems">
+                      <div>Mostrar os números<br>desta publicação</div>
+                    </div>
+                  </div>
+                  <div class="boxDireita megcE">
+                    <div class="titAutWrapper">
+                      <div class="titulo">Algarbh</div>
+                      <div class="autor">dir. Armando de Miranda ; ed. Eugénio Belles Leiria</div>
+                    </div>
+                    <div class="dataLocalWrapper">
+                      <div class="data">1922</div>
+                      <div class="local">Portimão</div>
+                    </div>
+                    <div class="descricao"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- <div>
+          <input type="hidden" id="pageIndexField" value="1">
+          <input type="hidden" id="totalRecordsField" value="7">
+
+          <hr>
+          <div class="clearfix"></div>
+          <div id="pageNHolder" class="light-theme simple-pagination">
+            <ul>
+              <li class="disabled"><span class="current prev">Anterior</span></li>
+              <li class="active"><span class="current">1</span></li>
+              <li class="disabled"><span class="current next">Seguinte</span></li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>
