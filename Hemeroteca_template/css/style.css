@@ -138,6 +138,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   display: inline-block;
   padding: 5px 20px 15px 0;
   margin: 0 auto 60px auto;
+ 
 }
 
 .pesquisaBoxWrapper {
@@ -154,10 +155,10 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   margin-right: 25px; }
 
 .pesquisaBoxWrapper .boxDireita {
-    padding: 0 5px 0 25px;
+    padding: 0 0px 0 20px;
     flex: 1;
     color: #0079b0;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column; }
 
@@ -190,5 +191,118 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .par{
   margin-left: 62%;
-  margin-top: -40%;
+  margin-top: -45%;
+}
+
+p{
+  max-width: 100ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.img_tamanho{
+  width: 210px;
+  height: 280px;
+}
+
+.subtitulos{
+  color: black;
+}
+
+/********/
+
+.section {
+  position: relative;
+  background: #fff;
+}
+
+.section > .txt-more {
+  display: block;
+  background: #fff;
+
+  /*posiciona o link no final da DIV*/
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.section > .partial {
+  height: 200px; /* limita a altura aqui, assim irá limitar o texto*/
+  overflow: hidden;
+}
+
+.section > a::before {
+  content: "Ocultar"; /*Texto de quando o texto estiver visivel*/
+}
+
+.section > a.txt-more::before {
+  content: "... Mostrar mais"; /* texto para o link*/
+}
+
+
+.mark, mark {
+  padding: .2em;
+  background-color:yellow;
+}
+
+#container3 {
+  float: left;
+  width: 100%;
+  /* background: green; */
+  overflow: hidden;
+  position: relative;
+}
+
+#container2 {
+  float: left;
+  width: 100%;
+  /* background: yellow; */
+  position: relative;
+  right: 30%;
+}
+
+#container1 {
+  float: left;
+  width: 100%;
+  /* background: red; */
+  position: relative;
+  right: 49%;
+}
+
+#col1 {
+  float: left;
+  width: 50%;
+  position: relative;
+  left: 77%;
+  overflow: hidden;
+}
+
+#col2 {
+  float: left;
+  width: 50%;
+  position: relative;
+  left: 80%;
+  overflow: hidden;
+}
+
+#col3 {
+  float: left;
+  width: 26%;
+  position: relative;
+  left: 80%;
+  overflow: hidden;
+}
+
+.textPadrao{
+  font-family: Raleway,sans-serif;
+  color: #282828;
+  font-size: 18px;
+  line-height: 1.875rem;
+}
+
+.tituloPadrao{
+  font-size: 48px;
+  color: #333;
+  font-weight: 900;
 }

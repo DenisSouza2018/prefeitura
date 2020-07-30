@@ -1,14 +1,4 @@
-function submit(){
-  
 
-  periodo_final = document.getElementsByName('periodo_final')[0].value;
-  periodo_inicial = document.getElementsByName('periodo_inicial')[0].value
-  exibir = document.getElementsByName('exibir')[0].value
-  idioma = document.getElementsByName('idioma')[0].value
-  palavra_chave = document.getElementsByName('palavra-chave')[0].value
-
-  console.log(periodo_final,periodo_inicial,exibir,idioma,palavra_chave)
-}
 function onBuscaSimples() {
   document.getElementById("busca").innerHTML = `<form method="post" name="busca_simples" id="busca_simples">
   <div class="row">
@@ -233,13 +223,68 @@ range.addEventListener('input', setValue);
 range2.addEventListener('input', setValue);
 
 
+// Mostra mais informações de uma descrição ou oculta 
+var morelinks = document.querySelectorAll(".section > .txt-more");
+for (var i = 0, j = morelinks.length; i < j; i++) {
+  morelinks[i].onclick = function () {
+    var container = this.parentNode.querySelector(".container");
+
+    container.classList.toggle("partial");
+    this.classList.toggle("txt-more");
+  };
+}
+
+
+
+// Seleciona uma palavra dentro de um texto
+var instance = new Mark(document.getElementById('source'));
+
+function highlight(word) {
+  instance.unmark({
+    done: function () {
+      instance.mark(word)
+    }
+  })
+};
+highlight(document.getElementById('palavra-chave-teste').value);
 
 
 
 
+if (document.getElementById('exibir').value != null) {
 
-
-
+  
+    // let timerInterval
+    // Swal.fire({
+    //   title: 'Carregando!',
+    //   html: 'Tempo restante <b></b> milliseconds.',
+    //   timer: 25000,
+    //   timerProgressBar: true,
+    //   onBeforeOpen: () => {
+    //     Swal.showLoading()
+    //     timerInterval = setInterval(() => {
+    //       const content = Swal.getContent()
+    //       if (content) {
+    //         const b = content.querySelector('b')
+    //         if (b) {
+    //           b.textContent = Swal.getTimerLeft()
+    //         }
+    //       }
+    //     }, 100)
+    //   },
+    //   onClose: () => {
+    //     clearInterval(timerInterval)
+    //     //return true;
+    //   }
+    // }).then((result) => {
+    //   /* Read more about handling dismissals below */
+    //   if (result.dismiss === Swal.DismissReason.timer) {
+    //     console.log('I was closed by the timer')
+    //   }
+    // })
+  
+ 
+}
 
 
 
