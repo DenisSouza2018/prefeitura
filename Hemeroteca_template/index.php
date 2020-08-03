@@ -17,6 +17,7 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
   <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
 
 
 </head>
@@ -27,7 +28,7 @@
     <h1 class="highlight-title tituloPadrao"> Biblioteca Digital</h1>
 
 
-  
+
 
     <div id="busca">
       <!-- action="./php/Consulta.php" enctype="multipart/form-data" -->
@@ -37,15 +38,15 @@
             <div class="form-group input-text-wrapper">
               <label class="control-label required" for="palavra-chave"> Buscar por palavra-chave </label>
               <input class="field field-required form-control" id="palavra-chave" name="palavra-chave"
-                placeholder="Ex: Livros, Poemas, Canções ..."
-                title="Ex: Livros, Poemas, Canções ..." type="text" value="" aria-required="true">
+                placeholder="Ex: Livros, Poemas, Canções ..." title="Ex: Livros, Poemas, Canções ..." type="text"
+                value="" aria-required="true">
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group input-text-wrapper">
               <label class="control-label required" for="exibir"> Exibir </label>
-              <input class="field field-required form-control" id="exibir" name="exibir" type="number" value="5" max="1000" min="1"
-                maxlength="3"  aria-required="true">
+              <input class="field field-required form-control" id="exibir" name="exibir" type="number" value="5"
+                max="1000" min="1" maxlength="3" aria-required="true">
             </div>
           </div>
           <div class="col-md-3">
@@ -77,12 +78,12 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <button type="submit" class="btn btn-primary right btn-default" id="buscar" name="hemeroteca_villaLobos" >
+            <button type="submit" class="btn btn-primary right btn-default" id="buscar" name="hemeroteca_villaLobos">
               <span class="lfr-btn-label">Buscar</span> </button>
           </div>
         </div>
       </form>
-      
+
     </div>
 
 
@@ -90,9 +91,10 @@
 
 
   </div>
-              
 
-            <?php
+ 
+
+  <?php
 
 
               if(isset($_POST['hemeroteca_villaLobos']))
@@ -156,7 +158,7 @@
                               <div class='pesquisaBoxWrapper'>
                                 <div class='boxEsquerda megcE'>
                                   <div class='imagemJ'>
-                                  <a  href='/prefeitura/Hemeroteca_template/img/".$nome_img."'>
+                                  <a  href='/prefeitura/Hemeroteca_template/img/".$nome_img."' rel='lightbox' title='".$nome_titulo."'>
                                     <img src='./img/".$nome_img."' class='img-responsive img_tamanho' alt='".$nome_img."'>
                                   </a>
                                   </div>
@@ -213,7 +215,7 @@
                               <div class='pesquisaBoxWrapper'>
                                 <div class='boxEsquerda megcE'>
                                   <div class='imagemJ'>
-                                  <a  href='/prefeitura/Hemeroteca_template/img/".$nome_img."'>
+                                  <a  href='/prefeitura/Hemeroteca_template/img/".$nome_img."' rel='lightbox' title='".$nome_titulo."'>
                                   <img src='./img/".$nome_img."' class='img-responsive img_tamanho' alt='".$nome_img."'>
                                   </a>
                                   </div>
@@ -275,13 +277,41 @@
             ?>
 
 
-            
-       
-      </div>
-    </div>
+
 
   </div>
+  </div>
 
+  </div>
+  <!-- <div id="lightbox">
+    <div id="outerImageContainer">
+      <div id="imageContainer">
+        <img id="lightboxImage">
+        <div style="" id="hoverNav">
+          <a href="#" id="prevLink"></a>
+          <a href="#" id="nextLink"></a>
+        </div>
+        <div id="loading">
+          <a href="#" id="loadingLink">
+            <img src="images/loading.gif">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="imageDataContainer">
+      <div id="imageData">
+        <div id="imageDetails">
+          <span id="caption"></span>
+          <span id="numberDisplay"></span>
+        </div>
+        <div id="bottomNav">
+          <a href="#" id="bottomNavClose">
+            <img src="images/close.gif">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -293,11 +323,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="js/prototype.js"></script>
+  <script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+  <script type="text/javascript" src="js/lightbox.js"></script>
   <script src="./util/mark.js/dist/mark.min.js"></script>
 
   <script src="./js/script.js"></script>
+
 
 </body>
 
