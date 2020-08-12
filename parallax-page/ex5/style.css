@@ -1,0 +1,112 @@
+/* Navigation bar */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Quicksand, "sans-serif"
+
+}
+
+/* Changes the link color to black on hover */
+nav li a:hover {
+    background-color: black;
+}
+
+/* Background images */
+
+.bgimg-1, .bgimg-2, .bgimg-3{
+  position: relative;
+  background-attachment: fixed; /* Parallax Effect */
+  background-position: center; /* Parallax Effect */
+  background-repeat: no-repeat; /* Parallax Effect */
+  background-size: cover; /* Parallax Effect */
+}
+
+.bgimg-1{
+  background-image: url(https://c1.staticflickr.com/3/2842/33486131571_cac9b7cd9c_b.jpg);
+  min-height: 50vh;
+}
+
+.bgimg-2{
+  background-image: url(https://static.pexels.com/photos/139193/pexels-photo-139193.jpeg);
+  min-height: 350px;
+}
+
+.bgimg-3{
+  background-image: url(https://c1.staticflickr.com/3/2915/32776096594_812a1de41b_b.jpg);
+  min-height: 350px;
+}
+
+/* Pages  */
+
+
+h1{
+  text-align: center;
+  padding: 175px;
+  font-size: 95px;
+  font-family: Quicksand, "sans-serif";
+  color: #FF150E;
+  font-weight: bold;
+}
+
+h2{
+  font-color: #0E091E;
+  font-size: 55px;
+  font-family: Quicksand, "sans-serif";
+  text-align: center;
+  padding: 45px;
+}
+
+h3{
+  text-align: center;
+}
+
+#about{
+  background-color: white;
+  height: 100%;
+  margin-bottom: 25px;
+}
+
+#places{
+  height: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 45px;
+}
+
+#resources{
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+li {
+  text-align: center;
+}
+
+/* Footer */
+footer{
+  position: relative;
+  text-align: center;
+  background-color: black;
+  height: 2rem;
+  color: pink;
+}
+
+
+/* Background images from pexels.com & unsplash.com; images by Scott Webb & Life of Pix (pexels.com) & Andrew Welch (unsplash.com)*/
+
+/* Hex color codes are from htmlcolorcodes.com */
