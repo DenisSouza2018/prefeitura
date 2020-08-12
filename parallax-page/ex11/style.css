@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Questrial");
+html, body {
+  font-family: "Lato", cursive;
+  background: #f7f7f9;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-image: url(https://www.beatsbydre.com/content/dam/beats/web/home/social/social_modal_4/4_shopfeed_studio.jpg);
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+header .content {
+  width: 800px;
+  max-width: 80%;
+  text-align: center;
+  position: absolute;
+  margin-left: -200px;
+  top: 20%;
+  left: 50%;
+  color: white;
+}
+header .content .title {
+  font-size: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+header .content .title span {
+  color: #910e04;
+  margin: 0px 10px;
+  font-size: 20px;
+}
+header .content .text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+header .content .button-wrapper {
+  margin-top: 40px;
+}
+header .content .button-wrapper .button {
+  color: white;
+  background: #910e04;
+  width: 200px;
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 20px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 20px;
+}
+header .content .button-wrapper .button.explore {
+  background: black;
+  border: 2px solid white;
+}
+
+.thumb-wrapper {
+  width: 1200px;
+  max-width: 100%;
+  margin: 40px auto;
+}
+.thumb-wrapper .title {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.thumb-wrapper .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+.thumb-wrapper .row .thumb-unit {
+  width: 23%;
+  height: 350px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all ease-in-out 300ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1);
+  z-index: 100;
+  overflow: hidden;
+  z-index: 1000;
+  background: white;
+  transform-origin: top center;
+}
+.thumb-wrapper .row .thumb-unit.active {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.thumb-wrapper .row .thumb-unit:hover {
+  height: 400px;
+  transform: scale(1.2);
+  padding-bottom: 20px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+}
+.thumb-wrapper .row .thumb-unit:hover img {
+  transform: scale(1.2);
+}
+.thumb-wrapper .row .thumb-unit:hover .title {
+  transform: translateY(20%);
+}
+.thumb-wrapper .row .thumb-unit img {
+  width: 100%;
+  transition: all ease-in-out 300ms;
+}
+.thumb-wrapper .row .thumb-unit .title {
+  transition: all ease-in-out 300ms;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sub-content-wrapper {
+  padding: 50px 0px;
+}
+.sub-content-wrapper .sub-unit {
+  width: 60%;
+  background-image: url(https://www.beatsbydre.com/content/dam/beats/web/home/beatsx/beatsX_homepage_featured_card_left.jpg.medium.1x.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin: 0 auto;
+  position: relative;
+  padding: 250px 0px;
+  margin-bottom: 100px;
+}
+.sub-content-wrapper .sub-unit:nth-child(2) {
+  background-image: url(https://www.beatsbydre.com/content/dam/beats/web/home/third-man/thirdman_revised_featured_v2.jpg.large.1x.jpg);
+}
+.sub-content-wrapper .sub-content {
+  background: white;
+  width: 450px;
+  position: absolute;
+  top: 40%;
+  right: -20%;
+  padding: 50px 50px;
+}
+.sub-content-wrapper .sub-content:nth-child(2) {
+  background: red;
+}
+.sub-content-wrapper .sub-content .title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.sub-content-wrapper .sub-content .text {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+.sub-content-wrapper .sub-content .button-wrapper {
+  margin-top: 20px;
+}
+.sub-content-wrapper .sub-content .button-wrapper .button {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 2px solid #e9e9e9;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+.sub-content-wrapper .sub-content .button-wrapper .button.buy {
+  background: #910e04;
+  color: white;
+  letter-spacing: 2px;
+  border: 2px solid #910e04;
+}
+
+.footer {
+  font-family: "Questrial", sans-serif;
+}
+
+.col-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.col-wrapper .col {
+  width: 24%;
+  margin: 0px 0.5%;
+  padding: 0px 0px 0px 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+.logo img {
+  width: 100%;
+}
+
+.col ul li {
+  margin-bottom: 15px;
+}
+.col ul li p {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.col ul li p span {
+  margin: 0px 5px;
+  font-weight: 900;
+}
+.col ul li .location {
+  font-size: 16px;
+  font-weight: 700;
+}
+.col ul li a {
+  text-transform: uppercase;
+  margin-right: 15px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.col ul li:first-child {
+  text-transform: lowercase;
+}
+.col ul li:first-child a {
+  text-transform: none;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.support .title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  font-margin-bottom: 20px;
+}
+.support .kicker {
+  text-align: center;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.support .icon-wrapper {
+  width: 960px;
+  max-width: 80%;
+  margin: 0 auto 50px;
+  display: flex;
+}
+.support .icon-wrapper .icon-unit {
+  width: 15%;
+  margin: 0px 5%;
+  text-align: center;
+}
+.support .icon-wrapper .icon-unit img {
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 20px;
+}
+.support .icon-wrapper .icon-unit .caption {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  font-letter-spacing: 2px;
+}
