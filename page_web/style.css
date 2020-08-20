@@ -80,11 +80,42 @@ section {
 
 
 .texto1{
-  font-size: 80px;
+  font-size: 75px;
   color: #898989;
   font-weight: bolder;
 }
 
+.texto2{
+  color: #dddddd;
+  font-size: 455%;
+  font-weight: bolder;
+}
+
+.texto3{
+  color: black;
+  font-weight: 400;
+  margin-top: -3%;
+}
+
+.fileira1{
+  margin-top: 8%;
+  margin-left: 3%;
+}
+
+.legenda1{
+  max-height: 2px;
+  background-color: #292929;
+  width: 82%;
+  margin-left: 9%;
+}
+
+.image{
+  -webkit-filter:grayscale(100%);
+}
+.image:hover{
+  -webkit-filter:grayscale(0%);
+  transition: 1s;
+}
 
 body:after {
   content: url(https://raw.githubusercontent.com/lokesh/lightbox2/master/dist/images/close.png) url(https://raw.githubusercontent.com/lokesh/lightbox2/master/dist/images/loading.gif) url(https://raw.githubusercontent.com/lokesh/lightbox2/master/dist/images/prev.png) url(https://raw.githubusercontent.com/lokesh/lightbox2/master/dist/images/next.png);
