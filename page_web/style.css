@@ -97,9 +97,26 @@ section {
   margin-top: -3%;
 }
 
+.texto4{
+  color: white;
+  font-size: 30px;
+}
+
 .cliente{
   margin-left: 5%;
   margin-top: 2%;
+}
+
+div.b {
+  height:617px;
+}
+
+div.textoMensagem{
+  background-color: #88240d;
+  margin-top: -24%;
+  margin-left: 13%;
+  width: 45%;
+  height: 212px;
 }
 
 
