@@ -102,15 +102,29 @@ section {
   font-size: 30px;
 }
 
+.texto5{
+  color: #dddddd;
+  font-size:145%;
+  line-height: 15px;
+  /* font-weight: bolder; */
+}
+
 .cliente{
   margin-left: 5%;
   margin-top: 2%;
 }
 
 div.b {
-  height:617px;
+  height:528px;
 }
 
+div.faleConosco{
+  height:451px;
+}
+
+div.faleConosco2{
+  height:500px;
+}
 div.textoMensagem{
   background-color: #88240d;
   margin-top: -24%;
