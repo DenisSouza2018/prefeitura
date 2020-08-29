@@ -104,14 +104,21 @@ section {
 
 .texto5{
   color: #dddddd;
-  font-size:145%;
-  line-height: 15px;
-  /* font-weight: bolder; */
+  font-size: 240%;
+  line-height: 25px;
 }
 
 .cliente{
   margin-left: 5%;
   margin-top: 2%;
+}
+
+.texto-cliente{
+  margin-top: 1%;
+  margin-left: 12%;
+  color: white;
+  font-size: 28px;
+
 }
 
 div.b {
@@ -127,7 +134,7 @@ div.faleConosco2{
 }
 div.textoMensagem{
   background-color: #88240d;
-  margin-top: -24%;
+  margin-top: -30%;
   margin-left: 13%;
   width: 45%;
   height: 212px;
