@@ -140,6 +140,25 @@ div.textoMensagem{
   height: 212px;
 }
 
+div.menu-setas{
+  height: 48px;
+}
+
+.seta {
+  position: absolute;
+padding: 1rem;
+box-shadow: 1px -1px 0 1px red inset;
+-webkit-box-shadow: 9px -9px red inset;
+border: solid transparent;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+border-width: 0 0 2rem 2rem;
+transition: 0.2s;
+}
+
+.seta-direita{ transform:rotate(225deg) }
 
 .fileira1{
   margin-top: 8%;
@@ -149,7 +168,7 @@ div.textoMensagem{
 .legenda1{
   max-height: 2px;
   background-color: #292929;
-  width: 82%;
+  width: 311px;
   margin-left: 9%;
 }
 
