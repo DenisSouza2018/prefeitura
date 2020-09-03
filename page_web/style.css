@@ -142,23 +142,43 @@ div.textoMensagem{
 
 div.menu-setas{
   height: 48px;
+  
+  margin-top: 8px;        
+  width: 183px;
+  margin-left: 4px;
 }
-
+div.menu-setas:hover{
+  height: 48px;
+  background: #d12e0b;  
+  margin-top: 8px;        
+  width: 183px;
+  margin-left: 4px;
+}
 .seta {
   position: absolute;
-padding: 1rem;
-box-shadow: 1px -1px 0 1px red inset;
--webkit-box-shadow: 9px -9px red inset;
-border: solid transparent;
-    border-top-width: medium;
-    border-right-width: medium;
-    border-bottom-width: medium;
-    border-left-width: medium;
-border-width: 0 0 2rem 2rem;
-transition: 0.2s;
+  padding: 1rem;
+  -webkit-box-shadow: 9px -9px red inset;
+  border: solid transparent;
+  border-width: 0 0 2rem 2rem;
+  transition: 0.2s;
+  
 }
 
 .seta-direita{ transform:rotate(225deg) }
+
+.seta:hover {
+  position: absolute;
+  padding: 1rem;
+  -webkit-box-shadow: 9px -9px red inset;
+  border: solid transparent;
+  border-width: 0 0 2rem 2rem;
+  transition: 0.2s;
+
+}
+
+.seta-direita:hover{ transform:rotate(225deg) }
+
+
 
 .fileira1{
   margin-top: 8%;
