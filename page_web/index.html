@@ -27,7 +27,7 @@
 
         <div>
           <nav class="navbar navbar-dark ">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" onclick=" return disableMenu()"
               data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
               aria-expanded="false" aria-label="Toggle navigation" style="    margin-top: -54px;
               margin-left: 220px;">
@@ -47,41 +47,42 @@
 
 
 
-    <div style="    margin-left: 30px;
-    margin-top: 160px;">
-
+    <div class="menu-laterial" id="menu">
       <ul class="nav flex-column ">
 
         <li class="nav-item ">
           <div class="seta seta-direita" href=""></div>
           <div class="menu-setas">
-            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;" href="#">PORTFÓLIO</a>
+            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;"
+              href="#carouselExampleFade">PORTFÓLIO</a>
           </div>
         </li>
 
         <li class="nav-item ">
           <div class="seta seta-direita" href=""></div>
           <div class="menu-setas">
-            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;" href="#">A TRAÇO</a>
+            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;" href="#traco">A TRAÇO</a>
           </div>
         </li>
 
         <li class="nav-item ">
           <div class="seta seta-direita" href=""></div>
           <div class="menu-setas">
-            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;" href="#">CLIENTES</a>
+            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;"
+              href="#cliente">CLIENTES</a>
           </div>
         </li>
 
         <li class="nav-item ">
           <div class="seta seta-direita" href=""></div>
           <div class="menu-setas">
-            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;" href="#">CONTATO</a>
+            <a class=" nav-link active font-config" style="margin-left: 19px; color: white;" href="#contato">CONTATO</a>
           </div>
         </li>
 
       </ul>
     </div>
+
   </section>
 
   <!-- Carrosel - 1 -->
@@ -91,10 +92,10 @@
         <img class="d-block w-100" src="./img/carrosel1/img1.png" alt="Third slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="./img/carrosel1/img1.png" alt="First slide">
+        <img class="d-block w-100" src="./img/carrosel1/img2.png" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="./img/carrosel1/img1.png" alt="Second slide">
+        <img class="d-block w-100" src="./img/carrosel1/img3.png" alt="Second slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -108,87 +109,194 @@
   </div>
 
   <!-- Galeria -->
-  <div style="margin-left: 10px;">
-    <div>
+  <div class="galeria-port">
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img1.png" data-lightbox="example-set"
         data-title="Click the right half of the image to move forward.">
-        <img class="example-image" src="./img/galeria/galeria_img1.png" alt="" style="width: 33%;" />
+        <img class="example-image port-img" src="./img/galeria/galeria_img1.png" alt="" />
       </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img2.png" data-lightbox="example-set"
-        data-title="Or press the right arrow on your keyboard.">
-        <img class="example-image" src="./img/galeria/galeria_img2.png" alt="" style="width: 33%;" />
-      </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img3.png" data-lightbox="example-set"
-        data-title="The next image in the set is preloaded as you're viewing.">
-        <img class="example-image" src="./img/galeria/galeria_img3.png" alt="" style="width: 33%;" />
-      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
     </div>
 
-    <div style="margin-top:10px">
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img2.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img2.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img3.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img3.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img4.png" data-lightbox="example-set"
         data-title="Click the right half of the image to move forward.">
-        <img class="example-image" src="./img/galeria/galeria_img4.png" alt="" style="width: 33%;" />
+        <img class="example-image port-img" src="./img/galeria/galeria_img4.png" alt="" />
       </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img5.png" data-lightbox="example-set"
-        data-title="Or press the right arrow on your keyboard.">
-        <img class="example-image" src="./img/galeria/galeria_img5.png" alt="" style="width: 33%;" />
-      </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img6.png" data-lightbox="example-set"
-        data-title="The next image in the set is preloaded as you're viewing.">
-        <img class="example-image" src="./img/galeria/galeria_img6.png" alt="" style="width: 33%;" />
-      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
     </div>
 
-    <div style="margin-top:10px">
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img5.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img5.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img6.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img6.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img7.png" data-lightbox="example-set"
         data-title="Click the right half of the image to move forward.">
-        <img class="example-image" src="./img/galeria/galeria_img7.png" alt="" style="width: 33%;" />
+        <img class="example-image port-img" src="./img/galeria/galeria_img7.png" alt="" />
       </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img8.png" data-lightbox="example-set"
-        data-title="Or press the right arrow on your keyboard.">
-        <img class="example-image" src="./img/galeria/galeria_img8.png" alt="" style="width: 33%;" />
-      </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img9.png" data-lightbox="example-set"
-        data-title="The next image in the set is preloaded as you're viewing.">
-        <img class="example-image" src="./img/galeria/galeria_img9.png" alt="" style="width: 33%;" />
-      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
     </div>
 
-    <div style="margin-top:10px">
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img8.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img8.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img9.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img9.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img10.png" data-lightbox="example-set"
         data-title="Click the right half of the image to move forward.">
-        <img class="example-image" src="./img/galeria/galeria_img10.png" alt="" style="width: 33%;" />
+        <img class="example-image port-img" src="./img/galeria/galeria_img10.png" alt="" />
       </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img11.png" data-lightbox="example-set"
-        data-title="Or press the right arrow on your keyboard.">
-        <img class="example-image" src="./img/galeria/galeria_img11.png" alt="" style="width: 33%;" />
-      </a>
-      <a class="example-image-link" href="./img/galeria/galeria_img12.png" data-lightbox="example-set"
-        data-title="The next image in the set is preloaded as you're viewing.">
-        <img class="example-image" src="./img/galeria/galeria_img12.png" alt="" style="width: 33%;" />
-      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
     </div>
 
-    <div style="margin-top:10px">
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img11.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img11.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <a class="example-image-link" href="./img/galeria/galeria_img12.png" data-lightbox="example-set"
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img12.png" alt="" />
+      </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img13.png" data-lightbox="example-set"
         data-title="Click the right half of the image to move forward.">
-        <img class="example-image" src="./img/galeria/galeria_img13.png" alt="" style="width: 33%;" />
+        <img class="example-image port-img" src="./img/galeria/galeria_img13.png" alt="" />
       </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img14.png" data-lightbox="example-set"
-        data-title="Or press the right arrow on your keyboard.">
-        <img class="example-image" src="./img/galeria/galeria_img14.png" alt="" style="width: 33%;" />
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img14.png" alt="" />
       </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
+    </div>
+
+    <div class="box">
       <a class="example-image-link" href="./img/galeria/galeria_img15.png" data-lightbox="example-set"
-        data-title="The next image in the set is preloaded as you're viewing.">
-        <img class="example-image" src="./img/galeria/galeria_img15.png" alt="" style="width: 33%;" />
+        data-title="Click the right half of the image to move forward.">
+        <img class="example-image port-img" src="./img/galeria/galeria_img15.png" alt="" />
       </a>
+      <div class="legenda-port">
+          <p class="negrito">Campanha Carnaval no Brasil</p>
+          <p class="negrito">Cliente: ONU Mulheres</p>
+          <p class="negrito">Ano: 2020</p>
+      </div>
     </div>
 
 
   </div>
 
+
   <!-- Texto - 1 -->
-  <section>
+  <section id="traco">
     <div class="align-self-center">
       <p class="texto1">
         37 anos . atendendo às expectativas . clientes </br>
@@ -297,12 +405,16 @@
         Somos uma das mais completas agências de
         Minas Gerais.
       </p>
+      <div>
+        <p>..... <br></p>
+        <p>..... <br></p>
+      </div>
     </div>
 
   </section>
 
   <!-- Clientes Principais -->
-  <section style="background-color: #e8e8e8; margin-top: -1%;">
+  <section style="background-color: #e8e8e8; margin-top: -1%;" id="cliente">
 
     <p class="texto3"><b>Principais Clientes Atendidos: </b></p>
 
@@ -353,47 +465,63 @@
   <!-- Mensagem dos clientes -->
   <div class="b" style="background-image: url(./img/fundo3.png);">
 
-    <div class="carousel-item active">
-      <img style="margin-left: 60%;" src="./img/mensagem/img1.png" alt="">
-      <div class="textoMensagem">
-        <img src="./img/aspas.png" style=" margin-top: -45px;  margin-left: 42%;" alt="">
-        <p class="texto4"><i>A prefeitura de BH dobrou o número de seguidores </br>
-            nas redes sociais e os elogios diante às campanhas </br>
-            não param de chegar. O trabalho desenvolvido pela </br>
-            agência vem encantando a população belorizontina.</i></p>
-      </div>
-      <div class="Fix"></div>
-      <div class="texto-cliente">
-        <p style="  font-weight: bold;">Rodrigo Marques Marion, Prefeito de Belo Horizonte</p>
-      </div>
-    </div>
 
 
-    <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
       <div class="carousel-inner">
-        
-       
+        <div class="carousel-item active">
 
-        <div class="carousel-item">
-          <img style="margin-left: 60%;" src="./img/mensagem/img1.png" alt="">
-          
-          <div class="carousel-item active">
-            <img style="margin-left: 60%;" src="./img/mensagem/img1.png" alt="">
-            <div class="textoMensagem">
-              <img src="./img/aspas.png" style=" margin-top: -45px;  margin-left: 42%;" alt="">
-              <p class="texto4"><i>A prefeitura de BH dobrou o número de seguidores </br>
-                  nas redes sociais e os elogios diante às campanhas </br>
-                  não param de chegar. O trabalho desenvolvido pela </br>
-                  agência vem encantando a população belorizontina.</i></p>
-            </div>
-            
-            <div class="texto-cliente">
-              <p style="  font-weight: bold;">Rodrigo Marques Marion, Prefeito de Belo Horizonte</p>
-            </div>
+          <div class="textoMensagem">
+            <img src="./img/aspas.png" class="depoimento-text" alt="">
+            <p class="texto4"><i>A prefeitura de BH dobrou o número de seguidores </br>
+                nas redes sociais e os elogios diante às campanhas </br>
+                não param de chegar. O trabalho desenvolvido pela </br>
+                agência vem encantando a população belorizontina.</i></p>
           </div>
+          <div class="Fix"></div>
+          <div class="texto-cliente">
+            <p style="  font-weight: bold;">Rodrigo Marques Marion, Prefeito de Belo Horizonte</p>
+          </div>
+          <div>
+            <img class="depoimentos-img" src="./img/mensagem/img1.png" alt="">
+          </div>
+        </div>
+        <div class="carousel-item ">
 
+          <div class="textoMensagem">
+            <img src="./img/aspas.png" class="depoimento-text" alt="">
+            <p class="texto4"><i>Em itajuba tivemos muitos elogios sobre nosso site,</br>
+                nas redes sociais e os elogios diante às campanhas </br>
+                não param de chegar. O trabalho desenvolvido pela </br>
+                agência vem encantando a população.</i></p>
+          </div>
+          <div class="Fix"></div>
+          <div class="texto-cliente">
+            <p style="  font-weight: bold;">Rodrigo Riera, Prefeito de Itajuba</p>
+          </div>
+          <div>
+            <img class="depoimentos-img" src="./img/mensagem/img2.png" alt="">
+          </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="textoMensagem">
+            <img src="./img/aspas.png" class="depoimento-text" alt="">
+            <p class="texto4"><i>A prefeitura de Gonçalves está sendo muito</br>
+                bem vista nas redes sociais e tendo diversos elogios. </br>
+                O trabalho desenvolvido pela agência vem trazendo novos investidores.</i></p>
+          </div>
+          <div class="Fix"></div>
+          <div class="texto-cliente">
+            <p style="  font-weight: bold;">Luiz Rosa, Prefeito de Gonçalves</p>
+          </div>
+          <div>
+            <img class="depoimentos-img" src="./img/mensagem/img3.png" alt="">
+          </div>
         </div>
       </div>
+
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Anterior</span>
@@ -402,7 +530,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Próximo</span>
       </a>
-    </div> -->
+    </div>
 
 
 
@@ -415,15 +543,15 @@
   </div>
 
   <!-- Contato -->
-  <div>
+  <div id="contato">
     <div class="faleConosco2" style="background-image: url(./img/fundo5.png);">
 
       <div style="opacity: 1%;">
-        <p>dasdasdasdasdasdasds</p>
+        <p>........</p>
       </div>
 
       <div style="margin-left: 55%; color: white;">
-        <form style="margin-top:26%;">
+        <form style="margin-top:3%;">
           <div class="form-group row ">
             <label for="staticEmail" class="col-sm-2 col-form-label">Nome</label>
             <div class="col-sm-6">
@@ -493,44 +621,7 @@
   </div>
 
 
-  <!-- partial:index.partial.html -->
-  <!-- <section class="img" style="background-image: url(https://unsplash.it/1920/1080?random=4);">
-  <div class="overlay">
-    <h1>Parallax</h1>
-  </div>
-</section> -->
-  <!-- <section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati beatae perferendis deserunt dolores molestiae hic dolorum maxime numquam, ad rerum quas optio quis ut, ducimus eaque sint maiores repellat qui, explicabo. Quis incidunt quo adipisci
-    veniam explicabo nihil maiores doloremque id voluptates corporis animi vel tenetur quidem deserunt, nemo amet. Laborum maxime corporis, quo quis asperiores ipsum dolorum voluptatum unde adipisci, ut necessitatibus praesentium aliquam dolores placeat
-    delectus cupiditate dolorem nobis magni commodi vero tenetur, sapiente fuga earum! Porro adipisci labore explicabo quia nostrum neque laborum maxime soluta ad quaerat quos cum fugiat, at odit. Deleniti id illum quis ex.</p>
-</section>
-<section class="img" data-type="background" data-speed="10" style="background-image: url(https://unsplash.it/1920/1080?random=1);"></section>
-<section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere error ipsam voluptatibus qui nisi laboriosam culpa, voluptas molestiae accusantium veritatis illum, cum repellat est illo maiores dolore odio aliquid maxime facilis atque natus praesentium
-    repudiandae! Voluptates reiciendis dolores repellendus dicta autem doloremque quam unde aliquam recusandae est. Cupiditate totam aperiam vero hic atque accusantium consequuntur fugiat sapiente est, laboriosam, reiciendis minus vitae itaque voluptate
-    vel velit corporis facere veritatis distinctio nulla. Inventore voluptates, quae totam unde illo. Magnam voluptas voluptate omnis soluta similique temporibus dolore aliquam nostrum earum cum, quibusdam, ad incidunt delectus ex suscipit quia qui reprehenderit
-    cupiditate aspernatur.</p>
-</section>
-<section class="img" data-type="background" data-speed="10" style="background-image: url(https://unsplash.it/1920/1080?random=2);"></section>
-<section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae odio minus quo perspiciatis debitis, sapiente ipsam suscipit. Cumque aut vel saepe doloribus minus pariatur numquam, deserunt, accusantium architecto fuga, magni nulla labore rem
-    totam. Vel nihil tempore pariatur, qui! Molestiae, deserunt illum possimus esse, ipsa corporis adipisci tenetur commodi quisquam! Iure accusantium voluptatibus sint aliquam, laudantium qui, atque earum quibusdam perspiciatis officia quis ipsa labore
-    maiores repellat quaerat possimus sed porro mollitia recusandae fugiat repellendus illo dicta dignissimos? Illo ratione, odio repudiandae. Asperiores, explicabo! Aliquid sunt alias dignissimos, nulla explicabo. Ipsam quo ad laudantium voluptates tenetur
-    non, ea suscipit.</p>
-</section>
-<section class="img" data-type="background" data-speed="10" style="background-image: url(https://unsplash.it/1920/1080?random=3);"></section>
-<section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas alias error adipisci at ipsum, voluptate totam a! Expedita ipsum est assumenda, nam porro provident maiores facilis? Facere atque, possimus dicta vel veritatis, repellat enim similique
-    eius nulla id nisi corporis suscipit? Corrupti animi neque architecto reprehenderit sint illo, qui beatae! Ipsam laudantium sed enim commodi, quos explicabo in totam nisi? Omnis repellat ullam facilis earum sint sed laudantium voluptatum, est optio
-    quas quae, at eum esse. Obcaecati rem exercitationem rerum velit fugit voluptatem esse voluptatibus, mollitia laborum similique recusandae ab aut quidem distinctio dolores deleniti dolorem placeat quia nesciunt facilis.</p>
-</section>
-<section class="img" data-type="background" data-speed="10" style="background-image: url(https://unsplash.it/1920/1080?random=4);"></section>
-<section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut amet totam in incidunt fugit recusandae distinctio et ad fugiat labore officiis sequi impedit possimus, ipsam officia perferendis repellendus libero. Numquam officiis veniam autem est? Maiores
-    qui mollitia id nulla, rerum culpa porro magnam iusto molestiae officia, asperiores impedit dolore repellat perspiciatis aspernatur dolores, distinctio odio. Voluptates debitis dolorem provident mollitia ab sint voluptatem quod quibusdam necessitatibus
-    possimus distinctio nisi ipsum tempora molestiae ullam cumque temporibus totam, a voluptatibus ex! Repellat eos consectetur veniam, id corporis accusantium, optio nisi laboriosam saepe recusandae veritatis, quibusdam, distinctio harum atque quaerat
-    expedita dicta fuga!</p>
-</section> -->
+
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

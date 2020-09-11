@@ -13,3 +13,13 @@ $(document).ready(function() {
     });
   });
 });
+
+function disableMenu(){
+  
+  dados = document.getElementById("menu");
+  if(dados.className === 'menu-disable'){
+    $('#menu').removeClass('menu-disable').addClass('menu-laterial');
+  }else{
+    $('#menu').removeClass('menu-laterial').addClass('menu-disable');
+  }
+}

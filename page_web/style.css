@@ -113,12 +113,47 @@ section {
   margin-top: 2%;
 }
 
+.galeria-port{
+  margin-left: 12px;
+}
+
 .texto-cliente{
   margin-top: 1%;
   margin-left: 12%;
   color: white;
   font-size: 28px;
 
+}
+ .negrito{
+  font-weight: bold;
+ }
+.legenda-port{
+  margin-top: -14%;
+    background-color: #fff6cc;
+    position: relative;
+    width: 560px;
+    opacity: 88%;
+    line-height: 16px;
+}
+
+.port-img{
+  width: 99%;
+}
+
+.depoimentos-img{
+  margin-left: 60%;
+  margin-top: -429px;
+  width: 545px;
+}
+
+.depoimento-text{
+  margin-top: -45px;
+  margin-left: 42%;
+}
+
+div.box {
+	width: 568px;
+	display: inline-block;
 }
 
 div.b {
@@ -130,11 +165,11 @@ div.faleConosco{
 }
 
 div.faleConosco2{
-  height:1828px;
+  height:800px;
 }
 div.textoMensagem{
   background-color: #88240d;
-  margin-top: -30%;
+  margin-top: 8%;
   margin-left: 13%;
   width: 45%;
   height: 212px;
@@ -158,6 +193,24 @@ div.menu-setas:hover{
   position: absolute;
   padding: 1rem;
   -webkit-box-shadow: 9px -9px red inset;
+  border: solid transparent;
+  border-width: 0 0 2rem 2rem;
+  transition: 0.2s;
+  
+}
+
+.menu-laterial{
+  margin-left: 30px;
+  margin-top: 160px;
+}
+
+.menu-disable{
+  visibility: collapse;
+}
+.seta-disable {
+  visibility: collapse;
+  position: absolute;
+  padding: 1rem;
   border: solid transparent;
   border-width: 0 0 2rem 2rem;
   transition: 0.2s;
