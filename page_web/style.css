@@ -191,7 +191,13 @@ section {
 }
 
 
+.marge-clientes{
+  margin-left: 3%;
+}
 
+.merge-cliente-top{
+  margin-top: 5%;
+}
 
 .port-img{
   width: 99%;
@@ -215,6 +221,11 @@ div.box {
 
 div.box2 {
   width: 372px;
+  display: inline-block;
+}
+
+div.box3 {
+  width: 320px;
   display: inline-block;
 }
 
