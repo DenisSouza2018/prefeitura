@@ -127,14 +127,71 @@ section {
  .negrito{
   font-weight: bold;
  }
+
 .legenda-port{
-  margin-top: -14%;
-    background-color: #fff6cc;
-    position: relative;
-    width: 560px;
-    opacity: 88%;
-    line-height: 16px;
+  margin-top: -13%;
+  background-color: #fff6cc;
+  position: relative;
+  width: 562px;
+  opacity: -9%;
+  line-height: 16px;
+  
 }
+
+.legenda-port:hover{
+  margin-top: -13%;
+  background-color: #fff6cc;
+  position: relative;
+  width: 562px;
+  opacity: 88%;
+  line-height: 16px;
+}
+
+.legenda-mensagem{
+  opacity: -9%;
+  margin-top: -8%;
+  margin-left: 12px;
+  background-color: #fff6cc;
+  position: relative;
+  width: 310px;
+  line-height: 16px;
+}
+
+.legenda-mensagem:hover{
+  opacity: 88%;
+  margin-top: -8%;
+  margin-left: 12px;
+  background-color: #fff6cc;
+  position: relative;
+  width: 310px;
+  line-height: 16px;
+}
+
+
+.center-colb{
+  margin-left: 8%;
+}
+
+.legenda-text{
+  color: aliceblue;
+  font-size: 20px;
+}
+
+.sublegenda-text{
+  color: aliceblue;
+  font-size: 18px;
+}
+
+.legenda-colb{
+  margin-left: 12px;
+  background-color: #292929;
+  position: relative;
+  width: 310px;
+  line-height: 16px;
+}
+
+
+
 
 .port-img{
   width: 99%;
@@ -154,6 +211,11 @@ section {
 div.box {
 	width: 568px;
 	display: inline-block;
+}
+
+div.box2 {
+  width: 372px;
+  display: inline-block;
 }
 
 div.b {
@@ -251,6 +313,7 @@ div.menu-setas:hover{
 .image:hover{
   -webkit-filter:grayscale(0%);
   transition: 1s;
+  opacity: 88%;
 }
 
 body:after {
