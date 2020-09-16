@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
-body {
+/* body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-}
+} */
 
 h1 {
   position: relative;
@@ -45,8 +45,6 @@ section {
 .img:first-child {
   height: 600px;
   min-height: inherit;
-  /*background-attachment: inherit;
-  background-position: center;*/
   background-size: cover;
 }
 
@@ -229,6 +227,11 @@ div.box3 {
   display: inline-block;
 }
 
+div.box4 {
+  width: 320px;
+  display: inline-block;
+}
+
 div.b {
   height:528px;
 }
@@ -334,7 +337,7 @@ body:after {
 
 body.lb-disable-scrolling {
   overflow: hidden;
-}
+} 
 
 .lightboxOverlay {
   position: absolute;
@@ -364,7 +367,7 @@ body.lb-disable-scrolling {
   border-radius: 3px;
 }
 
-.lightbox a img {
+ .lightbox a img {
   border: none;
 }
 
@@ -532,3 +535,4 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
