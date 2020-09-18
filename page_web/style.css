@@ -52,6 +52,17 @@ section {
   margin-left: 80%;
 }
 
+.menu-top{
+  margin-top: -54px;
+  margin-left: 220px;
+}
+
+.icons-top{
+  margin-top: 15% !important;
+   margin-left: 9% !important;
+    color:white !important;
+}
+
 .icons-config{
   font-size: 25px;
   color: #ffff;
@@ -76,7 +87,28 @@ section {
   color: aliceblue;
 }
 
+.localizacao-fale-conosco{
+  background-image: url(./img/fundo4.png);
+}
 
+.contato-page{
+  background-image: url(./img/fundo5.png);
+}
+.nome-cidade{
+  font-weight: bold;
+}
+
+.cliente-principais{
+  background-color: #e8e8e8; margin-top: -1%;
+}
+
+.mensagem-clientes{
+  background-image: url(./img/fundo3.png);
+}
+
+.texto-setas{
+  margin-left: 19px; color: white;
+}
 .texto1{
   font-size: 75px;
   color: #898989;
@@ -102,8 +134,49 @@ section {
 
 .texto5{
   color: #dddddd;
-  font-size: 240%;
+  font-size: 180%;
   line-height: 25px;
+}
+
+.texto6{
+  color: #dddddd;
+}
+
+.texto7{
+  font-size: 20px;   color: aliceblue;  line-height: 10px;
+}
+
+.submitFormulario{
+  background-color: #F37630 !important ;
+  border-color: #f37633 !important;  
+}
+
+.buttonSubmit{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon-rodape{
+  margin-top: 4%;
+  font-size: 30px;
+  color: #ffff;
+}
+
+.logotipo-rodape{
+  margin-top: 30%;
+}
+
+.distancia-logotipo{
+  margin-left: 6%;
+}
+
+.espacamento-page{
+  opacity: 1%;
+}
+
+.info-rodape{
+  margin-top: 8%;
+  
 }
 
 .cliente{
@@ -127,21 +200,22 @@ section {
  }
 
 .legenda-port{
-  margin-top: -13%;
+ 
+  margin-top: -12%;
   background-color: #fff6cc;
   position: relative;
-  width: 562px;
+  width: 620px;
   opacity: -9%;
   line-height: 16px;
   
 }
 
 .legenda-port:hover{
-  margin-top: -13%;
+  margin-top: -12%;
   background-color: #fff6cc;
   position: relative;
-  width: 562px;
-  opacity: 88%;
+  width: 620px;
+  opacity: 102%;
   line-height: 16px;
 }
 
@@ -203,8 +277,11 @@ section {
 
 .depoimentos-img{
   margin-left: 60%;
-  margin-top: -429px;
-  width: 545px;
+  margin-top: -413px;
+  max-width: 550px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
 }
 
 .depoimento-text{
@@ -213,7 +290,7 @@ section {
 }
 
 div.box {
-	width: 568px;
+	width: 626px;
 	display: inline-block;
 }
 
@@ -264,7 +341,24 @@ div.menu-setas:hover{
   margin-top: 8px;        
   width: 183px;
   margin-left: 4px;
+
 }
+
+.seta2{
+  opacity: 2%;
+  font-size: 33px;
+  stroke: red;
+  margin-left: -45px;
+
+}
+
+.seta2:hover{
+  opacity: 100%;
+  font-size: 33px;
+  stroke: red;
+  margin-left: -45px;
+}
+
 .seta {
   position: absolute;
   padding: 1rem;
