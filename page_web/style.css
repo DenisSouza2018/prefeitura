@@ -34,12 +34,11 @@ section {
   background: white;
 }
 
-.img {
-  padding: 0;
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: 50% 0;
+.fundo-colaboradores{
   background-repeat: no-repeat;
+  background-size: 108%;
+  background-position: center;
+  background-image: url(./img/fundo2.png);
 }
 
 .img:first-child {
@@ -113,12 +112,14 @@ section {
   font-size: 75px;
   color: #898989;
   font-weight: bolder;
+  text-align: center !important;
 }
 
 .texto2{
   color: #dddddd;
   font-size: 455%;
   font-weight: bolder;
+  text-align: center !important;
 }
 
 .texto3{
@@ -130,6 +131,7 @@ section {
 .texto4{
   color: white;
   font-size: 30px;
+  text-align: center !important;
 }
 
 .texto5{
@@ -189,18 +191,18 @@ section {
 }
 
 .texto-cliente{
-  margin-top: 1%;
-  margin-left: 12%;
+  font-weight: bold !important;
+  text-align: center;
   color: white;
-  font-size: 28px;
+  font-size: 20px;
 
 }
  .negrito{
   font-weight: bold;
  }
 
-.legenda-port{
- 
+/* .legenda-port{
+  opacity: 102%;
   margin-top: -12%;
   background-color: #fff6cc;
   position: relative;
@@ -208,9 +210,9 @@ section {
   opacity: -9%;
   line-height: 16px;
   
-}
+} */
 
-.legenda-port:hover{
+.legenda-port{
   margin-top: -12%;
   background-color: #fff6cc;
   position: relative;
@@ -276,17 +278,21 @@ section {
 }
 
 .depoimentos-img{
-  margin-left: 60%;
-  margin-top: -413px;
   max-width: 550px;
-  max-height: 500px;
-  width: auto;
-  height: auto;
+  max-height: 528px;
+}
+
+.center-depoimento{
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .depoimento-text{
-  margin-top: -45px;
-  margin-left: 42%;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.box {
@@ -300,8 +306,8 @@ div.box2 {
 }
 
 div.box3 {
-  width: 320px;
   display: inline-block;
+    text-align: center;
 }
 
 div.box4 {
@@ -315,11 +321,22 @@ div.b {
 
 div.faleConosco{
   height:451px;
+ 
 }
 
 div.faleConosco2{
   height:800px;
 }
+
+
+
+.fundo-contato{
+  background-repeat: no-repeat;
+  background-size: 108%;
+  background-position: center;
+  background-image: url(./img/fundo5.png);
+}
+
 div.textoMensagem{
   background-color: #88240d;
   margin-top: 8%;
@@ -417,6 +434,7 @@ div.menu-setas:hover{
 
 .image{
   -webkit-filter:grayscale(100%);
+  width: 250px;
 }
 .image:hover{
   -webkit-filter:grayscale(0%);
