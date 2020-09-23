@@ -35,7 +35,7 @@ section {
 }
 
 .fundo-colaboradores{
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: 108%;
   background-position: center;
   background-image: url(./img/fundo2.png);
@@ -49,6 +49,7 @@ section {
 
 .icons-navbar{
   margin-left: 80%;
+  margin-top: -3%;
 }
 
 .menu-top{
@@ -185,6 +186,9 @@ section {
   margin-left: 5%;
   margin-top: 2%;
 }
+ .marge-galeria{
+   margin-top: 2%;
+ }
 
 .galeria-port{
   margin-left: 12px;
@@ -213,28 +217,19 @@ section {
 } */
 
 .legenda-port{
-  margin-top: -12%;
+  display: none;
+  margin-top: -11%;
   background-color: #fff6cc;
   position: relative;
-  width: 620px;
+  width: 99%;
   opacity: 102%;
   line-height: 16px;
 }
 
 .legenda-mensagem{
-  opacity: -9%;
+  display: none;
   margin-top: -8%;
-  margin-left: 12px;
-  background-color: #fff6cc;
-  position: relative;
-  width: 310px;
-  line-height: 16px;
-}
-
-.legenda-mensagem:hover{
-  opacity: 88%;
-  margin-top: -8%;
-  margin-left: 12px;
+  margin-left: 8px;
   background-color: #fff6cc;
   position: relative;
   width: 310px;
@@ -257,8 +252,8 @@ section {
 }
 
 .legenda-colb{
-  margin-left: 12px;
-  background-color: #292929;
+  margin-left: 8px;
+  background-color: #750909;
   position: relative;
   width: 310px;
   line-height: 16px;
@@ -361,16 +356,10 @@ div.menu-setas:hover{
 
 }
 
+
+
 .seta2{
-  opacity: 2%;
-  font-size: 33px;
-  stroke: red;
-  margin-left: -45px;
-
-}
-
-.seta2:hover{
-  opacity: 100%;
+  display: none;
   font-size: 33px;
   stroke: red;
   margin-left: -45px;
