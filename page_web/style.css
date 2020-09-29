@@ -155,6 +155,7 @@ section {
 }
 
 .buttonSubmit{
+  margin-left: -10%;
   display: flex;
   justify-content: flex-end;
 }
@@ -167,6 +168,7 @@ section {
 
 .logotipo-rodape{
   margin-top: 30%;
+  text-align: center;
 }
 
 .distancia-logotipo{
@@ -179,7 +181,7 @@ section {
 
 .info-rodape{
   margin-top: 8%;
-  
+  text-align: -webkit-right;
 }
 
 .cliente{
@@ -217,22 +219,29 @@ section {
 } */
 
 .legenda-port{
-  display: none;
+  /* display: none; */
   margin-top: -11%;
   background-color: #fff6cc;
   position: relative;
   width: 99%;
-  opacity: 102%;
+  opacity: 0%;
   line-height: 16px;
+  transition-delay: 250ms;
+}
+
+.formulario-campos{
+  margin-left: -17px;
+
 }
 
 .legenda-mensagem{
-  display: none;
+  /* display: none; */
+  opacity: 0%;
   margin-top: -8%;
   margin-left: 8px;
   background-color: #fff6cc;
   position: relative;
-  width: 310px;
+  width: 317px;
   line-height: 16px;
 }
 
@@ -255,13 +264,13 @@ section {
   margin-left: 8px;
   background-color: #750909;
   position: relative;
-  width: 310px;
+  width: 317px;
   line-height: 16px;
 }
 
 
 .marge-clientes{
-  margin-left: 3%;
+  margin-left: 6%;
 }
 
 .merge-cliente-top{
@@ -301,8 +310,9 @@ div.box2 {
 }
 
 div.box3 {
+  width: 320px;
   display: inline-block;
-    text-align: center;
+    /* text-align: center; */
 }
 
 div.box4 {
@@ -340,7 +350,7 @@ div.textoMensagem{
   height: 212px;
 }
 
-div.menu-setas{
+/* div.menu-setas{
   height: 48px;
   
   margin-top: 8px;        
@@ -354,14 +364,14 @@ div.menu-setas:hover{
   width: 183px;
   margin-left: 4px;
 
-}
+} */
 
 
 
 .seta2{
   display: none;
   font-size: 33px;
-  stroke: red;
+  stroke: white;
   margin-left: -45px;
 }
 
@@ -423,7 +433,7 @@ div.menu-setas:hover{
 
 .image{
   -webkit-filter:grayscale(100%);
-  width: 250px;
+  /* width: 250px; */
 }
 .image:hover{
   -webkit-filter:grayscale(0%);
@@ -637,3 +647,20 @@ body.lb-disable-scrolling {
   opacity: 1;
 }
 
+#radio-nav-5:hover ~ .scroll #section-5 p{
+	animation: animeUp .7s ease-in-out .4s backwards;
+	-webkit-animation: animeUp .7s ease-in-out .4s backwards;
+}
+
+@keyframes animeUp{
+	0%{
+		transform: translateY(50px);
+		-webkit-transform: translateY(50px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0px);
+		-webkit-transform: translateY(0px);
+		opacity: 1;
+	}
+}

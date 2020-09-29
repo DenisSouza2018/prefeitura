@@ -1,7 +1,6 @@
 
 
 $('nav a').click(function (e) {
-	console.log('ssss')
 	e.preventDefault();
 	var id = $(this).attr('href'),
 		targetOffset = $(id).offset().top,
@@ -26,12 +25,17 @@ function hover_out2(x) {
 }
 
 function hover(x) {
-	document.getElementsByClassName('legenda-port')[x].style.display = 'inherit';
+	document.getElementsByClassName('legenda-port')[x].style.opacity = '100%';
 }
 function hover_out(x) {
-	document.getElementsByClassName('legenda-port')[x].style.display = 'none';
+	document.getElementsByClassName('legenda-port')[x].style.opacity = '0%';
 }
 
-
+function hover3(x) {
+	document.getElementsByClassName('legenda-mensagem')[x].style.opacity = '100%';
+  }
+  function hover_out3(x) {
+	document.getElementsByClassName('legenda-mensagem')[x].style.opacity = '0%';
+  }
 
 
