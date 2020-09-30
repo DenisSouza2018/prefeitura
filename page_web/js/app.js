@@ -15,6 +15,7 @@ $('nav a').click(function (e) {
 
 
 
+
 function hover2(x) {
 	document.getElementsByClassName('seta2')[x].style.display = 'inline-table';
 }
