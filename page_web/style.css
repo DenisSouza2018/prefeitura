@@ -64,8 +64,8 @@ section {
 }
 
 .icons-config{
-  font-size: 25px;
-  color: #ffff;
+  font-size: 30px;
+    color: #ffff;
   
 }
 
@@ -76,14 +76,15 @@ section {
 }
 
 .logo{
-  margin-top: -6%;
+  margin-top: -4%;
   margin-left: 2%;
-  width: 11%;
+  width: 16%;
 }
 
 .mensagem{
+  font-size: 29px;
   margin-top: -4%;
-  margin-left: 17%;
+  margin-left: 21%;
   color: aliceblue;
 }
 
@@ -146,7 +147,7 @@ section {
 }
 
 .texto7{
-  font-size: 20px;   color: aliceblue;  line-height: 10px;
+  font-size: 20px;   color: aliceblue;  line-height: 25px;
 }
 
 .submitFormulario{
@@ -180,8 +181,8 @@ section {
 }
 
 .info-rodape{
-  margin-top: 8%;
-  text-align: -webkit-right;
+  /* margin-top: 8%; */
+  /* text-align: -webkit-right; */
 }
 
 .cliente{
@@ -245,6 +246,11 @@ section {
   line-height: 16px;
 }
 
+.config-fonts{
+  margin-left: 19px;
+  color: white !important;
+  font-size: 60px;
+}
 
 .center-colb{
   margin-left: 8%;
@@ -272,9 +278,12 @@ section {
   color: white !important;
 }
 
-.marge-clientes{
-  margin-left: 6%;
+.font-dados-contato{
+  font-size: 26px;
 }
+.marge-clientes{
+   margin-left: 1%; 
+  }
 
 .merge-cliente-top{
   margin-top: 5%;
@@ -313,6 +322,8 @@ div.box2 {
 }
 
 div.box3 {
+  text-align: center;
+  margin-left: 2%;
   width: 320px;
   display: inline-block;
     /* text-align: center; */
@@ -388,9 +399,20 @@ div.menu-setas:hover{
   
 }
 
+nav ul li a {
+  text-decoration:none;
+  /* float:left; */
+  width:100%;
+  /* color:#333; */
+  display:inline-block;
+  line-height: 55px;
+  /* margin-left: -100px; */
+
+}
+
 .menu-laterial{
   margin-left: 30px;
-  margin-top: 160px;
+  margin-top: 87px;
 }
 
 .menu-disable{
