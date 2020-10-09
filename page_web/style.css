@@ -132,7 +132,7 @@ section {
 
 .texto4{
   color: white;
-  font-size: 30px;
+  font-size: 28px;
   text-align: center !important;
 }
 
@@ -180,6 +180,8 @@ section {
   opacity: 1%;
 }
 
+
+
 .info-rodape{
   /* margin-top: 8%; */
   /* text-align: -webkit-right; */
@@ -205,6 +207,8 @@ section {
 
 }
  .negrito{
+  text-align: center;
+  margin: 0 0px !important;
   font-weight: bold;
  }
 
@@ -237,9 +241,9 @@ section {
 
 .legenda-mensagem{
   /* display: none; */
+  font-size: 15px;
   opacity: 0%;
-  margin-top: -8%;
-  margin-left: 8px;
+  margin-top: -5%;
   background-color: #fff6cc;
   position: relative;
   width: 317px;
@@ -267,7 +271,6 @@ section {
 }
 
 .legenda-colb{
-  margin-left: 8px;
   background-color: #750909;
   position: relative;
   width: 317px;
@@ -312,7 +315,7 @@ section {
 }
 
 div.box {
-	width: 626px;
+	width: auto;
 	display: inline-block;
 }
 
@@ -335,7 +338,7 @@ div.box4 {
 }
 
 div.b {
-  height:528px;
+  height:auto;
 }
 
 div.faleConosco{
@@ -445,8 +448,8 @@ nav ul li a {
 
 
 .fileira1{
+  width: 103%;
   margin-top: 8%;
-  margin-left: 3%;
 }
 
 .legenda1{
@@ -688,4 +691,117 @@ body.lb-disable-scrolling {
 		-webkit-transform: translateY(0px);
 		opacity: 1;
 	}
+}
+
+
+@media(max-width: 1280px){
+  .legenda-text {
+    color: aliceblue;
+    font-size: 17px;
+}
+.texto4 {
+  font-size: 17px;
+}
+.texto-cliente{
+  font-size: 17px;
+}
+.legenda-mensagem{
+  font-size: 12px;
+  opacity: 0%;
+  margin-top: -11%;
+  background-color: #fff6cc;
+  position: relative;
+  width: 317px;
+  line-height: 16px;
+}
+}
+
+@media(max-width: 1050px){
+  .legenda-text {
+    color: aliceblue;
+    font-size: 15px;
+}
+.texto4 {
+  font-size: 15px;
+}
+.texto-cliente{
+  font-size: 15px;
+}
+.legenda-mensagem{
+  font-size: 10px;
+  opacity: 0%;
+  margin-top: -11%;
+  background-color: #fff6cc;
+  position: relative;
+  width: 317px;
+  line-height: 16px;
+}
+}
+
+@media(max-width: 800px){
+  .legenda-text {
+    color: aliceblue;
+    font-size: 12px;
+}
+.texto4 {
+  font-size: 12px;
+}
+.texto-cliente{
+  font-size: 12px;
+}
+.legenda-mensagem{
+  font-size: 9px;
+  opacity: 0%;
+  margin-top: -11%;
+  background-color: #fff6cc;
+  position: relative;
+  width: 317px;
+  line-height: 16px;
+}
+}
+
+@media(max-width: 767px){
+  .legenda-text {
+    color: aliceblue;
+    font-size: 16px;
+}
+.texto4 {
+  font-size: 16px;
+}
+.texto-cliente{
+  font-size: 16px;
+}
+.legenda-mensagem{
+  font-size: 14px;
+  opacity: 0%;
+  margin-top: -5%;
+  background-color: #fff6cc;
+  position: relative;
+  width: 317px;
+  line-height: 16px;
+}
+}
+
+@media(max-width: 575px){
+  .depoimentos-img {
+    width: 60%;
+  }
+}
+
+@media(max-width: 1317px){
+  .texto4 {
+    font-size: 20px;
+  }
+}
+
+@media(max-width: 1077px){
+  .texto4 {
+    font-size: 17px;
+  }
+}
+
+@media(max-width: 982px){
+  .texto4 {
+    font-size: 13px;
+  }
 }
