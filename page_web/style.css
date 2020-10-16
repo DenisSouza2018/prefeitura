@@ -125,7 +125,10 @@ section {
 }
 
 .texto3{
-  color: black;
+  font-size: 24px;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  color: #545454;
   font-weight: 400;
   margin-top: -3%;
 }
@@ -156,7 +159,7 @@ section {
 }
 
 .buttonSubmit{
-  margin-left: -8%;
+  margin-left: 27%;
   display: flex;
   justify-content: flex-end;
 }
@@ -212,16 +215,6 @@ section {
   font-weight: bold;
  }
 
-/* .legenda-port{
-  opacity: 102%;
-  margin-top: -12%;
-  background-color: #fff6cc;
-  position: relative;
-  width: 620px;
-  opacity: -9%;
-  line-height: 16px;
-  
-} */
 
 .legenda-port{
   /* display: none; */
@@ -231,7 +224,9 @@ section {
   width: 99%;
   opacity: 0%;
   line-height: 16px;
-  transition-delay: 250ms;
+  /* transition-delay: 250ms; */
+  transition: 2s;
+
 }
 
 .formulario-campos{
@@ -248,6 +243,7 @@ section {
   position: relative;
   width: 317px;
   line-height: 16px;
+  transition: 2s;
 }
 
 .config-fonts{
@@ -697,6 +693,23 @@ body.lb-disable-scrolling {
 }
 
 
+
+
+
+
+
+@media(max-width: 1317px){
+  .texto4 {
+    font-size: 20px;
+  }
+  .texto1{
+    font-size:73px
+  }
+  .texto2{
+    font-size:367%
+  }
+}
+
 @media(max-width: 1280px){
   .legenda-text {
     color: aliceblue;
@@ -704,6 +717,12 @@ body.lb-disable-scrolling {
 }
 .texto4 {
   font-size: 17px;
+}
+.texto1{
+  font-size:71px
+}
+.texto2{
+  font-size:325%
 }
 .texto-cliente{
   font-size: 17px;
@@ -719,6 +738,20 @@ body.lb-disable-scrolling {
 }
 }
 
+
+@media(max-width: 1077px){
+  .texto4 {
+    font-size: 17px;
+  }
+  .texto1{
+    font-size:69px
+  }
+  .texto2{
+    font-size:400%
+  }
+}
+
+
 @media(max-width: 1050px){
   .legenda-text {
     color: aliceblue;
@@ -726,6 +759,12 @@ body.lb-disable-scrolling {
 }
 .texto4 {
   font-size: 15px;
+}
+.texto1{
+  font-size:67px
+}
+.texto2{
+  font-size:270%
 }
 .texto-cliente{
   font-size: 15px;
@@ -741,6 +780,20 @@ body.lb-disable-scrolling {
 }
 }
 
+
+@media(max-width: 982px){
+  .texto4 {
+    font-size: 13px;
+  }
+  .texto1{
+    font-size:61px
+  }
+  .texto2{
+    font-size:211%
+  }
+}
+
+
 @media(max-width: 800px){
   .legenda-text {
     color: aliceblue;
@@ -748,6 +801,15 @@ body.lb-disable-scrolling {
 }
 .texto4 {
   font-size: 12px;
+}
+.texto1{
+  font-size:60px
+}
+.texto1{
+  font-size:70px
+}
+.texto2{
+  font-size:154%
 }
 .texto-cliente{
   font-size: 12px;
@@ -771,6 +833,12 @@ body.lb-disable-scrolling {
 .texto4 {
   font-size: 16px;
 }
+.texto1{
+  font-size:49px
+}
+.texto2{
+  font-size:143%
+}
 .texto-cliente{
   font-size: 16px;
 }
@@ -789,22 +857,11 @@ body.lb-disable-scrolling {
   .depoimentos-img {
     width: 60%;
   }
-}
-
-@media(max-width: 1317px){
-  .texto4 {
-    font-size: 20px;
+  .texto1{
+    font-size:34px
+  }
+  .texto2{
+    font-size:167%
   }
 }
 
-@media(max-width: 1077px){
-  .texto4 {
-    font-size: 17px;
-  }
-}
-
-@media(max-width: 982px){
-  .texto4 {
-    font-size: 13px;
-  }
-}
