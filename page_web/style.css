@@ -218,7 +218,7 @@ section {
 
 .legenda-port{
   /* display: none; */
-  margin-top: -11%;
+  margin-top: -6%;
   background-color: #fff6cc;
   position: relative;
   width: 99%;
@@ -780,6 +780,16 @@ body.lb-disable-scrolling {
 }
 }
 
+@media(max-width: 991px){
+  div.box3{
+    padding: 6% !important;
+    text-align: center;
+    margin-left: 2%;
+    width: 100% !important;
+    display: inline-block;
+  
+  }
+}
 
 @media(max-width: 982px){
   .texto4 {
