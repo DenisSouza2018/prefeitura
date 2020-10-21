@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Traço Leal</title>
-  <link rel="stylesheet" href="./util/animate.min.css"/>
-  <link rel="stylesheet" href="./util/animate.compat.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="./util/animate.min.css" />
+  <link rel="stylesheet" href="./util/animate.compat.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="./style.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -16,7 +16,7 @@
 
 <body>
 
-  <section class="img" style="background-image: url(./img/fundo1_site.png);" id='home'>
+  <section class="img fundo1-parallax" id='home'>
     <!-- Icons -->
     <div class="icons-navbar">
       <div class="icons-config">
@@ -45,9 +45,9 @@
             <!-- <div class="seta seta-direita" href=""></div> -->
 
             <div class="menu-setas" id='menu-setas' onmouseover="hover2(0);" onmouseout="hover_out2(0)">
-              <a class=" nav-link active font-config config-fonts" 
-                href="#carouselExampleFade"> <svg width="1em" height="1em" viewBox="0 0 16 16"
-                  class="bi bi-chevron-compact-right seta2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class=" nav-link active font-config config-fonts" href="#carouselExampleFade"> <svg width="1em"
+                  height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
                 </svg> PORTFÓLIO</a>
@@ -57,9 +57,9 @@
           <li class="nav-item ">
             <!-- <div class="seta seta-direita" href=""></div> -->
             <div class="menu-setas" onmouseover="hover2(1);" onmouseout="hover_out2(1)">
-              <a class=" nav-link active font-config config-fonts"  href="#traco"><svg
-                  width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2"
-                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class=" nav-link active font-config config-fonts" href="#traco"><svg width="1em" height="1em"
+                  viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
                 </svg> A TRAÇO</a>
@@ -69,9 +69,9 @@
           <li class="nav-item ">
             <!-- <div class="seta seta-direita" href=""></div> -->
             <div class="menu-setas" onmouseover="hover2(2);" onmouseout="hover_out2(2)">
-              <a class=" nav-link active font-config config-fonts"  href="#cliente"><svg
-                  width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2"
-                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class=" nav-link active font-config config-fonts" href="#cliente"><svg width="1em" height="1em"
+                  viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
                 </svg> CLIENTES</a>
@@ -81,9 +81,9 @@
           <li class="nav-item ">
             <!-- <div class="seta seta-direita" href=""></div> -->
             <div class="menu-setas" onmouseover="hover2(3);" onmouseout="hover_out2(3)">
-              <a class=" nav-link active font-config config-fonts"  href="#contato"><svg
-                  width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2"
-                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class=" nav-link active font-config config-fonts" href="#contato"><svg width="1em" height="1em"
+                  viewBox="0 0 16 16" class="bi bi-chevron-compact-right seta2" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
                 </svg> CONTATO</a>
@@ -93,7 +93,7 @@
         </ul>
       </nav>
     </div>
-   
+
   </section>
 
   <!-- Carrosel - 1 -->
@@ -450,11 +450,10 @@
 
 
   <!-- Texto - 1 -->
-  <div id="traco"  class = "wow slideInLeft" data-wow-duration = "2s" data-wow-delay = "5s">
-    <section>
-      <h1 class="animated infinite bounce">Denis</h1>
+  <div id="traco" >
+    <section class="wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.5s">
       <div class="align-self-center">
-        <p class="texto1"  >
+        <p class="texto1">
           37 anos . atendendo às expectativas . clientes </br>
           empresas públicas e privadas . comunicação </br>
           <span style="color:#ef3713">criativa</span> . diferenciais emocionais.
@@ -627,7 +626,7 @@
     </div>
 
 
-    <div class="align-self-center">
+    <div class="align-self-center wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.4s">
       <p class="texto2">
         Mais do que criar peças queremos fazer.
         Produtividade é a palavra-chave sagrada por
@@ -673,7 +672,7 @@
           <div class="box3 col-lg-2">
             <img class="image img-fluid" src="./img/clientes/cliente5.png" alt="">
           </div>
-          
+
         </div>
 
         <div class="merge-cliente-top row">
@@ -695,7 +694,7 @@
         </div>
 
         <div class="merge-cliente-top row">
-          
+
           <div class="box3 col-lg-2">
             <img class="image img-fluid" src="./img/clientes/cliente11.png" alt="">
           </div>
@@ -714,7 +713,7 @@
         </div>
 
         <div class="merge-cliente-top row">
-         
+
           <div class="box3 col-lg-2">
             <img class="image img-fluid" src="./img/clientes/cliente16.png" alt="">
           </div>
@@ -732,9 +731,9 @@
           </div>
         </div>
 
-      
+
         <div class="merge-cliente-top row">
-         
+
           <div class="box3 col-lg-2">
             <img class="image img-fluid" src="./img/clientes/cliente21.png" alt="">
           </div>
@@ -753,7 +752,7 @@
         </div>
 
         <div class="merge-cliente-top row">
-          
+
           <div class="box3 col-lg-2">
             <img class="image img-fluid" src="./img/clientes/cliente26.png" alt="">
           </div>
@@ -771,7 +770,7 @@
           </div>
         </div>
 
-      
+
 
         <div class="merge-cliente-top row">
           <div class="box3 col-lg-2">
@@ -801,7 +800,7 @@
   <!-- Mensagem dos clientes -->
   <div class="b" style="background-image: url(./img/fundo3.png);">
 
-  
+
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner col-12">
@@ -809,9 +808,9 @@
           <div class="row center-depoimento">
             <div class="col-lg-7 col-sm-7">
               <img src="./img/aspas.png" class="depoimento-text  img-fluid" alt="">
-              <p class="texto4"><i>A prefeitura de BH dobrou o número de seguidores  
-                  nas redes sociais e os elogios diante às campanhas 
-                  não param de chegar. O trabalho desenvolvido pela 
+              <p class="texto4"><i>A prefeitura de BH dobrou o número de seguidores
+                  nas redes sociais e os elogios diante às campanhas
+                  não param de chegar. O trabalho desenvolvido pela
                   agência vem encantando a população belorizontina.</i></p>
 
               <p class="texto-cliente">Rodrigo Marques Marion, Prefeito de Belo Horizonte</p>
@@ -825,9 +824,9 @@
           <div class="row center-depoimento">
             <div class="col-lg-7 col-sm-7">
               <img src="./img/aspas.png" class="depoimento-text  img-fluid" alt="">
-              <p class="texto4 img-fluid"><i>Em itajuba tivemos muitos elogios sobre nosso site, 
-                  nas redes sociais e os elogios diante às campanhas  
-                  não param de chegar. O trabalho desenvolvido pela  
+              <p class="texto4 img-fluid"><i>Em itajuba tivemos muitos elogios sobre nosso site,
+                  nas redes sociais e os elogios diante às campanhas
+                  não param de chegar. O trabalho desenvolvido pela
                   agência vem encantando a população.</i></p>
 
               <p class="texto-cliente">Rodrigo Riera, Prefeito de Itajuba</p>
@@ -840,10 +839,10 @@
         </div>
         <div class="carousel-item">
           <div class="row center-depoimento">
-            <div class="col-lg-7 col-sm-7" >
+            <div class="col-lg-7 col-sm-7">
               <img src="./img/aspas.png" class="depoimento-text  img-fluid" alt="">
-              <p class="texto4 img-fluid"><i>A prefeitura de Gonçalves está sendo muito 
-                  bem vista nas redes sociais e tendo diversos elogios.  
+              <p class="texto4 img-fluid"><i>A prefeitura de Gonçalves está sendo muito
+                  bem vista nas redes sociais e tendo diversos elogios.
                   O trabalho desenvolvido pela agência vem trazendo novos investidores.</i></p>
 
               <p class="texto-cliente">Luiz Rosa, Prefeito de Gonçalves</p>
@@ -892,7 +891,7 @@
           <p><b>+55 35 3622 3450</b></p>
         </div>
       </div>
-     
+
       <div class="col-lg-6 col-sm-12">
         <form class="texto6" style="margin-left: 40%;">
           <div class="row form-group">
@@ -939,8 +938,8 @@
         </div>
       </div>
     </div>
-    <div class="row " >
-          
+    <div class="row ">
+
 
       <div class="col-4 info-rodape" style="margin-top: -5%;  margin-left: 77%;">
         <div class="texto7">
@@ -955,18 +954,21 @@
           </div>
           <div class="col-sm-12 icon-rodape">
             <p class="paragrafo">
-             
-              <i class="fab fa-instagram" ></i>
-              <a href="https://www.youtube.com/channel/UC3-4G54WnZ385j0hnE6OC8Q" class="color-icone" data-toggle="tooltip" title="Hooray!"><i class="fab fa-facebook-f distancia-logotipo" ></i></a> 
-              <a href="https://www.facebook.com/tracoleal/" class="color-icone"><i class="fab fa-youtube distancia-logotipo"></i></a> 
-              <a href="#home" class="color-icone"  data-toggle="tooltip" data-placement="top" title="Voltar para Inicio"><i class="fas fa-home distancia-logotipo"></i></a>
+
+              <i class="fab fa-instagram"></i>
+              <a href="https://www.youtube.com/channel/UC3-4G54WnZ385j0hnE6OC8Q" class="color-icone"
+                data-toggle="tooltip" title="Hooray!"><i class="fab fa-facebook-f distancia-logotipo"></i></a>
+              <a href="https://www.facebook.com/tracoleal/" class="color-icone"><i
+                  class="fab fa-youtube distancia-logotipo"></i></a>
+              <a href="#home" class="color-icone" data-toggle="tooltip" data-placement="top"
+                title="Voltar para Inicio"><i class="fas fa-home distancia-logotipo"></i></a>
             </p>
 
           </div>
         </div>
       </div>
     </div>
-    
+
 
 
   </div>
@@ -994,6 +996,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./script.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
 
 </body>
 

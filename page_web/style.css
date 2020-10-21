@@ -36,13 +36,16 @@ section {
 
 .fundo-colaboradores{
   /* background-repeat: no-repeat; */
-  background-size: 108%;
-  background-position: center;
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
   background-image: url(./img/fundo2.png);
 }
 
 .img:first-child {
-  height: 600px;
+  height: 700px;
   min-height: inherit;
   background-size: cover;
 }
@@ -362,21 +365,18 @@ div.textoMensagem{
   height: 212px;
 }
 
-/* div.menu-setas{
-  height: 48px;
-  
-  margin-top: 8px;        
-  width: 183px;
-  margin-left: 4px;
-}
-div.menu-setas:hover{
-  height: 48px;
-  background: #d12e0b;  
-  margin-top: 8px;        
-  width: 183px;
-  margin-left: 4px;
+.fundo1-parallax{
+   /* The image used */
+   background-image: url("./img/fundo1_site.png");
 
-} */
+   
+ 
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
 
 
 
