@@ -118,6 +118,7 @@ section {
   color: #898989;
   font-weight: bolder;
   text-align: center !important;
+  line-height: 1.2;
 }
 
 .texto2{
@@ -125,6 +126,7 @@ section {
   font-size: 455%;
   font-weight: bolder;
   text-align: center !important;
+  line-height: 1.2;
 }
 
 .texto3{
@@ -140,6 +142,7 @@ section {
   color: white;
   font-size: 28px;
   text-align: center !important;
+  font-family: raleway;
 }
 
 .texto5{
@@ -153,7 +156,7 @@ section {
 }
 
 .texto7{
-  font-size: 20px;   color: aliceblue;  line-height: 25px;
+  font-size: 20px;   color: aliceblue;  line-height: 25px;     margin-top: 32%;
 }
 
 .submitFormulario{
@@ -209,13 +212,14 @@ section {
   font-weight: bold !important;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 23px;
 
 }
  .negrito{
-  text-align: center;
-  margin: 0 0px !important;
-  font-weight: bold;
+  margin: 0 5% !important;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 19px;
  }
 
 
@@ -265,6 +269,7 @@ section {
 }
 
 .sublegenda-text{
+  margin: 0 5% !important;
   color: aliceblue;
   font-size: 18px;
 }
@@ -335,6 +340,14 @@ div.box4 {
   width: 320px;
   display: inline-block;
 }
+
+div.box5 {
+  background: #88240d;
+  width: 100%;
+  display: inline-block;
+}
+
+
 
 div.b {
   height:auto;
