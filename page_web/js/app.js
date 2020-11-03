@@ -34,9 +34,12 @@ function hover_out(x) {
 
 function hover3(x) {
 	document.getElementsByClassName('legenda-mensagem')[x].style.opacity = '100%';
+	document.getElementsByClassName('sumir')[x].style.display = 'block';
   }
   function hover_out3(x) {
 	document.getElementsByClassName('legenda-mensagem')[x].style.opacity = '0%';
+	document.getElementsByClassName('sumir')[x].style.display = 'none';
+
   }
 
 

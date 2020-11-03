@@ -241,6 +241,10 @@ section {
 
 }
 
+.sumir{
+  display: none;
+}
+
 .legenda-mensagem{
   /* display: none; */
   font-size: 15px;
@@ -251,6 +255,7 @@ section {
   width: 317px;
   line-height: 16px;
   transition: 2s;
+  z-index: 0;
 }
 
 .config-fonts{
@@ -741,7 +746,7 @@ body.lb-disable-scrolling {
   font-size: 17px;
 }
 .legenda-mensagem{
-  font-size: 12px;
+  font-size: 11px;
   opacity: 0%;
   margin-top: -11%;
   background-color: #fff6cc;
@@ -783,7 +788,7 @@ body.lb-disable-scrolling {
   font-size: 15px;
 }
 .legenda-mensagem{
-  font-size: 10px;
+  font-size: 9px;
   opacity: 0%;
   margin-top: -11%;
   background-color: #fff6cc;
@@ -802,6 +807,12 @@ body.lb-disable-scrolling {
     display: inline-block;
   
   }
+  .negrito{
+    font-size: 15px;
+  }
+  .sublegenda-text{
+    font-size: 14px;
+  }
 }
 
 @media(max-width: 982px){
@@ -814,13 +825,26 @@ body.lb-disable-scrolling {
   .texto2{
     font-size:211%
   }
+  .negrito{
+    font-size: 13px;
+  }
+  .sublegenda-text{
+    font-size: 12px;
+  }
 }
 
 
 @media(max-width: 800px){
   .legenda-text {
     color: aliceblue;
-    font-size: 12px;
+    font-size: 10px;
+}
+
+.negrito{
+  font-size: 12px;
+}
+.sublegenda-text{
+  font-size: 11px;
 }
 .texto4 {
   font-size: 12px;
@@ -838,7 +862,7 @@ body.lb-disable-scrolling {
   font-size: 12px;
 }
 .legenda-mensagem{
-  font-size: 9px;
+  font-size: 8px;
   opacity: 0%;
   margin-top: -11%;
   background-color: #fff6cc;
@@ -851,7 +875,13 @@ body.lb-disable-scrolling {
 @media(max-width: 767px){
   .legenda-text {
     color: aliceblue;
-    font-size: 16px;
+    font-size: 9px;
+}
+.negrito{
+  font-size: 15px;
+}
+.sublegenda-text{
+  font-size: 15px;
 }
 .texto4 {
   font-size: 16px;
@@ -866,7 +896,7 @@ body.lb-disable-scrolling {
   font-size: 16px;
 }
 .legenda-mensagem{
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0%;
   margin-top: -5%;
   background-color: #fff6cc;
@@ -880,11 +910,23 @@ body.lb-disable-scrolling {
   .depoimentos-img {
     width: 60%;
   }
+  .negrito{
+    font-size: 14px;
+  }
+  .sublegenda-text{
+    font-size: 13px;
+  }
   .texto1{
     font-size:34px
   }
   .texto2{
     font-size:167%
+  }
+  .img-fluid{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }
 }
 
